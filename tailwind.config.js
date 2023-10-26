@@ -6,6 +6,10 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        "nunito": ["Nunito", "sans"],
+        "nunito-italic": ["Nunito Italic", "sans"]
+      },
       colors: {
         primary: "#FFFFFC",
         secondary: "#000000",
