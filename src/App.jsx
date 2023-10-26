@@ -9,9 +9,12 @@ function App() {
   return (
     <>
       <div className='p-4'>
-        <h1 className='font-sans text-6xl text-secondary'>
+        <h1 className='font-nunito text-6xl text-secondary'>
           Hello, WalkDog! 
         </h1>
+        <h2 className='font-nunito-italic'>
+          Italic text
+        </h2>
       </div>
     </>
   )
