@@ -8,7 +8,7 @@ export default function Navbar() {
                 <Link to="home">Home</Link>
                 <Link to="feed">Feed</Link>
                 <Link to="my-profile">My Profile</Link>
-                <Link to="/">Authentication</Link>
+                <Link to="login/">Login</Link>
                 <Link to="/this-page-does-not-exist">404 Page</Link>
             </div>
         </>

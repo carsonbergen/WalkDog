@@ -1,9 +1,9 @@
-export default function Authentication() {
+export default function Login() {
     return (
         <>
             <div>
                 <h1>
-                    Create account or log in page
+                    Walk. Dog.
                 </h1>
             </div>
         </>

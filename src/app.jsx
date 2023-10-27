@@ -1,6 +1,7 @@
 import './index.css';
 import { Route, Routes } from 'react-router-dom';
-import Authentication from './pages/authentication';
+import Login from './pages/login';
+import SignUp from './pages/sign-up';
 import Feed from './pages/feed';
 import Home from './pages/home';
 import NotFound from './pages/not-found';
@@ -16,7 +17,8 @@ function App() {
     <>
       <div className='p-4'>
         <Routes>
-          <Route path='/' element={<Authentication />} />
+          <Route path='login' element={<Login />} />
+          <Route path='sign-up' element={<SignUp />} />
           <Route path='feed' element={<Feed />} />
           <Route path='home' element={<Home />} />
           <Route path='my-profile' element={<MyProfile />} />
