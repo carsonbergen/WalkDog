@@ -6,6 +6,11 @@ import Home from './pages/home';
 import NotFound from './pages/not-found';
 import MyProfile from './pages/my-profile';
 
+/**
+ * To add a route, simply page a component in the "pages" directory,
+ * then add a <Route path="your-components-url" element={<MyAwesomeComponent />} />
+ * inside of the Routes tag.
+ */
 function App() {
   return (
     <>
