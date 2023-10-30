@@ -58,6 +58,15 @@ function App() {
               </Page>
             } 
           />
+          {/* Testing stuff */}
+          <Route
+            path='testing'
+            element= {
+              <Page title="Testing">
+                <Testing />
+              </Page>
+            }
+          />
         </Routes>
       </div>
     </>
