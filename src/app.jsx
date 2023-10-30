@@ -5,6 +5,7 @@ import Feed from './pages/feed';
 import Home from './pages/home';
 import NotFound from './pages/not-found';
 import MyProfile from './pages/my-profile';
+import Page from './components/Page';
 
 /**
  * To add a route, simply page a component in the "pages" directory,
@@ -16,11 +17,46 @@ function App() {
     <>
       <div className='p-4'>
         <Routes>
-          <Route path='/' element={<Authentication />} />
-          <Route path='feed' element={<Feed />} />
-          <Route path='home' element={<Home />} />
-          <Route path='my-profile' element={<MyProfile />} />
-          <Route path='*' element={<NotFound />} />
+          <Route 
+            path='/' 
+            element={
+              <Page title="Sign-Up">
+                <Authentication />
+              </Page>
+            } 
+          />
+          <Route 
+            path='feed' 
+            element={
+              <Page title="Feed">
+                <Feed />
+              </Page>
+            } 
+          />
+          <Route 
+            path='home' 
+            element={
+              <Page title="Camera">
+                <Home />
+              </Page>
+            } 
+          />
+          <Route 
+            path='my-profile' 
+            element={
+              <Page title="My Profile">
+                <MyProfile />
+              </Page>
+            } 
+          />
+          <Route 
+            path='*' 
+            element={
+              <Page title="404 Not Found!">
+                <NotFound />
+              </Page>
+            } 
+          />
         </Routes>
       </div>
     </>
