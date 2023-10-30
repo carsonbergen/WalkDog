@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 export default function Topbar() {
     return (
         <>
-            <div className="absolute top-0 left-0 w-full py-2 px-8">
+            <div className="absolute top-0 left-0 w-full py-3 px-8">
                 <div className="absolute bottom-0 left-0 z-0 w-full h-full py-2 px-8">
                     <div className="h-full w-full border-2 border-secondary rounded-lg">
                     </div>
@@ -11,7 +11,7 @@ export default function Topbar() {
                 <div className="relative flex flex-row justify-between w-full items-baseline px-1 py-1">
                     <div className="flex-shrink-0 w-[25%] flex flex-row justify-center">
                         <Link
-                            to="feed"
+                            to=""
                             className={`flex items-center justify-center rounded-lg bg-purple w-16 h-10 p-4 border-secondary border-2 stroke-2`}
                         >
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" className="stroke-[2rem] fill-yellow stroke-black paint-stroke">
@@ -24,7 +24,7 @@ export default function Topbar() {
                     </div>
                     <div className="flex-shrink-0 w-[25%] flex flex-row justify-center">
                         <Link
-                            to="my-profile"
+                            to=""
                             className={`flex items-center justify-center rounded-lg bg-purple w-16 h-10 p-4 border-secondary border-2`}
                         >
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" className="stroke-[2rem] fill-yellow stroke-black paint-stroke">
