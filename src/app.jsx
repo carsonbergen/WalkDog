@@ -6,6 +6,7 @@ import Home from './pages/home';
 import NotFound from './pages/not-found';
 import MyProfile from './pages/my-profile';
 import Page from './components/Page';
+import Testing from './pages/testing';
 
 /**
  * To add a route, simply page a component in the "pages" directory,
@@ -15,7 +16,7 @@ import Page from './components/Page';
 function App() {
   return (
     <>
-      <div className='p-4'>
+      <div className='p-4 font-nunito'>
         <Routes>
           <Route 
             path='/' 
@@ -56,6 +57,15 @@ function App() {
                 <NotFound />
               </Page>
             } 
+          />
+          {/* Testing stuff */}
+          <Route
+            path='testing'
+            element= {
+              <Page title="Testing">
+                <Testing />
+              </Page>
+            }
           />
         </Routes>
       </div>
