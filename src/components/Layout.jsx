@@ -4,7 +4,7 @@ export default function Layout(props) {
     return (
         <>
             <div>
-                <Navbar>
+                <Navbar strokeWidth="8px">
 
                 </Navbar>
                 <div>
