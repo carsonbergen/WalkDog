@@ -3,6 +3,7 @@ import TextInput from "../components/TextInput";
 import Achievement from "../components/Achievement";
 import { PawPrint } from "phosphor-react";
 import ToggleSwitch from "../components/ToggleSwitch";
+import { AcceptButton, RejectButton } from "../components/Button";
 
 export default function Testing() {
     const [text, setText] = useState('');
@@ -12,6 +13,14 @@ export default function Testing() {
         // Now we can do whatever we want with this text
         // It could be a email, password, or whatever really.
     }, [text]);
+
+    const handleAccept = () => {
+        console.log("I accept!");
+    }
+
+    const handleReject = () => {
+        console.log("I reject!");
+    }
 
     return (
         <>
@@ -34,14 +43,15 @@ export default function Testing() {
                 }}
                 placeholder="Hello, world!"
             />
+
             <span>
                 This is our text: {text}
             </span>
 
-            <h1 className="text-3xl">
+            {/* <h1 className="text-3xl">
                 Achievement examples
-            </h1>
-            <div className="flex flex-row space-x-2">
+            </h1> */}
+            {/* <div className="flex flex-row space-x-2">
                 <Achievement 
                     icon={<PawPrint size={32} weight="fill" />}
                     description={
@@ -58,7 +68,20 @@ export default function Testing() {
             </div>
             <ToggleSwitch
                 onChange={() => {console.log("Someone changed me!")}}
-            />
+            /> */}
+            <div className="flex flex-col space-y-2">
+                <AcceptButton
+                    onClick={handleAccept}
+                >
+                    Accept
+                </AcceptButton>
+                <RejectButton
+                    onClick={handleReject}
+                >
+                    Reject
+                </RejectButton>
+            </div>
+
         </>
     );
 }
