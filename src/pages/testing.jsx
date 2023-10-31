@@ -48,10 +48,10 @@ export default function Testing() {
                 This is our text: {text}
             </span>
 
-            {/* <h1 className="text-3xl">
+            <h1 className="text-3xl">
                 Achievement examples
-            </h1> */}
-            {/* <div className="flex flex-row space-x-2">
+            </h1>
+            <div className="flex flex-row space-x-2">
                 <Achievement 
                     icon={<PawPrint size={32} weight="fill" />}
                     description={
@@ -68,7 +68,7 @@ export default function Testing() {
             </div>
             <ToggleSwitch
                 onChange={() => {console.log("Someone changed me!")}}
-            /> */}
+            />
             <div className="flex flex-col space-y-2">
                 <AcceptButton
                     onClick={handleAccept}
