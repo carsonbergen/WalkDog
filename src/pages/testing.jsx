@@ -3,7 +3,7 @@ import TextInput from "../components/TextInput";
 import Achievement from "../components/Achievement";
 import { PawPrint } from "phosphor-react";
 import ToggleSwitch from "../components/ToggleSwitch";
-import { AcceptButton, RejectButton } from "../components/Button";
+import { AcceptButton, OptionalButton, RejectButton } from "../components/Button";
 
 export default function Testing() {
     const [text, setText] = useState('');
@@ -80,6 +80,13 @@ export default function Testing() {
                 >
                     Reject
                 </RejectButton>
+                <OptionalButton
+                    onClick={() => {
+                        console.log("This is optional!")
+                    }}
+                >
+                    Optional
+                </OptionalButton>
             </div>
 
         </>

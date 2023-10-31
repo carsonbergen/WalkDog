@@ -37,3 +37,16 @@ export function RejectButton(props) {
         </>
     );
 }
+
+export function OptionalButton(props) {
+    return (
+        <>
+            <Button
+                onClick={props.onClick}
+                className={`w-full h-10 rounded-md font-black border-2 text-lg border-secondary bg-orange text-secondary`}
+            >
+                {props.children}
+            </Button>
+        </>
+    )
+}
