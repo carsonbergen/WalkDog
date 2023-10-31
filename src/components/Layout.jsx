@@ -1,15 +1,14 @@
 import Navbar from './Navbar';
+import Page from './Page';
+import Topbar from './Topbar';
 
 export default function Layout(props) {
     return (
         <>
             <div>
-                <Navbar>
-
-                </Navbar>
-                <div>
-                    {props.children}
-                </div>
+                <Topbar />
+                <Navbar strokeWidth="8px" />
+                {props.children}
             </div>
         </>
     )
