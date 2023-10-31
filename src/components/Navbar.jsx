@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 export default function Navbar(props) {
   return (
     <>
-      <div className="absolute bottom-0 left-0 w-full py-2 px-8">
+      <div className="fixed bottom-0 left-0 w-full py-2 px-8 z-[9999]">
         <div className="absolute bottom-0 left-0 z-0 w-full h-full pt-10 pb-2 px-8">
-          <div className="h-full w-full border-2 border-secondary rounded-lg">
+          <div className="h-full w-full border-2 border-secondary rounded-lg bg-primary">
           </div>
         </div>
         <div className="relative flex flex-row justify-between w-full items-baseline px-1 py-1">
