@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import TextInput from "../components/TextInput";
 import Achievement from "../components/Achievement";
 import { PawPrint } from "phosphor-react";
+import ToggleSwitch from "../components/ToggleSwitch";
 
 export default function Testing() {
     const [text, setText] = useState('');
@@ -55,6 +56,9 @@ export default function Testing() {
                     }
                 />
             </div>
+            <ToggleSwitch
+                onChange={() => {console.log("Someone changed me!")}}
+            />
         </>
     );
 }
