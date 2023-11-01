@@ -14,7 +14,7 @@ export default function Layout(props) {
         } else {
             setRender(true);
         }
-    }, [])
+    }, [location]);
 
     return (
         <>
