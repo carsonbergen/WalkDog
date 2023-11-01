@@ -47,14 +47,17 @@ export default function SignUp() {
                     <div
                         className={`w-full place-self-center mt-3 mb-14`}
                     >
+                    {/* Remove link after verification is added */}
+                    <Link to="my-profile">
                         <AcceptButton
-                        // TODO change to go to feed, and verification
+                        // TODO change to go to my profile, and verification
                             onClick={() => {
                                 console.log("Accept!")
                             }}
                         >
                             Sign up!
                         </AcceptButton>
+                    </Link>
                     </div>
                 </form>
                 <div className={`place-self-center`}>
