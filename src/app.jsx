@@ -1,6 +1,7 @@
 import './index.css';
 import { Route, Routes } from 'react-router-dom';
-import Authentication from './pages/authentication';
+import Login from './pages/login';
+import SignUp from './pages/sign-up';
 import Feed from './pages/feed';
 import Home from './pages/home';
 import NotFound from './pages/not-found';
@@ -21,8 +22,16 @@ function App() {
           <Route 
             path='/' 
             element={
-              <Page title="Sign-Up">
-                <Authentication />
+              <Page title="">
+                <SignUp />
+              </Page>
+            } 
+          />
+          <Route 
+            path='login' 
+            element={
+              <Page title="">
+                <Login />
               </Page>
             } 
           />
