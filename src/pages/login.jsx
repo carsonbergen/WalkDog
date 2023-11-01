@@ -1,18 +1,8 @@
 import { AcceptButton, OptionalButton } from "../components/Button";
 import TextInput from "../components/TextInput";
 import { Link } from "react-router-dom";
-import { useLocation, useNavigate } from "react-router-dom";
 
 export default function Login() {
-    // let navigate = useNavigate(); 
-    const routeChange = () =>{ 
-        let path = `feed`; 
-        const location = useLocation();
-        const navigate = useNavigate();
-        navigate(path, { replace: true });
-        // history.replace({ pathname: '/feed', state: {} })
-    }
-
     return (
         <>
             <div 
@@ -21,9 +11,9 @@ export default function Login() {
                 <h1 className={`place-self-center text-5xl font-black`}>
                     Walk. Dog.
                 </h1>
-                <body className={`place-self-center pt-1 pb-6 font-semibold`}>
+                <div className={`place-self-center pt-1 pb-6 font-semibold`}>
                     Welcome back! We're glad to see you.
-                </body>
+                </div>
                 <form className={`grid grid-cols-1 gap-4 place-content-center`}>
                     <TextInput 
                         title="What is your account's email?"
@@ -45,10 +35,12 @@ export default function Login() {
                         className={`w-full place-self-center mt-3 mb-14`}
                     >
                         {/* TODO remove link after verification is added */}
-                        <Link to="home">
+                        <Link to="/feed">
                             <AcceptButton
                             // TODO change to go to profile, and verification
-                                onClick={routeChange}
+                                onClick={() => {
+                                    console.log("Changing page, replace this");
+                                }}
                             >
                                 Log in!
                             </AcceptButton>
@@ -56,11 +48,11 @@ export default function Login() {
                     </div>
                 </form>
                 <div className={`place-self-center`}>
-                    <body
+                    <div
                         className={`font-bold text-base  text-dark_grey`}
                     >
                         Don't have an account?
-                    </body>
+                    </div>
                     <Link to="/">
                         <OptionalButton> 
                             Sign up!
