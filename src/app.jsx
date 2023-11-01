@@ -22,15 +22,15 @@ function App() {
           <Route 
             path='/' 
             element={
-              <Page title="Sign-Up">
+              <Page title="">
                 <SignUp />
               </Page>
             } 
           />
           <Route 
-            path='/' 
+            path='login' 
             element={
-              <Page title="Login">
+              <Page title="">
                 <Login />
               </Page>
             } 
