@@ -21,6 +21,8 @@ export default {
         blue: "#A0C4FF",
         purple: "#BDB2FF",
         pink: "#FFC6FF",
+        grey: "#DCDCDC",
+        dark_grey: "#303030",
       }
     },
   },
