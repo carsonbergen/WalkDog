@@ -1,8 +1,18 @@
 import { AcceptButton, OptionalButton } from "../components/Button";
 import TextInput from "../components/TextInput";
 import { Link } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export default function Login() {
+    // let navigate = useNavigate(); 
+    const routeChange = () =>{ 
+        let path = `feed`; 
+        const location = useLocation();
+        const navigate = useNavigate();
+        navigate(path, { replace: true });
+        // history.replace({ pathname: '/feed', state: {} })
+    }
+
     return (
         <>
             <div 
@@ -34,14 +44,15 @@ export default function Login() {
                     <div
                         className={`w-full place-self-center mt-3 mb-14`}
                     >
-                        <AcceptButton
-                        // TODO change to go to profile, and verification
-                            onClick={() => {
-                                console.log("Accept!")
-                            }}
-                        >
-                            Log in!
-                        </AcceptButton>
+                        {/* TODO remove link after verification is added */}
+                        <Link to="home">
+                            <AcceptButton
+                            // TODO change to go to profile, and verification
+                                onClick={routeChange}
+                            >
+                                Log in!
+                            </AcceptButton>
+                        </Link>
                     </div>
                 </form>
                 <div className={`place-self-center`}>

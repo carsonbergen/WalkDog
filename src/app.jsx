@@ -44,7 +44,7 @@ function App() {
             } 
           />
           <Route 
-            path='home' 
+            path='login/home' 
             element={
               <Page title="Camera">
                 <Home />
