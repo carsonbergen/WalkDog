@@ -7,15 +7,11 @@
   border-radius: 10%;
   overflow: hidden;
   margin-right: 20px;
-}
-
-.profile-image {
+  border: 3px solid black; /* Add a 2px solid black border */
   width: 150px;
   height: 150px;
-  border-radius: 10px; /* Adjust the value to control the roundness of the corners */
-  border: 3px solid black; /* Add a 2px solid black border */
-
 }
+
 
 .profile-info {
   font-family: Arial, sans-serif;
