@@ -1,0 +1,50 @@
+.profile-container {
+  display: flex;
+  align-items: center;
+}
+
+.profile-image-container {
+  border-radius: 10%;
+  overflow: hidden;
+  margin-right: 20px;
+}
+
+.profile-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 10px; /* Adjust the value to control the roundness of the corners */
+  border: 3px solid black; /* Add a 2px solid black border */
+}
+
+.profile-info {
+  font-family: Arial, sans-serif;
+}
+
+.profile-header {
+  font-weight: bold;
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.profile-label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.profile-input {
+  width: 200px;
+  padding: 5px;
+  font-size: 1em;
+  border: 2px solid black; /* Add a 2px solid black border */
+  font-weight: bold; /* Make the text bold */
+  border-radius: 5px; /* Add some border roundness */
+  color: gray; /* Set the text color to gray */
+}
+
+.section-header {
+  font-weight: bold;
+  color: black;
+  margin-top: 20px;
+  font-size: 1.5em;
+  
+}
