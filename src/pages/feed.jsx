@@ -2,7 +2,6 @@ import React from 'react';
 import '../css/posts.css';
 
 export default function Feed() {
-    
     const posts = [
         {
             id: 1,
@@ -17,7 +16,7 @@ export default function Feed() {
         {
             id: 2,
             author: 'Alex',
-            dog: '',
+            dog: 'Rex',
             date: 'Oct. 12th, 2023',
             distance: '24km',
             location: 'River Park',
@@ -27,7 +26,7 @@ export default function Feed() {
         {
             id: 3,
             author: 'Nusyba',
-            dog: '',
+            dog: 'Elf',
             date: 'Oct. 10th, 2023',
             distance: '20km',
             location: 'River Park',
@@ -37,7 +36,7 @@ export default function Feed() {
         {
             id: 4,
             author: 'Jacob',
-            dog: '',
+            dog: 'Astro',
             date: 'Oct. 9th, 2023',
             distance: '20km',
             location: 'River Park',
@@ -47,7 +46,7 @@ export default function Feed() {
         {
             id: 5,
             author: 'Alliana',
-            dog: '',
+            dog: 'Haru',
             date: 'Oct. 9th, 2023',
             distance: '20km',
             location: 'River Park',
