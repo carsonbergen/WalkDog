@@ -1,38 +1,14 @@
-/*export default function Home() {
-    return (
-        <>
-            <div>
-                <h1>
-                    Home page
-                </h1>
-            </div>
-     //</>
-   // );*/
-    import React from 'react';
+import React from 'react';
 
 export default function CameraComponent() {
     return (
-        <div className="bg-gray-200 h-full w-full flex flex-col items-center">
-            <header className="w-full bg-purple-200 p-4 flex justify-between items-center">
-                <button className="text-purple-700">🔍</button>
-                <button className="text-purple-700">🔒</button>
-            </header>
-            
-            <div className="flex-grow flex flex-col items-center justify-center">
-                <h1 className="text-purple-700 mb-4">Camera</h1>
-                <div className="bg-gray-300 w-3/4 h-3/4 flex flex-col items-center justify-center">
-                    <h2 className="text-2xl mb-4">View of user's camera</h2>
-                    <div className="bg-gray-500 p-20 rounded-full flex items-center justify-center">
-                        <div className="bg-white p-10 rounded-full"></div>
-                    </div>
-                </div>
+        <div className="h-[80vh] w-full flex flex-col items-center bg-slate-300 border-secondary border-2 rounded-md">
+            <div className="flex-grow flex flex-col items-center justify-center px-10">
+                <h2 className="text-2xl mb-4">View of user's camera</h2>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" className="fill-gray-600">
+                    <path d="M208,56H180.28L166.65,35.56A8,8,0,0,0,160,32H96a8,8,0,0,0-6.65,3.56L75.71,56H48A24,24,0,0,0,24,80V192a24,24,0,0,0,24,24H208a24,24,0,0,0,24-24V80A24,24,0,0,0,208,56Zm-44,76a36,36,0,1,1-36-36A36,36,0,0,1,164,132Z"></path>
+                </svg>
             </div>
-            
-            <footer className="w-full bg-white p-4 flex justify-around items-center">
-                <button className="text-purple-700">☰</button>
-                <button className="text-purple-700 bg-purple-200 p-2 rounded-full">🐾</button>
-                <button className="text-purple-700">👤</button>
-            </footer>
         </div>
     );
 }
