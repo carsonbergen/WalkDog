@@ -3,8 +3,9 @@ import myImage from '../assets/images/profilePicture.jpg';
 import '../css/MyProfile.css';
 import TextInput from "../components/TextInput";
 import Achievement from '../components/Achievement';
-import { PawPrint, Aperture } from 'phosphor-react';
+import { PawPrint, Aperture, FireSimple } from 'phosphor-react';
 import ToggleSwitch from '../components/ToggleSwitch';
+import StatHighlight from '../components/StatHighlight';
 
 export default function MyProfile() {
     return (
@@ -24,21 +25,28 @@ export default function MyProfile() {
                 </div>
             </div>
             <div className="section-header font-bold">My Stats</div>
-            <div>
-                <div className='stats'>
-                    You've walked 
-                    [name of dog] 
-                    [times walked] 
-                    times in a row!
-                </div>
-                <div className='stats'>
-                    Total distance walked: 
-                    [distance walked]
-                </div>
-                <div className='stats'>
-                    Photos shared:
-                    [photos shared]
-                </div>
+            <div className='flex flex-wrap mt-1'>
+                You've walked 
+                <span className='mx-1 bg-cyan border-2 border-secondary rounded-md px-1 font-bold max-h-min'>name of dog</span> 
+                <StatHighlight
+                    value="number of times"
+                    className="bg-orange"
+                /> 
+                times in a row!
+            </div>
+            <div className='flex flex-wrap mt-1'>
+                Total distance walked: 
+                <StatHighlight
+                    value="distance walked"
+                    className="bg-orange"
+                />
+            </div>
+            <div className='flex flex-wrap mt-1'>
+                Photos shared:
+                <StatHighlight
+                    value="number of photos shared"
+                    className="bg-orange"
+                />
             </div>
             <div className="section-header font-bold">My Achievements</div>
             <div className='flex flex-row space-x-2'> 
@@ -59,10 +67,10 @@ export default function MyProfile() {
                 </div>
             <div className="section-header font-bold">General Settings</div>
             <div className='flex flex-row space-x-2'>
-                Enable geolocation services<ToggleSwitch></ToggleSwitch> 
+                <span>Enable geolocation services</span> <ToggleSwitch></ToggleSwitch> 
             </div>
             <div className='flex flex-row space-x-2'>
-                Enable geolocation services<ToggleSwitch></ToggleSwitch> 
+                <span>Enable geolocation services</span> <ToggleSwitch></ToggleSwitch> 
             </div>
         </>
     );
