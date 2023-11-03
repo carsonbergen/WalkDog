@@ -8,31 +8,31 @@ export default function Feed() {
             id: 1,
             author: 'Carson',
             content: 'Carson walked his dog at 5:00 PM today!',
-            image:'https://images.app.goo.gl/uNuX1e6U2NYLczV79'
+            image:'/images/carson.jpeg'
         },
         {
             id: 2,
             author: 'Alex',
             content: 'Alex walked his dog at 10:37 AM today!',
-            image:'https://images.app.goo.gl/vh5YVAkmmNtxhpZR8'
+            image:'/images/alex.jpeg'
         },
         {
             id: 3,
-            author: 'Nysuba',
-            content: 'Nysuba walked her dog at 7:14 PM on Tuesday.',
-            image:'https://images.app.goo.gl/fudQSJr8uuhMWTSNA'
+            author: 'Nusyba',
+            content: 'Nusyba walked her dog at 7:14 PM on Tuesday.',
+            image:'/images/nusyba.jpg'
         },
         {
             id: 4,
             author: 'Jacob',
             content: 'Jacob walked his dog at 9:54 PM on Sunday.',
-            image:'https://images.app.goo.gl/RRZomSckhXYJwiHJ9'
+            image:'/images/jacob.jpg'
         },
         {
             id: 5,
             author: 'Alliana',
             content: 'Alliana walked her dog at 3:05 PM on Oct 28, 2023',
-            image:'https://images.app.goo.gl/9uvgumbfc2VSbGSV6'
+            image:'/images/alliana.jpeg'
         }, 
         // Add more posts as needed
     ];
