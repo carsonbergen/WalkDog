@@ -8,6 +8,7 @@ import NotFound from './pages/not-found';
 import MyProfile from './pages/my-profile';
 import Page from './components/Page';
 import Testing from './pages/testing';
+import PhotoPreview from './pages/photo-preview';
 
 /**
  * To add a route, simply page a component in the "pages" directory,
@@ -48,6 +49,14 @@ function App() {
             element={
               <Page title="Camera">
                 <Home />
+              </Page>
+            } 
+          />
+          <Route
+            path='photo-preview' 
+            element={
+              <Page title="Image Preview">
+                <PhotoPreview />
               </Page>
             } 
           />
