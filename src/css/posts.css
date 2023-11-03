@@ -1,23 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-
-.feed-container {
+@layer components {
+  .feed-container {
     display: flex;
     flex-direction: column;
-    gap: 20px; /* Add space between posts */
+    gap: 20px;
+    /* Add space between posts */
   }
-  
+
   .post {
-    background-color: rgb(216, 141, 241); /* Pink color for the post */
-    border: 1px solid #e0e0e0;
+    /* Pink color for the post */
+    @apply bg-pink border-secondary border-2;
+    /* border: 1px solid #e0e0e0; */
     border-radius: 8px;
-    padding: 20px; /* Increase the padding */
+    padding: 20px;
+    /* Increase the padding */
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-    width: 100%; /* Make the post box full width */
-    height: 200px; /* Double the height */
+    /* width: 100%; */
+    /* Make the post box full width */
+    /* height: 200px; */
+    /* Double the height */
   }
-  
+
   .post-image {
-    max-width: 100%; /* Ensure the image fits within the post */
-    height: auto;
-    margin-top: 10px; /* Add space between the image and content */
+    @apply max-w-xs max-h-fit;
+    /* margin-top: 10px; */
+    /* Add space between the image and content */
   }
+}
