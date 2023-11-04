@@ -14,13 +14,15 @@ export default function Modal(props) {
         <>
             <div 
                 className={`
-                    fixed w-full h-full z-30 py-20 px-4 backdrop-blur-sm shadow-md transition-all duration-500
+                    fixed w-full h-full z-30 py-20 px-4 backdrop-blur-sm 
+                    shadow-md transition-all duration-500
                     ${props.open ? "opacity-100" : "opacity-0 pointer-events-none"}
                 `}
             >
                 <div 
                     className={`
-                        flex flex-col w-full h-full z-[9999] bg-primary border-secondary border-2 rounded-md p-2
+                        flex flex-col w-full h-full z-[9999] bg-primary border-secondary border-2 
+                        rounded-md p-2 overflow-auto container
                         ${props.open ? "animate-jump-in" : "animate-jump-out pointer-events-none"}
                     `}
                 >
