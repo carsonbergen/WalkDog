@@ -11,7 +11,7 @@ import TextInput from "./TextInput";
 export default function Modal(props) {
     return (
         <>
-            <div className="absolute w-full h-full z-30 py-24 px-10 backdrop-blur-sm shadow-md">
+            <div className="absolute w-full h-full z-30 py-24 px-4 backdrop-blur-sm shadow-md">
                 <div className="flex flex-col w-full h-full z-[9999] bg-primary border-secondary border-2 rounded-md p-2">
                     <div className="flex flex-row">
                         <Button
@@ -50,6 +50,8 @@ export function FriendSearch(props) {
                                 id={result.id}
                                 name={result.name}
                                 username={result.username}
+                                profilePicSrc={result.profilePicSrc}
+                                profileLink={result.profileLink}
                             />
                         ))
                         :

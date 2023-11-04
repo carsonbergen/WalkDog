@@ -8,12 +8,16 @@ const results = [
     {
         id: 1,
         name: "Carson",
-        username: "slipperychicken14"
+        username: "slipperychicken14",
+        profilePicSrc: "/images/carson.jpeg",
+        profileLink: "/profile/bergencarson"
     },
     {
         id: 2,
         name: "Alex",
-        username: "riskyrat23"
+        username: "riskyrat23",
+        profilePicSrc: "/images/alex.jpeg",
+        profileLink: "/profile/alexgalindo"
     }
 ]
 
