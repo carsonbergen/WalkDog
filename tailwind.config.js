@@ -23,8 +23,10 @@ export default {
         pink: "#FFC6FF",
         grey: "#DCDCDC",
         dark_grey: "#303030",
-      }
+      },
     },
   },
-  plugins: [],
+  plugins: [
+    require('tailwindcss-animated'),
+  ],
 }
