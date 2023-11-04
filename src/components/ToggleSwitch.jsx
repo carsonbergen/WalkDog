@@ -2,7 +2,7 @@ export default function ToggleSwitch(props) {
     return (
         <>
             <div className="">
-                <label class="relative inline-flex items-center cursor-pointer">
+                <label className="relative inline-flex items-center cursor-pointer">
                     {/* 
                             Modified version of the second toggle switch found here https://flowbite.com/docs/forms/toggle/ 
                             Last accessed 2023-10-30
