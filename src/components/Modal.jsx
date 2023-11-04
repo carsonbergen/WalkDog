@@ -1,4 +1,5 @@
 import Button from "./Button";
+import Notification from "./Notification";
 import SearchResult from "./SearchResult";
 import TextInput from "./TextInput";
 
@@ -11,9 +12,19 @@ import TextInput from "./TextInput";
 export default function Modal(props) {
     return (
         <>
-            <div className="absolute w-full h-full z-30 py-24 px-4 backdrop-blur-sm shadow-md">
+            <div className="absolute w-full h-full z-30 py-20 px-4 backdrop-blur-sm shadow-md">
                 <div className="flex flex-col w-full h-full z-[9999] bg-primary border-secondary border-2 rounded-md p-2">
-                    <div className="flex flex-row">
+                    <div className="flex flex-row justify-between items-center">
+                        {
+                            props.title ?
+                                <>
+                                    <h1 className="text-2xl font-bold">
+                                        {props.title}
+                                    </h1>
+                                </>
+                                :
+                                null
+                        }
                         <Button
                             onClick={props.onClose}
                         >
@@ -32,35 +43,66 @@ export default function Modal(props) {
 }
 
 
-export function FriendSearch(props) {
+export function FriendSearchModal(props) {
     return (
         <>
             <Modal
                 onClose={props.onClose}
+                title="Search for friends"
             >
                 <TextInput
                     title="Enter your friend's username below"
                     placeholder="Name of your friend"
                 />
                 <div className="flex flex-col space-y-2 py-2">
-                {
-                    props.results !== undefined ?
-                        props.results.map((result) => (
-                            <SearchResult
-                                id={result.id}
-                                name={result.name}
-                                username={result.username}
-                                profilePicSrc={result.profilePicSrc}
-                                profileLink={result.profileLink}
-                            />
-                        ))
-                        :
-                        <div>
-                            No results!
-                        </div>
-                }
+                    {
+                        props.results !== undefined ?
+                            props.results.map((result) => (
+                                <SearchResult
+                                    key={result.id}
+                                    name={result.name}
+                                    username={result.username}
+                                    profilePicSrc={result.profilePicSrc}
+                                    profileLink={result.profileLink}
+                                />
+                            ))
+                            :
+                            <div>
+                                No results!
+                            </div>
+                    }
                 </div>
             </Modal>
         </>
     );
+}
+
+export function NotificationsModal(props) {
+    return (
+        <>
+            <Modal
+                onClose={props.onClose}
+                title="Notifications"
+            >
+                <div className="flex flex-col space-y-2 py-2">
+                    {
+                        props.notifications !== undefined ?
+                            props.notifications.map((notification) => (
+                                <Notification
+                                    key={notification.id}
+                                    name={notification.name}
+                                    dog={notification.dog}
+                                    profileLink={notification.profileLink}
+                                    notificationData={notification.notificationData}
+                                />
+                            ))
+                            :
+                            <div>
+                                No notifications!
+                            </div>
+                    }
+                </div>
+            </Modal>
+        </>
+    )
 }
