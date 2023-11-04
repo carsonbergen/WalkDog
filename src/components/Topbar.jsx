@@ -18,6 +18,13 @@ const results = [
         username: "riskyrat23",
         profilePicSrc: "/images/alex.jpeg",
         profileLink: "/profile/alexgalindo"
+    },
+    {
+        id: 3,
+        name: "Nusyba",
+        username: "alfa",
+        profilePicSrc: "/images/nusyba.jpg",
+        profileLink: "/profile/nusyba"
     }
 ]
 

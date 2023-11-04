@@ -12,7 +12,7 @@ export default function SearchResult(props) {
 
                 `}
             >
-                <div className="flex flex-row flex-wrap text-center justify-start items-center space-x-1">
+                <div className="flex flex-row flex-wraptext-center justify-start items-center space-x-1">
                     <img 
                         src={props.profilePicSrc} 
                         className={`
@@ -22,14 +22,15 @@ export default function SearchResult(props) {
                         `} 
                     />
                     <span className="bg-purple border-secondary border-2 rounded-md p-1">{props.name}</span>
-                    <At className="w-6 h-auto"/>
+                    
                     <Link 
-                        className="bg-green border-secondary border-2 rounded-md p-1"
+                        className="bg-green border-secondary border-2 rounded-md p-1 flex flex-row space-x-2 items-center justify-start"
                         to={props.profileLink}
                         onClick={() => {
                             console.log("Going to ", props.profileLink)
                         }}
                     >
+                        <At className="w-4 h-auto"/>
                         {props.username}
                     </Link>
                 </div>
