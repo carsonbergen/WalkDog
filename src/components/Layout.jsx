@@ -19,13 +19,13 @@ export default function Layout(props) {
     return (
         <>
             { render ? 
-                <div>
+                <div className='w-auto h-auto'>
                     <Topbar />
                     <Navbar strokeWidth="8px" />
                     {props.children}
                 </div>
                 :
-                <div>
+                <div className='w-auto h-auto'>
                     {props.children}
                 </div>
             }

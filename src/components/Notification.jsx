@@ -1,4 +1,4 @@
-import { Check, DownloadSimple, X } from "phosphor-react";
+import { Check, DownloadSimple, X, Image } from "phosphor-react";
 import { useState, useEffect, useRef } from "react";
 
 export default function Notification(props) {
@@ -97,7 +97,7 @@ export default function Notification(props) {
                 <div
                     id={props.id}
                     className={`
-                        bg-purple text-secondary border-secondary border-2 w-full h-auto rounded-md p-2 ring-0
+                        bg-yellow text-secondary border-secondary border-2 w-full h-auto rounded-md p-2 ring-0
                         flex flex-col justify-start text-start space-y-2
                     `}
                 >
@@ -107,6 +107,29 @@ export default function Notification(props) {
                         </div>
                         <p>
                             <span className="bg-green border-2 border-secondary rounded-md px-1 font-bold">{props.name}</span>{props.notificationData.description}
+                        </p>
+                    </div>
+                </div>
+            </>
+        )
+    } else if (props.notificationData.type === "friend-posted") {
+        return (
+            <>
+                <div
+                    id={props.id}
+                    className={`
+                        bg-cyan text-secondary border-secondary border-2 w-full h-auto rounded-md p-2 ring-0
+                        flex flex-col justify-start text-start space-y-2
+                    `}
+                >
+                    <div className="flex flex-row items-center justify-start space-x-2">
+                        <div className="flex border-secondary bg-green w-full h-full max-h-[2.5rem] max-w-[2.5rem] min-h-[2.5rem] min-w-[2.5rem] justify-center items-center border-2 rounded-full">
+                            <Image weight="fill" className="w-8 h-8" />
+                        </div>
+                        <p>
+                            <span className="bg-green border-2 border-secondary rounded-md px-1 font-bold">{props.name}</span>
+                            {props.notificationData.description}
+                            <span className="bg-yellow border-2 border-secondary rounded-md px-1 font-bold">{props.dog}</span>!
                         </p>
                     </div>
                 </div>

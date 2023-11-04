@@ -42,7 +42,7 @@ const notifications = [
         }
     },
     {
-        id: 3,
+        id: 2,
         name: "Alliana",
         dog: "Haru",
         profile: "/profile/allianadelapena",
@@ -52,7 +52,7 @@ const notifications = [
         }
     },
     {
-        id: 2,
+        id: 3,
         name: "Jacob",
         dog: "Astro",
         profile: "/profile/jacobadeyemo",
@@ -61,6 +61,16 @@ const notifications = [
             description: " accepted your friend request!"
         }
     },
+    {
+        id: 4,
+        name: "Nusyba",
+        dog: "Elf",
+        profile: "/profile/nusyba",
+        notificationData: {
+            type: "friend-posted",
+            description: " posted a new photo with "
+        }
+    }
 ]
 
 export default function Topbar() {
