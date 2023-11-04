@@ -1,8 +1,24 @@
 import { Link } from "react-router-dom";
+import Button from "./Button";
+import { useState } from "react";
+import Modal from "./Modal";
 
 export default function Topbar() {
+    const [searchOpen, setSearchOpen] = useState(false);
     return (
-        <>
+        <>  
+        {
+            searchOpen ? 
+            <Modal
+                onClose={() => {
+                    setSearchOpen(false);
+                }}
+            >
+                Hello world
+            </Modal>
+            :
+            null
+        }
             <div className="fixed top-0 left-0 w-full py-3 px-8 z-[9999]">
                 <div className="absolute bottom-0 left-0 z-0 w-full h-full py-2 px-8">
                     <div className="h-full w-full border-2 border-secondary rounded-lg bg-primary">
@@ -10,14 +26,16 @@ export default function Topbar() {
                 </div>
                 <div className="relative flex flex-row justify-between w-full items-baseline px-1 py-1">
                     <div className="flex-shrink-0 w-[25%] flex flex-row justify-center">
-                        <Link
-                            to=""
-                            className={`flex items-center justify-center rounded-lg bg-purple w-16 h-10 p-4 border-secondary border-2 stroke-2`}
+                        <Button
+                            className={`flex items-center justify-center rounded-lg bg-purple w-16 h-10 p-4 border-secondary border-2`}
+                            onClick={() => {
+                                setSearchOpen(!searchOpen);
+                            }}
                         >
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" className="stroke-[2rem] fill-yellow stroke-black paint-stroke">
                                 <path d="M232.49,215.51,185,168a92.12,92.12,0,1,0-17,17l47.53,47.54a12,12,0,0,0,17-17ZM44,112a68,68,0,1,1,68,68A68.07,68.07,0,0,1,44,112Z"></path>
                             </svg>
-                        </Link>
+                        </Button>
                     </div>
                     <div className="flex-grow flex flex-row justify-center">
                         {/* Empty */}
