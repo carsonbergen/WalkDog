@@ -12,8 +12,18 @@ import TextInput from "./TextInput";
 export default function Modal(props) {
     return (
         <>
-            <div className="absolute w-full h-full z-30 py-20 px-4 backdrop-blur-sm shadow-md">
-                <div className="flex flex-col w-full h-full z-[9999] bg-primary border-secondary border-2 rounded-md p-2">
+            <div 
+                className={`
+                    fixed w-full h-full z-30 py-20 px-4 backdrop-blur-sm shadow-md transition-all duration-500
+                    ${props.open ? "opacity-100" : "opacity-0 pointer-events-none"}
+                `}
+            >
+                <div 
+                    className={`
+                        flex flex-col w-full h-full z-[9999] bg-primary border-secondary border-2 rounded-md p-2
+                        ${props.open ? "animate-jump-in" : "animate-jump-out pointer-events-none"}
+                    `}
+                >
                     <div className="flex flex-row justify-between items-center">
                         {
                             props.title ?
@@ -48,6 +58,7 @@ export function FriendSearchModal(props) {
         <>
             <Modal
                 onClose={props.onClose}
+                open={props.open}
                 title="Search for friends"
             >
                 <TextInput
@@ -82,6 +93,7 @@ export function NotificationsModal(props) {
         <>
             <Modal
                 onClose={props.onClose}
+                open={props.open}
                 title="Notifications"
             >
                 <div className="flex flex-col space-y-2 py-2">

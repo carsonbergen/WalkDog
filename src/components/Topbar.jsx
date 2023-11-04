@@ -28,13 +28,32 @@ const notifications = [
         dog: "Juno",
         profileLink: "/profile/bergencarson",
         notificationData: {
-            type: "Achievement",
+            type: "achievement",
             title: "Pawsitively great!",
             description: ` walked their dog for 25km in one walk!`,
-            icon: <PawPrint weight="fill" className="h-8 w-8"/> 
+            icon: <PawPrint weight="fill" className="h-8 w-8" />
         }
-    }
-
+    },
+    {
+        id: 3,
+        name: "Alliana",
+        dog: "Haru",
+        profile: "/profile/allianadelapena",
+        notificationData: {
+            type: "sent-friend-request",
+            description: " sent you a friend request!"
+        }
+    },
+    {
+        id: 2,
+        name: "Jacob",
+        dog: "Astro",
+        profile: "/profile/jacobadeyemo",
+        notificationData: {
+            type: "accepted-friend-request",
+            description: " accepted your friend request!"
+        }
+    },
 ]
 
 export default function Topbar() {
@@ -43,28 +62,20 @@ export default function Topbar() {
 
     return (
         <>
-            {
-                searchOpen ?
-                    <FriendSearchModal
-                        onClose={() => {
-                            setSearchOpen(false);
-                        }}
-                        results={results}
-                    />
-                    :
-                    null
-            }
-            {
-                notificationsOpen ?
-                    <NotificationsModal
-                        onClose={() => {
-                            setNotificationsOpen(false);
-                        }}
-                        notifications={notifications}
-                    />
-                    :
-                    null
-            }
+            <FriendSearchModal
+                onClose={() => {
+                    setSearchOpen(false);
+                }}
+                open={searchOpen}
+                results={results}
+            />
+            <NotificationsModal
+                onClose={() => {
+                    setNotificationsOpen(false);
+                }}
+                open={notificationsOpen}
+                notifications={notifications}
+            />
             <div className="fixed top-0 left-0 w-full py-3 px-8 z-[9999]">
                 <div className="absolute bottom-0 left-0 z-0 w-full h-full py-2 px-8">
                     <div className="h-full w-full border-2 border-secondary rounded-lg bg-primary">
@@ -75,6 +86,7 @@ export default function Topbar() {
                         <Button
                             className={`flex items-center justify-center rounded-lg bg-purple w-16 h-10 p-4 border-secondary border-2`}
                             onClick={() => {
+                                setNotificationsOpen(false);
                                 setSearchOpen(!searchOpen);
                             }}
                         >
@@ -90,6 +102,7 @@ export default function Topbar() {
                         <Button
                             className={`flex items-center justify-center rounded-lg bg-purple w-16 h-10 p-4 border-secondary border-2`}
                             onClick={() => {
+                                setSearchOpen(false);
                                 setNotificationsOpen(!notificationsOpen);
                             }}
                         >
