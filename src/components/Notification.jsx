@@ -5,11 +5,11 @@ export default function Notification(props) {
                 <div
                     id={props.id}
                     className={`
-                        bg-primary text-secondary border-secondary border-2 w-full h-auto rounded-md p-2 ring-0
-                        flex flex-col justify-start text-start
+                        bg-purple text-secondary border-secondary border-2 w-full h-auto rounded-md p-2 ring-0
+                        flex flex-col justify-start text-start space-y-2
                     `}
                 >
-                    <h1 className="text-lg font-black">
+                    <h1 className="bg-yellow border-secondary border-2 px-1 rounded-md text-lg font-black">
                         {props.notificationData.title}
                     </h1>
                     <div className="flex flex-row items-center justify-start space-x-2">
