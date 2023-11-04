@@ -1,21 +1,39 @@
 import { Link } from "react-router-dom";
 import Button from "./Button";
-import { useState } from "react";
-import Modal from "./Modal";
+import { useEffect, useState } from "react";
+import Modal, { FriendSearch } from "./Modal";
+import TextInput from "./TextInput";
+
+const results = [
+    {
+        id: 1,
+        name: "Carson",
+        username: "slipperychicken14"
+    },
+    {
+        id: 2,
+        name: "Alex",
+        username: "riskyrat23"
+    }
+]
 
 export default function Topbar() {
     const [searchOpen, setSearchOpen] = useState(false);
+    useEffect(() => {
+        console.log(results)
+    }, [results])
     return (
         <>  
         {
             searchOpen ? 
-            <Modal
+            <FriendSearch
                 onClose={() => {
                     setSearchOpen(false);
                 }}
+                results={results}
             >
-                Hello world
-            </Modal>
+                
+            </FriendSearch>
             :
             null
         }
