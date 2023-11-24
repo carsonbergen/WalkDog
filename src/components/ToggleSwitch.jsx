@@ -21,6 +21,7 @@ export default function ToggleSwitch(props) {
                                 peer-checked:after:translate-x-full peer-checked:after:border-secondary 
                                 after:content-[''] after:absolute after:top-[0px] after:left-[0px] after:bg-primary after:border-secondary
                                 after:border-2 after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-green
+                                hover:ring-2 ring-secondary ring-offset-1
                             `}
                     />
                 </label>
