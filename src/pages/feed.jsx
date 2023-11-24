@@ -60,7 +60,7 @@ export default function Feed() {
             <div className="feed-container space-y-2">
                 {posts.map((post) => (
                     // bg-pink border-2 border-secondary rounded-md p-2
-                    <div key={post.id} className="post"> 
+                    <div key={post.id} className="bg-pink border-secondary border-2 p-[20px] rounded-md"> 
                         <div className="font-nunito font-semibold text-3xl">{post.author}</div>
                         {post.image && (
                             <img
