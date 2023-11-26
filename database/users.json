@@ -1,0 +1,52 @@
+{
+  "bergencarson@gmail.com": {
+    "name": "Carson Bergen",
+    "username": "slipperychicken14",
+    "email": "bergencarson@gmail.com",
+    "password": "guest123",
+    "avatar_src": "/avatars/slipperychicken14.png",
+    "dogs": [
+      {
+        "name": "Juno",
+        "times_walked": 25
+      }
+    ],
+    "stats": {
+      "total_distance_walked": 250,
+      "photos_shared": 25
+    },
+    "posts": [
+      {
+        "id": 2,
+        "author": "Alex",
+        "dog": "Rex",
+        "date": "Oct. 12th, 2023",
+        "distance": "24km",
+        "location": "River Park",
+        "content": "Alex walked his dog at 10:37 AM today!",
+        "imageSrc": "/images/alex.jpeg",
+        "profileLink": "/profile/alexgalindo"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "Pawistively Great!",
+        "description": "Walk your dog 5km.",
+        "date_achieved": "2023-11-24",
+        "icon": "PawPrint"
+      }
+    ],
+    "notifications": [
+      {
+        "id": 2,
+        "name": "Alliana",
+        "dog": "Haru",
+        "profile": "/profile/allianadelapena",
+        "notificationData": {
+          "type": "sent-friend-request",
+          "description": " sent you a friend request!"
+        }
+      }
+    ]
+  }
+}

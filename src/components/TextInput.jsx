@@ -19,6 +19,7 @@ export default function TextInput(props) {
                     onChange={props.onChange}
                     placeholder={props.placeholder ?? ''}
                     type={props.type ?? null}
+                    name={props.name}
                 >
                 </input>
             </div>
