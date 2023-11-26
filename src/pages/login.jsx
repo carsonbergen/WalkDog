@@ -17,7 +17,7 @@ export default function Login() {
         e.preventDefault();
         
         // Login user
-        const userData = getUserData(formData);
+        const userData = getUserData(formData.email);
         logInUser(userData);
 
         const loggedIn = Cookies.get("user-logged-in");

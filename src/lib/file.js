@@ -2,8 +2,8 @@ import Cookies from "js-cookie";
 
 import users from "./../../database/users.json";
 
-export const getUserData = (formData) => {
-    return users[formData.email];
+export const getUserData = (email) => {
+    return users[email];
 }
 
 export const logInUser = (userData) => {
