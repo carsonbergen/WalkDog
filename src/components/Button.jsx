@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Button(props) {
     return (
         <>
@@ -15,7 +17,7 @@ export default function Button(props) {
 export function AcceptButton(props) {
     return (
         <>
-            <Button 
+            <Button
                 onClick={props.onClick}
                 className={`w-full h-10 rounded-md font-black border-2 hover:ring-2 text-lg border-secondary bg-green text-secondary ring-green`}
             >
@@ -28,7 +30,7 @@ export function AcceptButton(props) {
 export function RejectButton(props) {
     return (
         <>
-            <Button 
+            <Button
                 onClick={props.onClick}
                 className={`w-full h-10 rounded-md font-black border-2 hover:ring-2 text-lg border-secondary bg-red text-secondary ring-red`}
             >
@@ -49,4 +51,21 @@ export function OptionalButton(props) {
             </Button>
         </>
     )
+}
+
+export function UserButton(props) {
+    return (
+        <>
+            <Link
+                to={props.to}
+            >
+                <Button
+                    onClick={props.onClick}
+                    className={`w-auto h-auto px-1 rounded-md font-semibold border-2 text-lg border-secondary bg-green text-secondary`}
+                >
+                    {props.children}
+                </Button>
+            </Link>
+        </>
+    );
 }
