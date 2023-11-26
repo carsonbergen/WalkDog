@@ -1,0 +1,33 @@
+{
+  "bergencarson@gmail.com": {
+    "name": "Carson Bergen",
+    "username": "slipperychicken14",
+    "email": "bergencarson@gmail.com",
+    "password": "guest123",
+    "avatar_src": "/avatar/slipperychicken14",
+    "dogs": [
+      {
+        "name": "Juno",
+        "times_walked": 25
+      }
+    ],
+    "stats": {
+      "total_distance_walked": 250,
+      "photos_shared": 25
+    },
+    "posts": [
+      {
+        "location": "Dog River Park",
+        "date": "2023-11-24",
+        "distance": "5km"
+      }
+    ],
+    "achievements": [
+      {
+        "name": "Pawistively Great!",
+        "description": "Walk your dog 5km.",
+        "date_achieved": "2023-11-24"
+      }
+    ]
+  }
+}
