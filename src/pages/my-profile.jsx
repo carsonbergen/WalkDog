@@ -60,9 +60,12 @@ export default function MyProfile() {
             </div>
             <div className="section-header font-bold">My Achievements</div>
             <div className='flex flex-row space-x-2'>
-                {
-                    
-                }
+                {userData.achievements.map((achievement) => (
+                    <>
+                        <Achievement 
+                        />
+                    </>
+                ))}
             </div>
             <div className="section-header font-bold">General Settings</div>
             <div className='flex flex-row space-x-2'>
