@@ -63,6 +63,10 @@ export default function MyProfile() {
                 {userData.achievements.map((achievement) => (
                     <>
                         <Achievement 
+                            icon={achievement.icon}
+                            title={achievement.title}
+                            description={achievement.description}
+                            dateAchieved={achievement.date_achieved}
                         />
                     </>
                 ))}

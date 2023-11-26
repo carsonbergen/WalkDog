@@ -24,10 +24,14 @@
     ],
     "achievements": [
       {
-        "name": "Pawistively Great!",
+        "title": "Pawistively Great!",
         "description": "Walk your dog 5km.",
-        "date_achieved": "2023-11-24"
+        "date_achieved": "2023-11-24",
+        "icon": "PawPrint"
       }
+    ],
+    "notifications": [
+      
     ]
   }
 }
