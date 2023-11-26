@@ -17,9 +17,15 @@
     },
     "posts": [
       {
-        "location": "Dog River Park",
-        "date": "2023-11-24",
-        "distance": "5km"
+        "id": 2,
+        "author": "Alex",
+        "dog": "Rex",
+        "date": "Oct. 12th, 2023",
+        "distance": "24km",
+        "location": "River Park",
+        "content": "Alex walked his dog at 10:37 AM today!",
+        "imageSrc": "/images/alex.jpeg",
+        "profileLink": "/profile/alexgalindo"
       }
     ],
     "achievements": [

@@ -37,7 +37,6 @@ export default function Topbar() {
     const [searchOpen, setSearchOpen] = useState(false);
     const [notificationsOpen, setNotificationsOpen] = useState(false);
     const [notifications, setNotifications] = useState(userData.notifications);
-    console.log(userData)
 
     return (
         <>
