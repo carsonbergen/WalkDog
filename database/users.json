@@ -31,7 +31,16 @@
       }
     ],
     "notifications": [
-      
+      {
+        "id": 2,
+        "name": "Alliana",
+        "dog": "Haru",
+        "profile": "/profile/allianadelapena",
+        "notificationData": {
+          "type": "sent-friend-request",
+          "description": " sent you a friend request!"
+        }
+      }
     ]
   }
 }

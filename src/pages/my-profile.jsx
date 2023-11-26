@@ -10,9 +10,7 @@ import Cookies from 'js-cookie';
 
 export default function MyProfile() {
     const email = Cookies.get("user");
-    console.log(email);
     const [userData, setUserData] = useState(getUserData(email));
-    console.log(userData);
 
     return (
         <>
