@@ -51,7 +51,7 @@ export default function Notification(props) {
                         id={props.id}
                         ref={elementRef}
                         className={`
-                        bg-orange text-secondary border-secondary border-2 w-full h-auto rounded-md p-2 ring-0
+                        bg-primary text-secondary border-secondary border-2 w-full h-auto rounded-md p-2 ring-0
                         flex flex-col justify-start text-start space-y-2 transition-all duration-300
                         ${(rejected === false) ? "animate-jump animate-once animate-duration-300 opacity-0" : ""}
                         ${(rejected === true) ? "animate-shake animate-once animate-duration-300 opacity-0" : ""}
@@ -97,7 +97,7 @@ export default function Notification(props) {
                 <div
                     id={props.id}
                     className={`
-                        bg-yellow text-secondary border-secondary border-2 w-full h-auto rounded-md p-2 ring-0
+                    bg-primary text-secondary border-secondary border-2 w-full h-auto rounded-md p-2 ring-0
                         flex flex-col justify-start text-start space-y-2
                     `}
                 >
@@ -118,7 +118,7 @@ export default function Notification(props) {
                 <div
                     id={props.id}
                     className={`
-                        bg-cyan text-secondary border-secondary border-2 w-full h-auto rounded-md p-2 ring-0
+                    bg-primary text-secondary border-secondary border-2 w-full h-auto rounded-md p-2 ring-0
                         flex flex-col justify-start text-start space-y-2
                     `}
                 >
@@ -140,7 +140,7 @@ export default function Notification(props) {
             <div
                 id={props.id}
                 className={`
-                        bg-blue text-secondary border-secondary border-2 w-full h-auto rounded-md p-2 ring-0
+                bg-primary text-secondary border-secondary border-2 w-full h-auto rounded-md p-2 ring-0
                         flex flex-col justify-start text-start space-y-2
                     `}
             >
