@@ -2,6 +2,7 @@ import Button from "./Button";
 import Notification from "./Notification";
 import SearchResult from "./SearchResult";
 import TextInput from "./TextInput";
+import ToggleSwitch from '../components/ToggleSwitch';
 
 /**
  * 
@@ -114,6 +115,54 @@ export function NotificationsModal(props) {
                             <div>
                                 No notifications!
                             </div>
+                    }
+                </div>
+            </Modal>
+        </>
+    )
+}
+
+export function SettingsModal(props) {
+    let usernameChanged = false;
+
+    return (
+        <>
+            <Modal
+                onClose={props.onClose}
+                open={props.open}
+                title="Settings"
+            >
+                <div className="flex flex-col space-y-2 py-2">
+                    {
+                        props.settings !== undefined ? 
+                        <div>
+                            <div className="pb-1 text-xl font-bold">General</div>
+                            <TextInput
+                                title="Username:"
+                                onChange={(e) => {
+                                    setText(e.target.value)
+                                }}
+                                value={props.settings.name}
+                            />
+                            <TextInput
+                                title="Dog's name:"
+                                onChange={(e) => {
+                                    setText(e.target.value)
+                                }}
+                                value={props.settings.dog}
+                            />
+                            <div className="pt-6 pb-1 text-xl font-bold">Permissions</div>
+                            <div className='flex flex-row space-x-2'>
+                                <span>Enable geolocation services</span> <ToggleSwitch></ToggleSwitch> 
+                            </div>
+                            <div className='flex flex-row space-x-2'>
+                                <span>Enable camera service</span> <ToggleSwitch></ToggleSwitch> 
+                            </div>
+                            <div className='flex flex-row space-x-2'>
+                                <span>Enable notifications</span> <ToggleSwitch></ToggleSwitch> 
+                            </div>
+                        </div>
+                        : <div>No settings!</div>
                     }
                 </div>
             </Modal>

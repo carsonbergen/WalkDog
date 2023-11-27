@@ -2,27 +2,55 @@ import React from 'react';
 import '../css/MyProfile.css';
 import TextInput from "../components/TextInput";
 import Achievement from '../components/Achievement';
-import { PawPrint, Aperture, FireSimple } from 'phosphor-react';
-import ToggleSwitch from '../components/ToggleSwitch';
+import { PawPrint, Aperture, Gear } from 'phosphor-react';
 import StatHighlight from '../components/StatHighlight';
+import { SettingsModal } from '../components/Modal';
+import { useState } from "react";
+
+const settings = 
+    {
+        id: 1,
+        name: "Carson",
+        username: "slipperychicken14",
+        dog: "Juno"
+    }
 
 export default function MyProfile() {
     const myImagePath = '/images/profilePicture.jpg';
+    const [settingsOpen, setSettingsOpen] = useState(false);
 
     return (
         <>
+            <SettingsModal
+                onClose={() => {
+                    setSettingsOpen(false);
+                }}
+                open={settingsOpen}
+                settings={settings}
+            />
             <div className="profile-container">
                 <div className="rounded-md border-2 border-secondary mr-4 max-w-[150px] max-h-[150px] overflow-clip">
                     <img src={myImagePath} alt="profilePicture" className="" />
                 </div>
-                <div className="profile-info">
-                    <div className="profile-header">Profile Display Settings</div>
-                    <TextInput
-                        title="Display name:"
-                    />
-                    <TextInput
-                        title="Your dog's name:"
-                    />
+                <div className="relative">
+                        <button
+                            className="absolute end-0 bottom-28"
+                            size={32} 
+                            weight="fill"
+                            onClick={() => {
+                                setSettingsOpen(!settingsOpen);
+                            }}
+                        >
+                            <Gear size={32} weight="fill"/>
+                        </button>
+                        <TextInput
+                            title="Username:"
+                            text={settings.name}
+                        />
+                        <TextInput
+                            title="Dog's name:"
+                            text={settings.dog}
+                        />                       
                 </div>
             </div>
             <div className="section-header font-bold">My Stats</div>
@@ -51,27 +79,20 @@ export default function MyProfile() {
             </div>
             <div className="section-header font-bold">My Achievements</div>
             <div className='flex flex-row space-x-2'> 
-                    <Achievement
-                        icon={<Aperture size={32} weight="fill" />}
-                        title="The Photographer"
-                        description={
-                            `You've taken 5 photos`
-                        }
-                    />
-                    <Achievement 
-                        icon={<PawPrint size={32} weight="fill" />}
-                        title="Avid Walker"
-                        description={
-                            `You walked your dog over 5km!`
-                        }
-                    />
-                </div>
-            <div className="section-header font-bold">General Settings</div>
-            <div className='flex flex-row space-x-2'>
-                <span>Enable geolocation services</span> <ToggleSwitch></ToggleSwitch> 
-            </div>
-            <div className='flex flex-row space-x-2'>
-                <span>Enable geolocation services</span> <ToggleSwitch></ToggleSwitch> 
+                <Achievement
+                    icon={<Aperture size={32} weight="fill" />}
+                    title="The Photographer"
+                    description={
+                        `You've taken 5 photos`
+                    }
+                />
+                <Achievement 
+                    icon={<PawPrint size={32} weight="fill" />}
+                    title="Avid Walker"
+                    description={
+                        `You walked your dog over 5km!`
+                    }
+                />
             </div>
         </>
     );
