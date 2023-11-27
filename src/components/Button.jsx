@@ -19,7 +19,7 @@ export function AcceptButton(props) {
         <>
             <Button
                 onClick={props.onClick}
-                className={`w-full h-10 rounded-md font-black border-2 hover:ring-2 text-lg border-secondary bg-green text-secondary ring-green`}
+                className={`w-full h-10 rounded-md font-black border-2 hover:ring-2 text-lg border-secondary bg-green text-secondary ring-green ${props.className}`}
             >
                 {props.children}
             </Button>
