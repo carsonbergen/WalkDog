@@ -123,8 +123,6 @@ export function NotificationsModal(props) {
 }
 
 export function SettingsModal(props) {
-    let usernameChanged = false;
-
     return (
         <>
             <Modal
@@ -140,16 +138,16 @@ export function SettingsModal(props) {
                             <TextInput
                                 title="Username:"
                                 onChange={(e) => {
-                                    setText(e.target.value)
+                                    props.settings.name = e.target.value
                                 }}
-                                value={props.settings.name}
+                                placeholder={props.settings.name}
                             />
                             <TextInput
                                 title="Dog's name:"
                                 onChange={(e) => {
-                                    setText(e.target.value)
+                                    props.settings.dog = e.target.value
                                 }}
-                                value={props.settings.dog}
+                                placeholder={props.settings.dog}
                             />
                             <div className="pt-6 pb-1 text-xl font-bold">Permissions</div>
                             <div className='flex flex-row space-x-2'>
