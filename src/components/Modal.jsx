@@ -16,7 +16,7 @@ export default function Modal(props) {
             <div 
                 className={`
                     fixed w-full h-full z-30 py-20 px-4 backdrop-blur-sm 
-                    shadow-md transition-all duration-500
+                    shadow-md transition-all duration-500 top-0 left-0
                     ${props.open ? "opacity-100" : "opacity-0 pointer-events-none"}
                 `}
             >
