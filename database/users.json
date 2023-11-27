@@ -48,5 +48,55 @@
         }
       }
     ]
+  },
+  "alex@gmail.com": {
+    "name": "Alex Galindo",
+    "username": "riskyrat17",
+    "email": "alex@gmail.com",
+    "password": "guest123",
+    "avatar_src": "/avatars/riskyrat17.png",
+    "dogs": [
+      {
+        "name": "Juno",
+        "times_walked": 25
+      }
+    ],
+    "stats": {
+      "total_distance_walked": 15,
+      "photos_shared": 2
+    },
+    "posts": [
+      {
+        "id": 2,
+        "author": "Carson",
+        "dog": "Juno",
+        "date": "Oct. 12th, 2023",
+        "distance": "24km",
+        "location": "River Park",
+        "content": "Alex walked his dog at 10:37 AM today!",
+        "imageSrc": "/images/alex.jpeg",
+        "profileLink": "/profile/alexgalindo"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "Pawistively Great!",
+        "description": "Walk your dog 5km.",
+        "date_achieved": "2023-11-24",
+        "icon": "PawPrint"
+      }
+    ],
+    "notifications": [
+      {
+        "id": 2,
+        "name": "Alliana",
+        "dog": "Haru",
+        "profile": "/profile/allianadelapena",
+        "notificationData": {
+          "type": "sent-friend-request",
+          "description": " sent you a friend request!"
+        }
+      }
+    ]
   }
 }
