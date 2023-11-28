@@ -1,52 +1,37 @@
-import React, { useState } from 'react';
-import Map from '../components/Map';
-import DogHappinessMeter from '../components/DogHappinessMeter';
-import Button, { AcceptButton, OptionalButton } from '../components/Button';
-import { Pause, Play } from 'phosphor-react';
+import { useEffect, useState } from "react";
+import WalkTracker from "../components/WalkTracker";
+import { AcceptButton, RejectButton } from "../components/Button";
+import Map from "../components/Map";
 
-export default function Walk() {
-    const [walkInProgress, setWalkInProgress] = useState(true);
+export default function WalkPage() {
+    const [walkStarted, setWalkedStarted] = useState(false);
+
+    const [distanceTraveled, setDistanceTraveled] = useState(0);
+    const [walkInProgress, setWalkInProgress] = useState(false);
+
     return (
         <>
-            <div className='overflow-hidden h-screen w-full justify-center items-center pt-20 pb-40 px-4'>
-                <div className='absolute z-50 right-4 '>
-                    <DogHappinessMeter
-                        scale={0}
-                    />
-                </div>
-                <Map>
+            {walkStarted ?
+                <WalkTracker
+                    distanceTraveled={distanceTraveled}
+                    walkInProgress={walkInProgress}
+                    onWalkInProgressChanged={(c) => { setWalkInProgress(c) }}
+                />
+                :
+                <>
+                    <div className="h-screen w-full justify-center items-center pt-20 pb-40 px-4 space-y-2">
+                        <Map>
 
-                </Map>
-                {/* Start, pause, and etc. buttons */}
-                <div className='flex flex-row py-2 space-x-2'>
-                    {
-                        walkInProgress ? (
-                            <>
-                                <OptionalButton
-                                    className="flex flex-row items-center justify-center w-full h-12"
-                                >
-                                    <Pause
-                                        className='w-full h-full'
-                                        weight='bold'
-                                    />
-                                </OptionalButton>
-                            </>
-                        ) : (
-                            <AcceptButton
-                                className="flex flex-row items-center justify-center w-full h-12"
-                            >
-                                <Play
-                                    className='w-full h-full'
-                                    weight='bold'
-                                />
-                            </AcceptButton>
-                        )
-                    }
-
-                </div>
-            </div>
+                        </Map>
+                        <AcceptButton
+                            className="flex flex-row items-center justify-center w-full h-12"
+                            onClick={() => {setWalkedStarted(true)}}
+                        >
+                            Click here to start a walk!
+                        </AcceptButton>
+                    </div>
+                </>
+            }
         </>
-    );
+    )
 }
-
-
