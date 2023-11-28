@@ -1,14 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
       fontFamily: {
-        "nunito": ["Nunito", "sans"],
-        "nunito-italic": ["Nunito Italic", "sans"]
+        nunito: ["Nunito", "sans"],
+        "nunito-italic": ["Nunito Italic", "sans"],
       },
       colors: {
         primary: "#FFFFFC",
@@ -26,7 +23,5 @@ export default {
       },
     },
   },
-  plugins: [
-    require('tailwindcss-animated'),
-  ],
-}
+  plugins: [require("tailwindcss-animated")],
+};

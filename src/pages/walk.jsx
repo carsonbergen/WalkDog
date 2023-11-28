@@ -7,6 +7,8 @@ import { getUserData } from "../lib/file";
 import Modal from "../components/Modal";
 
 export default function WalkPage() {
+    const minDistanceNeeded = 5;
+
     const email = Cookies.get("user");
     const [userData, setUserData] = useState(getUserData(email));
 
@@ -21,6 +23,7 @@ export default function WalkPage() {
 
     const [photos, setPhotos] = useState([]);
     const [achievements, setAchievements] = useState([]);
+
 
     return (
         <>
@@ -58,6 +61,7 @@ export default function WalkPage() {
                     onEndWalk={() => {
                         setCancelWalkDialogOpen(true);
                     }}
+                    progress={(distanceTraveled/minDistanceNeeded) * 100}
                 />) : walkEnded ? (
                     <>
                         <div className="h-screen w-full justify-center items-center pt-20 pb-40 px-4 space-y-2">

@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Map from '../components/Map';
 import Button, { AcceptButton, OptionalButton, RejectButton } from '../components/Button';
 import { Pause, Play, X } from 'phosphor-react';
 import WalkStats from '../components/WalkStats';
+import CameraButton from './CameraButton';
 
 export default function WalkTracker(props) {
     return (
@@ -12,11 +13,14 @@ export default function WalkTracker(props) {
                     <WalkStats
                         mood={0}
                         distance={props.distanceTraveled}
+                        goal={5}
                     />
                 </div>
-                <Map>
+                <div className='absolute z-20 right-6 bottom-[10.5rem]'>
+                    <CameraButton progress={props.progress}></CameraButton>
+                </div>
+                <Map />
 
-                </Map>
                 {/* Start, pause, and etc. buttons */}
                 <div className='flex flex-row py-2 space-x-2'>
                     {props.walkInProgress ? (
