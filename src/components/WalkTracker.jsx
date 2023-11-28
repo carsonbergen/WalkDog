@@ -24,7 +24,7 @@ export default function WalkTracker(props) {
                             <RejectButton
                                 className="flex flex-row items-center justify-center w-full h-12"
                                 onClick={() => {
-                                    // Cancel workout
+                                    props.onEndWalk();
                                 }}
                             >
                                 <X
