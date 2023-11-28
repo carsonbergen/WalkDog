@@ -36,7 +36,7 @@ export default function Topbar() {
 
     const [searchOpen, setSearchOpen] = useState(false);
     const [notificationsOpen, setNotificationsOpen] = useState(false);
-    const [notifications, setNotifications] = useState(userData.notifications);
+    const [notifications, setNotifications] = userData !== undefined ? useState(userData.notifications) : [];
 
     return (
         <>
@@ -52,7 +52,7 @@ export default function Topbar() {
                     setNotificationsOpen(false);
                 }}
                 open={notificationsOpen}
-                notifications={notifications}
+                notifications={notifications ?? []}
             />
             <div className="fixed top-0 left-0 w-full py-3 px-8 z-[9999]">
                 <div className="absolute bottom-0 left-0 z-0 w-full h-full py-2 px-8">
