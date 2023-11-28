@@ -8,7 +8,7 @@ export default function WalkTracker(props) {
     return (
         <>
             <div className={`absolute overflow-hidden h-screen w-full justify-center items-center pt-20 pb-40 px-4`}>
-                <div className='absolute z-50 right-4'>
+                <div className='absolute z-20 right-4'>
                     <WalkStats
                         mood={0}
                         distance={props.distanceTraveled}
