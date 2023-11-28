@@ -3,6 +3,8 @@ import Button from "./Button";
 import { useEffect, useState } from "react";
 import { FriendSearchModal, NotificationsModal } from "./Modal";
 import { PawPrint } from "phosphor-react";
+import Cookies from "js-cookie";
+import { getUserData } from "../lib/file";
 
 const results = [
     {
@@ -28,104 +30,13 @@ const results = [
     }
 ]
 
-const notifications = [
-    {
-        id: 1,
-        name: "Carson",
-        dog: "Juno",
-        profileLink: "/profile/bergencarson",
-        notificationData: {
-            type: "achievement",
-            title: "Pawsitively great!",
-            description: ` walked their dog for 25km in one walk!`,
-            icon: <PawPrint weight="fill" className="h-8 w-8" />
-        }
-    },
-    {
-        id: 2,
-        name: "Alliana",
-        dog: "Haru",
-        profile: "/profile/allianadelapena",
-        notificationData: {
-            type: "sent-friend-request",
-            description: " sent you a friend request!"
-        }
-    },
-    {
-        id: 3,
-        name: "Jacob",
-        dog: "Astro",
-        profile: "/profile/jacobadeyemo",
-        notificationData: {
-            type: "friend-posted",
-            description: " posted a new photo with "
-        }
-    },
-    {
-        id: 4,
-        name: "Jacob",
-        dog: "Astro",
-        profile: "/profile/jacobadeyemo",
-        notificationData: {
-            type: "accepted-friend-request",
-            description: " accepted your friend request!"
-        }
-    },
-    {
-        id: 5,
-        name: "Nusyba",
-        dog: "Elf",
-        profile: "/profile/nusyba",
-        notificationData: {
-            type: "friend-posted",
-            description: " posted a new photo with "
-        }
-    },
-    {
-        id: 6,
-        name: "Alex",
-        dog: "Rex",
-        profile: "/profile/alexgalindo",
-        notificationData: {
-            type: "friend-posted",
-            description: " posted a new photo with "
-        }
-    },
-    {
-        id: 7,
-        name: "Alex",
-        dog: "Rex",
-        profile: "/profile/alexgalindo",
-        notificationData: {
-            type: "accepted-friend-request",
-            description: " accepted your friend request!"
-        }
-    },
-    {
-        id: 8,
-        name: "Nusyba",
-        dog: "Elf",
-        profile: "/profile/nusyba",
-        notificationData: {
-            type: "friend-posted",
-            description: " posted a new photo with "
-        }
-    },
-    {
-        id: 9,
-        name: "Nusyba",
-        dog: "Elf",
-        profile: "/profile/nusyba",
-        notificationData: {
-            type: "friend-posted",
-            description: " posted a new photo with "
-        }
-    },
-]
-
 export default function Topbar() {
+    const email = Cookies.get("user");
+    const [userData, setUserData] = useState(getUserData(email));
+
     const [searchOpen, setSearchOpen] = useState(false);
     const [notificationsOpen, setNotificationsOpen] = useState(false);
+    const [notifications, setNotifications] = userData !== undefined ? useState(userData.notifications) : [];
 
     return (
         <>
@@ -141,7 +52,7 @@ export default function Topbar() {
                     setNotificationsOpen(false);
                 }}
                 open={notificationsOpen}
-                notifications={notifications}
+                notifications={notifications ?? []}
             />
             <div className="fixed top-0 left-0 w-full py-3 px-8 z-[9999]">
                 <div className="absolute bottom-0 left-0 z-0 w-full h-full py-2 px-8">
