@@ -3,6 +3,9 @@ import Notification from "./Notification";
 import SearchResult from "./SearchResult";
 import TextInput from "./TextInput";
 import ToggleSwitch from '../components/ToggleSwitch';
+import { useState } from "react";
+import { getUserData } from "./../lib/file";
+import Cookies from 'js-cookie';
 
 /**
  * 
@@ -123,6 +126,15 @@ export function NotificationsModal(props) {
 }
 
 export function SettingsModal(props) {
+    const email = Cookies.get("user");
+    const [userData, setUserData] = useState(getUserData(email));
+    const [username, setUsername] = useState(userData.username);
+    const [name, setName] = useState(userData.name);
+    const [dogs, setDogs] = useState(userData.dogs);
+    const [location, setLocation] = useState(userData.settings.location);
+    const [camera, setCamera] = useState(userData.settings.camera);
+    const [notification, setNotification] = useState(userData.settings.notification);
+
     return (
         <>
             <Modal
@@ -139,36 +151,57 @@ export function SettingsModal(props) {
                                 title="Username:"
                                 onChange={(e) => {
                                     props.userData.username = e.target.value
+                                    setUsername(e.target.value)
                                 }}
-                                placeholder={props.userData.username}
+                                text={username}
                             />
                             <TextInput
                                 title="Name:"
                                 onChange={(e) => {
-                                    props.userData.username = e.target.value
+                                    props.userData.name = e.target.value
+                                    setName(e.target.value)
                                 }}
-                                placeholder={props.userData.name}
+                                text={name}
                             />
-                            {props.userData.dogs.map((dog) => (
+                            {props.userData.dogs.map((dog, index) => (
                                 <>
                                     <TextInput
-                                        title="Dog's name(s):"
+                                        title="Dog's name:"
                                         onChange={(e) => {
                                             dog.name = e.target.value
+                                            setDogs(e.target.value)
                                         }}
-                                        placeholder={dog.name}
+                                        text={dog.name}
                                     />
                                 </>
                             ))}
                             <div className="pt-6 pb-1 text-xl font-bold">Permissions</div>
                             <div className='flex flex-row space-x-2'>
-                                <span>Enable geolocation services</span> <ToggleSwitch></ToggleSwitch> 
+                                <span>Enable geolocation services</span>
+                                <ToggleSwitch 
+                                    checked={location}
+                                    onChange={(e) => {
+                                        setLocation(e.target.checked)
+                                    }}
+                                />
                             </div>
                             <div className='flex flex-row space-x-2'>
-                                <span>Enable camera service</span> <ToggleSwitch></ToggleSwitch> 
+                                <span>Enable camera service</span>
+                                <ToggleSwitch 
+                                    checked={camera}
+                                    onChange={(e) => {
+                                        setCamera(e.target.checked)
+                                    }}
+                                />
                             </div>
                             <div className='flex flex-row space-x-2'>
-                                <span>Enable notifications</span> <ToggleSwitch></ToggleSwitch> 
+                                <span>Enable notifications</span>
+                                <ToggleSwitch 
+                                    checked={notification}
+                                    onChange={(e) => {
+                                        setNotification(e.target.checked)
+                                    }}
+                                />                           
                             </div>
                         </div>
                         : <div>No settings!</div>

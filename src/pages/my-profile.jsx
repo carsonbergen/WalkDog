@@ -63,7 +63,7 @@ export default function MyProfile() {
                             <>
                                 <StatHighlight 
                                     value={dog.name}
-                                    className="bg-grey"
+                                    className="bg-grey mb-1"
                                 />
                             </>
                         ))}
