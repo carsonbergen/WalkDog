@@ -132,23 +132,34 @@ export function SettingsModal(props) {
             >
                 <div className="flex flex-col space-y-2 py-2">
                     {
-                        props.settings !== undefined ? 
+                        props.userData !== undefined ? 
                         <div>
                             <div className="pb-1 text-xl font-bold">General</div>
                             <TextInput
                                 title="Username:"
                                 onChange={(e) => {
-                                    props.settings.name = e.target.value
+                                    props.userData.username = e.target.value
                                 }}
-                                placeholder={props.settings.name}
+                                placeholder={props.userData.username}
                             />
                             <TextInput
-                                title="Dog's name:"
+                                title="Name:"
                                 onChange={(e) => {
-                                    props.settings.dog = e.target.value
+                                    props.userData.username = e.target.value
                                 }}
-                                placeholder={props.settings.dog}
+                                placeholder={props.userData.name}
                             />
+                            {props.userData.dogs.map((dog) => (
+                                <>
+                                    <TextInput
+                                        title="Dog's name(s):"
+                                        onChange={(e) => {
+                                            dog.name = e.target.value
+                                        }}
+                                        placeholder={dog.name}
+                                    />
+                                </>
+                            ))}
                             <div className="pt-6 pb-1 text-xl font-bold">Permissions</div>
                             <div className='flex flex-row space-x-2'>
                                 <span>Enable geolocation services</span> <ToggleSwitch></ToggleSwitch> 

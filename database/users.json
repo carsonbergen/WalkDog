@@ -9,6 +9,10 @@
       {
         "name": "Juno",
         "times_walked": 25
+      },
+      {
+        "name": "Bruno",
+        "times_walked": 60
       }
     ],
     "stats": {
