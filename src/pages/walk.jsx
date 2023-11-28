@@ -19,6 +19,9 @@ export default function WalkPage() {
 
     const [cancelWalkDialogOpen, setCancelWalkDialogOpen] = useState(false);
 
+    const [photos, setPhotos] = useState([]);
+    const [achievements, setAchievements] = useState([]);
+
     return (
         <>
             <Modal
@@ -33,7 +36,7 @@ export default function WalkPage() {
             >
                 <div className="flex flex-row space-x-2">
                     <RejectButton
-                        onClick={() => {setCancelWalkDialogOpen(false)}}
+                        onClick={() => { setCancelWalkDialogOpen(false) }}
                     >
                         No!
                     </RejectButton>
@@ -68,7 +71,19 @@ export default function WalkPage() {
                                 <div>
                                     {/* Display photos taken. */}
                                 </div>
+                                <div>
+                                    {/* Display achievements earned. */}
+                                </div>
                             </div>
+                            <AcceptButton
+                                className="flex flex-row items-center justify-center w-full h-12"
+                                onClick={() => { 
+                                    setWalkedStarted(true);
+                                    setWalkEnded(false);
+                                }}
+                            >
+                                Click here to start another walk!
+                            </AcceptButton>
                         </div>
                     </>
                 ) : (
