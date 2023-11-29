@@ -12,6 +12,7 @@ export default function ToggleSwitch(props) {
                         value=""
                         className="sr-only peer" 
                         onChange={props.onChange}
+                        checked={props.checked}
                     />
                     <div
                         className={`

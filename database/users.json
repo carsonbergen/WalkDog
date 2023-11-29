@@ -9,6 +9,10 @@
       {
         "name": "Juno",
         "times_walked": 25
+      },
+      {
+        "name": "Bruno",
+        "times_walked": 60
       }
     ],
     "stats": {
@@ -47,7 +51,12 @@
           "description": " sent you a friend request!"
         }
       }
-    ]
+    ],
+    "settings": {
+      "location": true,
+      "camera": false,
+      "notification": true
+    }
   },
   "alex@gmail.com": {
     "name": "Alex Galindo",
@@ -97,6 +106,11 @@
           "description": " sent you a friend request!"
         }
       }
-    ]
+    ],
+    "settings": {
+      "location": true,
+      "camera": true,
+      "notification": true
+    }
   }
 }
