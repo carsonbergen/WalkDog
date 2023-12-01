@@ -23,7 +23,12 @@ export const getUserData = (email) => {
                 },
                 "posts": [],
                 "achievements": [],
-                "notifications": []
+                "notifications": [],
+                "settings": {
+                  "location": false,
+                  "camera": false,
+                  "notification": false,
+                }
               }
         )
     }
