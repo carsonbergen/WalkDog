@@ -10,6 +10,7 @@ export default function WalkStats(props) {
                     {props.photosTaken > 0 ? `Photos taken ${props.photosTaken}` : `No photos taken yet!`}
                 </div>
                 {/* Maybe a list of achievements earned */}
+                
             </div>
         </>
     );

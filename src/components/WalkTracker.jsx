@@ -4,8 +4,13 @@ import Button, { AcceptButton, OptionalButton, RejectButton } from '../component
 import { Pause, Play, X } from 'phosphor-react';
 import WalkStats from '../components/WalkStats';
 import CameraButton from './CameraButton';
+import Cookies from "js-cookie";
+import { getUserData } from "../lib/file";
 
 export default function WalkTracker(props) {
+    const email = Cookies.get("user");
+    const [userData, setUserData] = useState(getUserData(email));
+
     return (
         <>
             <div className={`absolute overflow-hidden h-screen w-full justify-center items-center pt-20 pb-40 px-4`}>
@@ -14,6 +19,7 @@ export default function WalkTracker(props) {
                         mood={0}
                         distance={props.distanceTraveled}
                         goal={5}
+                        walkData={userData.walks[0]}
                     />
                 </div>
                 <div className='absolute z-20 right-6 bottom-[10.5rem]'>
