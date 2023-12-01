@@ -61,27 +61,32 @@ export default function WalkPage() {
                     onEndWalk={() => {
                         setCancelWalkDialogOpen(true);
                     }}
-                    progress={(distanceTraveled/minDistanceNeeded) * 100}
+                    progress={(distanceTraveled / minDistanceNeeded) * 100}
                 />) : walkEnded ? (
                     <>
-                        <div className="h-screen w-full justify-center items-center pt-20 pb-40 px-4 space-y-2">
+                        <div className="absolute overflow-hidden h-screen w-full justify-center items-center pt-20 pb-40 px-4 space-y-2">
                             <span className="text-3xl font-black">
                                 Congratulations!
                             </span>
-                            <div className="flex flex-col">
-                                <div>
-                                    You walked {distanceTraveled} km with {userData.dogs[0].name} and took {photosTaken} photos!
-                                </div>
-                                <div>
-                                    {/* Display photos taken. */}
-                                </div>
-                                <div>
-                                    {/* Display achievements earned. */}
-                                </div>
+                            <div>
+                                You walked {userData.walks[0].total_distance_walked} km with {userData.dogs[0].name} and took {userData.walks[0].photos_taken} photos!
+                            </div>
+                            {/* Display photos taken. */}
+                            <div className="carousel h-full w-full max-h-[82%] rounded-box px-4 space-x-1 bg-secondary border-2 border-secondary flex justify-start items-center">
+                                {
+                                    userData.walks[0].photos.map((photo_src) => (
+                                        <div className="carousel-item w-full h-full object-cover object-center">
+                                            <img src={`${photo_src}`} />
+                                        </div>
+                                    ))
+                                }
+                            </div>
+                            <div>
+                                {/* Display achievements earned. */}
                             </div>
                             <AcceptButton
                                 className="flex flex-row items-center justify-center w-full h-12"
-                                onClick={() => { 
+                                onClick={() => {
                                     setWalkedStarted(true);
                                     setWalkEnded(false);
                                 }}

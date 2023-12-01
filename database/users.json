@@ -47,6 +47,16 @@
           "description": " sent you a friend request!"
         }
       }
+    ],
+    "walks": [
+      { 
+        "total_distance_walked": 5,
+        "photos_taken": 1,
+        "photos" :[
+          "/placeholders/walks/walking_photo_1.jpeg",
+          "/placeholders/walks/walking_photo_2.jpeg"
+        ]
+      }
     ]
   },
   "alex@gmail.com": {
