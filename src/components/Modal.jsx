@@ -1,4 +1,4 @@
-import Button from "./Button";
+import Button, { AcceptButton, OptionalButton } from "./Button";
 import Notification from "./Notification";
 import SearchResult from "./SearchResult";
 import TextInput from "./TextInput";
@@ -207,6 +207,58 @@ export function SettingsModal(props) {
                         : <div>No settings!</div>
                     }
                 </div>
+            </Modal>
+        </>
+    )
+}
+
+export function ForgotPasswordModal(props) {
+    const [emailSent, setEmailSent] = useState(false);
+
+    return (
+        <>
+            <Modal
+                onClose={props.onClose}
+                open={props.open}
+                title="Forgot password"
+            >
+                <div className="flex flex-col space-y-2 py-2">
+                    {
+                        !emailSent ? 
+                        <div className="flex flex-col space-y-2 py-2">
+                            <div>We'll send you an email with a reset password link.</div>
+                            <TextInput
+                                title="What is your account's email?"
+                                type="text"
+                                id="email"
+                                onChange={(e) => {
+                                    setFormData({
+                                        ...formData,
+                                        "email": e.target.value,
+                                    });
+                                }}
+                                placeholder="johnDoe@gmail.com"
+                            />
+                            <div className="flex flex-col space-y-4 py-2 pt-7">
+                                <AcceptButton
+                                    onClick={() => {
+                                        setEmailSent(true)
+                                    }}
+                                >
+                                    Send reset link
+                                </AcceptButton>
+                                <OptionalButton
+                                    onClick={props.onClose}
+                                >
+                                    Cancel
+                                </OptionalButton>
+                            </div>
+                            
+                        </div>
+                        : <div>Email successfully sent!</div>
+                    }
+                </div>
+               
             </Modal>
         </>
     )

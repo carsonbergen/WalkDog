@@ -22,6 +22,7 @@ export default function TextInput(props) {
                     name={props.name}
                 >
                 </input>
+                {props.children}
             </div>
         </>
     );

@@ -4,9 +4,11 @@ import TextInput from "../components/TextInput";
 import { Link, redirect, useNavigate } from "react-router-dom";
 import { getUserData, logInUser } from "./../lib/file";
 import Cookies from "js-cookie";
+import { ForgotPasswordModal } from "../components/Modal";
 
 export default function Login() {
     const navigate = useNavigate();
+    const  [forgotPasswordOpen, setForgotPasswordOpen] = useState(false);
 
     const [formData, setFormData] = useState({
         "email": '',
@@ -41,6 +43,12 @@ export default function Login() {
 
     return (
         <>
+            <ForgotPasswordModal
+                onClose={() => {
+                    setForgotPasswordOpen(false);
+                }}
+                open={forgotPasswordOpen}
+            />
             <div 
                 className={`grid grid-cols-1 place-content-center px-10`}
             >
@@ -76,7 +84,16 @@ export default function Login() {
                                 "password": e.target.value,
                             });
                         }}
-                    />
+                    >
+                        <button
+                            className="text-left underline underline-offset-1 w-40 pt-1"
+                            onClick={() => {
+                                setForgotPasswordOpen(!forgotPasswordOpen);
+                            }}
+                        >
+                            Forgot password?
+                        </button>
+                    </TextInput>
                     <div
                         className={`w-full place-self-center mt-3 mb-14`}
                     >
