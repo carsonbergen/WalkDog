@@ -9,6 +9,10 @@ import { ForgotPasswordModal } from "../components/Modal";
 export default function Login() {
     const navigate = useNavigate();
     const  [forgotPasswordOpen, setForgotPasswordOpen] = useState(false);
+    const [errorData, setErrorData] = useState({
+        "email": '',
+        "password": '',
+    })
 
     const [formData, setFormData] = useState({
         "email": '',
@@ -17,6 +21,11 @@ export default function Login() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
+        setErrorData({
+            "email": formData.email == "" ? "required" : "",
+            "password": formData.password == "" ? "required" : ""
+        }) 
         
         // Login user
         const userData = getUserData(formData.email);
@@ -73,6 +82,7 @@ export default function Login() {
                             });
                         }}
                         placeholder="johnDoe@gmail.com"
+                        error={errorData.email}
                     />
                     <TextInput 
                         title="What is your account's password?"
@@ -84,6 +94,7 @@ export default function Login() {
                                 "password": e.target.value,
                             });
                         }}
+                        error={errorData.password}
                     >
                         <button
                             className="text-left underline underline-offset-1 w-40 pt-1"
@@ -102,7 +113,6 @@ export default function Login() {
                             <AcceptButton
                             // TODO change to go to profile, and verification
                                 onClick={() => {
-                                    // console.log("Changing page, replace this");
                                 }}
                                 type="submit"
                             >

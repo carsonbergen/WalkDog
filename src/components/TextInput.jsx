@@ -22,6 +22,13 @@ export default function TextInput(props) {
                     name={props.name}
                 >
                 </input>
+                {
+                    props.error ?? '' != '' ?
+                    <div className="text-dark_red">
+                        * This field is required
+                    </div>
+                    : null
+                }
                 {props.children}
             </div>
         </>
