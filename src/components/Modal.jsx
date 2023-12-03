@@ -127,13 +127,12 @@ export function NotificationsModal(props) {
 
 export function SettingsModal(props) {
     const email = Cookies.get("user");
-    const [userData, setUserData] = useState(getUserData(email));
-    const [username, setUsername] = useState(userData.username);
-    const [name, setName] = useState(userData.name);
-    const [dogs, setDogs] = useState(userData.dogs);
-    const [location, setLocation] = useState(userData.settings.location);
-    const [camera, setCamera] = useState(userData.settings.camera);
-    const [notification, setNotification] = useState(userData.settings.notification);
+    const [username, setUsername] = useState(props.userData.username);
+    const [name, setName] = useState(props.userData.name);
+    const [dogs, setDogs] = useState(props.userData.dogs);
+    const [location, setLocation] = useState(props.userData.settings ? props.userData.settings.location : "");
+    const [camera, setCamera] = useState(props.userData.settings ? props.userData.settings.camera : "");
+    const [notification, setNotification] = useState(props.userData.settings ? props.userData.settings.notification : []);
 
     return (
         <>
@@ -144,7 +143,7 @@ export function SettingsModal(props) {
             >
                 <div className="flex flex-col space-y-2 py-2">
                     {
-                        props.userData !== undefined ? 
+                        props.userData !== undefined || props.userData.settings === undefined ? 
                         <div>
                             <div className="pb-1 text-xl font-bold">General</div>
                             <TextInput
