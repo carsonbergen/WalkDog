@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { AcceptButton, OptionalButton } from "../components/Button";
 import TextInput from "../components/TextInput";
-import { Link, redirect, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { getUserData, logInUser } from "./../lib/file";
 import Cookies from "js-cookie";
 import { ForgotPasswordModal } from "../components/Modal";
@@ -12,7 +12,7 @@ export default function Login() {
     const [errorData, setErrorData] = useState({
         "email": '',
         "password": '',
-    })
+    });
 
     const [formData, setFormData] = useState({
         "email": '',
@@ -108,17 +108,9 @@ export default function Login() {
                     <div
                         className={`w-full place-self-center mt-3 mb-14`}
                     >
-                        {/* TODO remove link after verification is added */}
-                        {/* <Link to="/feed"> */}
-                            <AcceptButton
-                            // TODO change to go to profile, and verification
-                                onClick={() => {
-                                }}
-                                type="submit"
-                            >
-                                Log in!
-                            </AcceptButton>
-                        {/* </Link> */}
+                        <AcceptButton type="submit">
+                            Log in!
+                        </AcceptButton>
                     </div>
                 </form>
                 <div className={`place-self-center`}>
