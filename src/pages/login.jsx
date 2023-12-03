@@ -13,6 +13,7 @@ export default function Login() {
         "email": '',
         "password": '',
     });
+    const [noUserFoundError, setNoUserFoundError] = useState(false);
 
     const [formData, setFormData] = useState({
         "email": '',
@@ -29,6 +30,12 @@ export default function Login() {
         
         // Login user
         const userData = getUserData(formData.email);
+
+        // If could not find user with email and password AND fields are filled in, show an error
+        if (formData.email != "" && formData.password != "" && userData == undefined) {
+            setNoUserFoundError(true);
+        }
+        
         logInUser(userData);
 
         const loggedIn = Cookies.get("user-logged-in");
@@ -38,10 +45,6 @@ export default function Login() {
         if (loggedIn) {
             console.log("User logged in successfully")
             navigate("/home");
-        } else {
-            console.log("Not logged in!");
-            // Display an error to the user
-            // TODO
         }
 
         setFormData({
@@ -67,6 +70,11 @@ export default function Login() {
                 <div className={`place-self-center pt-1 pb-6 font-semibold`}>
                     Welcome back! We're glad to see you.
                 </div>
+                <div className="text-dark_red pb-2">
+                    {
+                        noUserFoundError == true ? "* No user found with same email and password": null
+                    }
+                </div>
                 <form 
                     className={`grid grid-cols-1 gap-4 place-content-center`}
                     onSubmit={handleSubmit}
@@ -80,6 +88,8 @@ export default function Login() {
                                 ...formData,
                                 "email": e.target.value,
                             });
+                            // Reset no user found error if email is changed
+                            setNoUserFoundError(false);
                         }}
                         placeholder="johnDoe@gmail.com"
                         error={errorData.email}
@@ -93,6 +103,8 @@ export default function Login() {
                                 ...formData,
                                 "password": e.target.value,
                             });
+                            // Reset no user found error if password is changed
+                            setNoUserFoundError(false);
                         }}
                         error={errorData.password}
                     >
