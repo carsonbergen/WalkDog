@@ -29,11 +29,11 @@ export default function MyProfile() {
                     setSettingsOpen(false);
                 }}
                 open={settingsOpen}
-                userData={userData}
+                userData={userData ? userData : undefined}
             />
             <div className="profile-container">
                 <div className="rounded-md border-2 border-secondary mr-4 min-w-[150px] min-h-[150px] max-w-[150px] max-h-[150px] overflow-clip">
-                    <img src={userData.avatar_src} alt="profilePicture" className="" />
+                    <img src={userData.avatar_src ?? "/avatars/default.png"} alt="profilePicture" className="" />
                 </div>
                 <div className="relative">
                         <button
@@ -48,33 +48,33 @@ export default function MyProfile() {
                         </button>
                         <div className="font-bold text-base">Username:</div>
                         <StatHighlight
-                            value={userData.username}
+                            value={userData ? userData.username : "empty"}
                             className="bg-grey"
                         />
                         <div className="font-bold text-base">Name:</div>
                         <StatHighlight
-                            value={userData.name}
+                            value={userData ? useState.name : "empty"}
                             className="bg-grey"
                         />
                 </div>                    
             </div>
             <div className="font-bold text-base">Dog's name(s):</div>
-                        {userData.dogs.map((dog) => (
+                        {userData && (userData.dogs.map((dog) => (
                             <>
                                 <StatHighlight 
                                     value={dog.name}
                                     className="bg-grey mb-1"
                                 />
                             </>
-                        ))}
+                        )))}
             <div className="section-header font-bold">My Stats</div>
             <div className='flex flex-wrap mt-1'>
                 You've walked
                 <span className='mx-1 bg-cyan border-2 border-secondary rounded-md px-1 font-bold max-h-min'>
-                    {userData.dogs[0].name}
+                    {userData ? userData.dogs[0].name : "empty"}
                 </span>
                 <StatHighlight
-                    value={userData.dogs[0].times_walked}
+                    value={userData ? userData.dogs[0].times_walked : -1}
                     className="bg-orange"
                 />
                 times in a row!
@@ -82,20 +82,20 @@ export default function MyProfile() {
             <div className='flex flex-wrap mt-1'>
                 Total distance walked (km):
                 <StatHighlight
-                    value={userData.stats.total_distance_walked}
+                    value={userData ? userData.stats.total_distance_walked : -1}
                     className="bg-orange"
                 />
             </div>
             <div className='flex flex-wrap mt-1'>
                 Photos shared:
                 <StatHighlight
-                    value={userData.stats.photos_shared}
+                    value={userData ? userData.stats.photos_shared : -1}
                     className="bg-orange"
                 />
             </div>
             <div className="section-header font-bold">My Achievements</div>
             <div className='flex flex-row space-x-2'>
-                {userData.achievements.map((achievement) => (
+                {userData && (userData.achievements.map((achievement) => (
                     <>
                         <Achievement 
                             icon={achievement.icon}
@@ -104,7 +104,7 @@ export default function MyProfile() {
                             dateAchieved={achievement.date_achieved}
                         />
                     </>
-                ))}
+                )))}
             </div>
         </>
     );
