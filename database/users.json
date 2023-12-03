@@ -56,9 +56,16 @@
       { 
         "total_distance_walked": 5,
         "photos_taken": 1,
-        "photos" :[
+        "photos": [
           "/placeholders/walks/walking_photo_1.jpeg",
           "/placeholders/walks/walking_photo_2.jpeg"
+        ],
+        "points": [
+          {
+            "start": {
+              "x": 0
+            }
+          }
         ]
       }
     ],
