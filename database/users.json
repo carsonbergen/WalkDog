@@ -3,6 +3,9 @@
     "name": "Carson Bergen",
     "username": "slipperychicken14",
     "email": "bergencarson@gmail.com",
+    "location": [
+      51.0754748, -114.1365543
+    ],
     "password": "guest123",
     "avatar_src": "/avatars/slipperychicken14.png",
     "dogs": [
