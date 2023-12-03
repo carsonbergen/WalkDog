@@ -1,7 +1,11 @@
-import Button from "./Button";
+import Button, { AcceptButton, OptionalButton } from "./Button";
 import Notification from "./Notification";
 import SearchResult from "./SearchResult";
 import TextInput from "./TextInput";
+import ToggleSwitch from '../components/ToggleSwitch';
+import { useState } from "react";
+import { getUserData } from "./../lib/file";
+import Cookies from 'js-cookie';
 
 /**
  * 
@@ -15,7 +19,7 @@ export default function Modal(props) {
             <div 
                 className={`
                     fixed w-full h-full z-30 py-20 px-4 backdrop-blur-sm 
-                    shadow-md transition-all duration-500
+                    shadow-md transition-all duration-500 top-0 left-0
                     ${props.open ? "opacity-100" : "opacity-0 pointer-events-none"}
                     ${props.className}
                 `}
@@ -122,6 +126,145 @@ export function NotificationsModal(props) {
                             </div>
                     }
                 </div>
+            </Modal>
+        </>
+    )
+}
+
+export function SettingsModal(props) {
+    const email = Cookies.get("user");
+    const [userData, setUserData] = useState(getUserData(email));
+    const [username, setUsername] = useState(userData.username);
+    const [name, setName] = useState(userData.name);
+    const [dogs, setDogs] = useState(userData.dogs);
+    const [location, setLocation] = useState(userData.settings.location);
+    const [camera, setCamera] = useState(userData.settings.camera);
+    const [notification, setNotification] = useState(userData.settings.notification);
+
+    return (
+        <>
+            <Modal
+                onClose={props.onClose}
+                open={props.open}
+                title="Settings"
+            >
+                <div className="flex flex-col space-y-2 py-2">
+                    {
+                        props.userData !== undefined ? 
+                        <div>
+                            <div className="pb-1 text-xl font-bold">General</div>
+                            <TextInput
+                                title="Username:"
+                                onChange={(e) => {
+                                    props.userData.username = e.target.value
+                                    setUsername(e.target.value)
+                                }}
+                                text={username}
+                            />
+                            <TextInput
+                                title="Name:"
+                                onChange={(e) => {
+                                    props.userData.name = e.target.value
+                                    setName(e.target.value)
+                                }}
+                                text={name}
+                            />
+                            {props.userData.dogs.map((dog, index) => (
+                                <>
+                                    <TextInput
+                                        title="Dog's name:"
+                                        onChange={(e) => {
+                                            dog.name = e.target.value
+                                            setDogs(e.target.value)
+                                        }}
+                                        text={dog.name}
+                                    />
+                                </>
+                            ))}
+                            <div className="pt-6 pb-1 text-xl font-bold">Permissions</div>
+                            <div className='flex flex-row space-x-2'>
+                                <span>Enable geolocation services</span>
+                                <ToggleSwitch 
+                                    checked={location}
+                                    onChange={(e) => {
+                                        setLocation(e.target.checked)
+                                    }}
+                                />
+                            </div>
+                            <div className='flex flex-row space-x-2'>
+                                <span>Enable camera service</span>
+                                <ToggleSwitch 
+                                    checked={camera}
+                                    onChange={(e) => {
+                                        setCamera(e.target.checked)
+                                    }}
+                                />
+                            </div>
+                            <div className='flex flex-row space-x-2'>
+                                <span>Enable notifications</span>
+                                <ToggleSwitch 
+                                    checked={notification}
+                                    onChange={(e) => {
+                                        setNotification(e.target.checked)
+                                    }}
+                                />                           
+                            </div>
+                        </div>
+                        : <div>No settings!</div>
+                    }
+                </div>
+            </Modal>
+        </>
+    )
+}
+
+export function ForgotPasswordModal(props) {
+    const [emailSent, setEmailSent] = useState(false);
+
+    return (
+        <>
+            <Modal
+                onClose={props.onClose}
+                open={props.open}
+                title="Forgot password"
+            >
+                <div className="flex flex-col space-y-2 py-2">
+                    {
+                        !emailSent ? 
+                        <div className="flex flex-col space-y-2 py-2">
+                            <div>We'll send you an email with a reset password link.</div>
+                            <TextInput
+                                title="What is your account's email?"
+                                type="text"
+                                id="email"
+                                onChange={(e) => {
+                                    setFormData({
+                                        ...formData,
+                                        "email": e.target.value,
+                                    });
+                                }}
+                                placeholder="johnDoe@gmail.com"
+                            />
+                            <div className="flex flex-col space-y-4 py-2 pt-7">
+                                <AcceptButton
+                                    onClick={() => {
+                                        setEmailSent(true)
+                                    }}
+                                >
+                                    Send reset link
+                                </AcceptButton>
+                                <OptionalButton
+                                    onClick={props.onClose}
+                                >
+                                    Cancel
+                                </OptionalButton>
+                            </div>
+                            
+                        </div>
+                        : <div>Email successfully sent!</div>
+                    }
+                </div>
+               
             </Modal>
         </>
     )
