@@ -17,6 +17,10 @@ export default function WalkTracker(props) {
     const [photoIndex, setPhotoIndex] = useState(0);
     const [photosTaken, setPhotosTaken] = useState(0);
 
+    useEffect(() => {
+        localStorage.setItem("photos_taken", 0);
+    }, []);
+
     return (
         <>
             <Modal

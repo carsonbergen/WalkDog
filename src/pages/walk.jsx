@@ -24,7 +24,6 @@ export default function WalkPage() {
     const [photos, setPhotos] = useState([]);
     const [achievements, setAchievements] = useState([]);
 
-
     return (
         <>
             <Modal
@@ -74,7 +73,7 @@ export default function WalkPage() {
                             {/* Display photos taken. */}
                             <div className="carousel h-full w-full max-h-[82%] rounded-box px-4 space-x-1 bg-secondary border-2 border-secondary flex justify-start items-center">
                                 {
-                                    userData.walks[0].photos.map((photo_src) => (
+                                    userData.walks[0].photos.slice(0, localStorage.getItem("photos_taken")).map((photo_src) => (
                                         <div className="carousel-item w-full h-full object-cover object-center">
                                             <img src={`${photo_src}`} />
                                         </div>
