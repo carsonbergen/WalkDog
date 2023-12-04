@@ -3,7 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import Login from './pages/login';
 import SignUp from './pages/sign-up';
 import Feed from './pages/feed';
-import Home from './pages/home';
+import Walk from './pages/walk';
 import NotFound from './pages/not-found';
 import MyProfile from './pages/my-profile';
 import Page from './components/Page';
@@ -18,7 +18,7 @@ import PhotoPreview from './pages/photo-preview';
 function App() {
   return (
     <>
-      <div className='p-4 font-nunito'>
+      <div className='font-nunito'>
         <Routes>
           <Route 
             path='/' 
@@ -45,11 +45,9 @@ function App() {
             } 
           />
           <Route 
-            path='home' 
+            path='walk' 
             element={
-              <Page title="Camera">
-                <Home />
-              </Page>
+              <Walk />
             } 
           />
           <Route

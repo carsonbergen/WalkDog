@@ -21,13 +21,16 @@ export default function Modal(props) {
                     fixed w-full h-full z-30 py-20 px-4 backdrop-blur-sm 
                     shadow-md transition-all duration-500 top-0 left-0
                     ${props.open ? "opacity-100" : "opacity-0 pointer-events-none"}
+                    ${props.className}
                 `}
             >
                 <div 
                     className={`
-                        flex flex-col w-full h-full z-[9999] bg-primary border-secondary border-2 
+                        flex flex-col z-[9999] bg-primary border-secondary border-2 
                         rounded-md p-2 overflow-auto container
                         ${props.open ? "animate-jump-in" : "animate-jump-out pointer-events-none"}
+                        ${props.height} ${props.width}
+                        ${props.background}
                     `}
                 >
                     <div className="flex flex-row justify-between items-center">
@@ -66,6 +69,8 @@ export function FriendSearchModal(props) {
                 onClose={props.onClose}
                 open={props.open}
                 title="Search for friends"
+                height="h-full"
+                width="w-full"
             >
                 <TextInput
                     title="Enter your friend's username below"
@@ -101,6 +106,8 @@ export function NotificationsModal(props) {
                 onClose={props.onClose}
                 open={props.open}
                 title="Notifications"
+                height="h-full"
+                width="w-full"
             >
                 <div className="flex flex-col space-y-2 py-2">
                     {
