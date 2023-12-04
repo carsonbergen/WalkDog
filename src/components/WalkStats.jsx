@@ -2,13 +2,16 @@ import { SmileyXEyes, SmileyBlank, SmileySad, SmileyMeh, Smiley } from "phosphor
 import ProgressBar from "./ProgressBar";
 
 export default function WalkStats(props) {
+
+    localStorage.setItem("total_distance_walked", props.distance);
+
     return (
         <>
             <div className="flex flex-col items-start justify-center bg-primary text-md font-semibold w-full h-16 p-2 rounded-lg border-2 border-secondary">
                 <div className="flex flex-row w-full h-full space-x-2 justify-stretch">
                     <ProgressBar percentage={(props.distance / 5) * 100} goal={props.goal} distance={props.distance} />
                     <div className="w-full h-full justify-self-end">
-                        {props.distance.toFixed(2)} km out of 5 km
+                        {props.distance} km out of 5 km
                     </div>
                 </div>
                 <div>

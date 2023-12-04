@@ -15,7 +15,9 @@ export default function Map(props) {
 
     const [routePoints, setRoutePoints] = useState(userData.walks[0].points)
     const [currentPoint, setCurrentPoint] = useState(0);
-    const [center, setCenter] = useState(routePoints[currentPoint]);
+    let pointsPictureTaken = [];
+
+    const center = routePoints[currentPoint];
 
     const mapPinIcon = new L.Icon({
         iconUrl: '/resources/map-pin-fill.svg',
@@ -25,7 +27,12 @@ export default function Map(props) {
     const mapStartIcon = new L.Icon({
         iconUrl: '/resources/flag-fill.svg',
         iconSize: [32, 32],
-    })
+    });
+
+    const cameraIcon = new L.Icon({
+        iconUrl: '/resources/camera-fill.svg',
+        iconSize: [32, 32],
+    });
 
     useEffect(() => {
         let animationFrame;
@@ -60,21 +67,22 @@ export default function Map(props) {
             <div className='flex flex-col h-full w-full space-y-2'>
                 <WalkStats
                     mood={0}
-                    distance={                       
+                    distance={
                         haversine(
                             {
-                                latitude: routePoints[0][0], 
+                                latitude: routePoints[0][0],
                                 longitude: routePoints[0][1]
                             },
                             {
-                                latitude: routePoints[currentPoint] !== undefined ? routePoints[currentPoint][0]  : routePoints[routePoints.length - 1][0], 
+                                latitude: routePoints[currentPoint] !== undefined ? routePoints[currentPoint][0] : routePoints[routePoints.length - 1][0],
                                 longitude: routePoints[currentPoint] !== undefined ? routePoints[currentPoint][1] : routePoints[routePoints.length - 1][1]
                             },
                             {
                                 unit: 'km'
                             }
-                        )
+                        ).toFixed(2)
                     }
+                    photosTaken={props.photosTaken}
                     goal={5}
                     walkData={userData.walks[0]}
                     className='z-50'
@@ -103,6 +111,11 @@ export default function Map(props) {
                                 <Marker position={routePoints[0]} icon={mapStartIcon} />
                                 :
                                 null
+                        }
+                        {
+                            pointsPictureTaken.map((point) => {
+                                <Marker position={point} icon={cameraIcon} />
+                            })
                         }
                     </MapContainer>
                 </div>

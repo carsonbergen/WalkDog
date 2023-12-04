@@ -69,7 +69,7 @@ export default function WalkPage() {
                                 Congratulations!
                             </span>
                             <div>
-                                You walked {userData.walks[0].total_distance_walked} km with {userData.dogs[0].name} and took {userData.walks[0].photos_taken} photos!
+                                You walked {localStorage.getItem("total_distance_walked")} km with {userData.dogs[0].name} and took {localStorage.getItem("photos_taken")} photos!
                             </div>
                             {/* Display photos taken. */}
                             <div className="carousel h-full w-full max-h-[82%] rounded-box px-4 space-x-1 bg-secondary border-2 border-secondary flex justify-start items-center">

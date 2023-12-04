@@ -14,9 +14,8 @@ export default function WalkTracker(props) {
 
     const [cameraModalOpen, setCameraModalOpen] = useState(false);
 
-    const [walkStarted, setWalkStarted] = useState(true);
     const [photoIndex, setPhotoIndex] = useState(0);
-
+    const [photosTaken, setPhotosTaken] = useState(0);
 
     return (
         <>
@@ -34,10 +33,12 @@ export default function WalkTracker(props) {
                     </div>
                     <AcceptButton
                         onClick={() => {
-                            setPhotoIndex(photoIndex + 1);
-                            if (photoIndex > userData.walks[0].photos.length - 2) {
-                                setPhotoIndex(userData.walks[0].photos.length - 1);
+                            setPhotoIndex(photoIndex+1);
+                            setPhotosTaken(photoIndex+1);
+                            if (photoIndex > userData.walks[0].photos.length-2) {
+                                setPhotoIndex(userData.walks[0].photos.length-1);
                             }
+                            localStorage.setItem("photos_taken", photoIndex+1);
                         }}
                     >
                         Take photo
@@ -48,12 +49,11 @@ export default function WalkTracker(props) {
                 <div className='absolute z-20 right-6 bottom-[10.5rem]'>
                     <CameraButton
                         onClick={() => {
-
                             setCameraModalOpen(true);
                         }}
                     />
                 </div>
-                <Map paused={props.walkInProgress} />
+                <Map paused={props.walkInProgress} photosTaken={photosTaken} />
 
                 {/* Start, pause, and etc. buttons */}
                 <div className='flex flex-row py-2 space-x-2'>
