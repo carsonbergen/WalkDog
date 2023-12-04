@@ -18,7 +18,7 @@ export default function FeedItem(props) {
           />
         )}
         <div className="font-nunito flex flex-col justify-start items-start space-y-1 px-2 py-1 w-full">
-          <div className="flex flex-wrap items-baseline">
+          <div className="flex flex-wrap items-baseline space-y-1">
             <UserButton to={props.profileLink}>{props.author}</UserButton>
             <span className="mx-1">walked</span>
             <DogSpan>{props.dog}</DogSpan>
