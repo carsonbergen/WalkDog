@@ -10,6 +10,7 @@ import { getUserData } from "../lib/file";
 export default function WalkTracker(props) {
     const email = Cookies.get("user");
     const [userData, setUserData] = useState(getUserData(email));
+    const [walkStarted, setWalkStarted] = useState(true);
 
     return (
         <>
@@ -25,7 +26,7 @@ export default function WalkTracker(props) {
                 <div className='absolute z-20 right-6 bottom-[10.5rem]'>
                     <CameraButton progress={props.progress}></CameraButton>
                 </div>
-                <Map />
+                <Map walkInProgress={!props.walkInProgress}/>
                 
                 {/* Start, pause, and etc. buttons */}
                 <div className='flex flex-row py-2 space-x-2'>
