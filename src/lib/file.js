@@ -14,11 +14,11 @@ export const getResults = (search) => {
     }
   }
   return results;
-}
+};
 
 export const getUsers = () => {
   return users;
-}
+};
 
 export const getUserData = (email) => {
   if (email === undefined || email === null) {
@@ -60,20 +60,44 @@ export const addPhotosToUserStats = (email, photosAdded) => {
   const val = parseInt(photosAdded);
   newUserData.stats.photos_shared = newUserData.stats.photos_shared + val;
   setUserData(newUserData);
-}
+};
 
 export const addDistanceToUserStats = (email, distanceAdded) => {
   const newUserData = users[email];
   const val = parseFloat(distanceAdded);
-  newUserData.stats.total_distance_walked = newUserData.stats.total_distance_walked + val;
+  newUserData.stats.total_distance_walked =
+    newUserData.stats.total_distance_walked + val;
   setUserData(newUserData);
-}
+};
 
 export const addFriendRequestSent = (email, requestSentTo) => {
   const newUserData = users[email];
   newUserData.friend_requests.push(requestSentTo);
   setUserData(email, newUserData);
-}
+};
+
+export const setPostedLikedStatus = (email, id, status) => {
+  const newUserData = users[email];
+  for (let i = 0; i < newUserData.posts.length; i++) {
+    let post = newUserData.posts[i];
+    if (post.id === id) {
+      newUserData.posts[i].liked = status;
+    }
+  }
+  console.log(newUserData.posts)
+  setUserData(email, newUserData);
+};
+
+export const getPostedLikedStatus = (email, id) => {
+  const userData = users[email];
+  for (let i = 0; i < userData.posts.length; i++) {
+    let post = userData.posts[i];
+    if (post.id === id) {
+      return userData.posts[i].liked;
+    }
+  }
+  return false;
+};
 
 export const logInUser = (userData) => {
   console.log(

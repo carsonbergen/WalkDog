@@ -32,7 +32,7 @@ const results = [
 
 export default function Topbar() {
     const email = Cookies.get("user");
-    const [userData, setUserData] = useState(getUserData(email));
+    const userData = getUserData(email);
 
     const [searchOpen, setSearchOpen] = useState(false);
     const [notificationsOpen, setNotificationsOpen] = useState(false);

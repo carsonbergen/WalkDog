@@ -1,11 +1,21 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { UserButton } from "./Button";
 import Image from "./Image";
 import { DateSpan, DistanceSpan, DogSpan, LocationSpan } from "./Misc/InlineComponents";
 import { Heart } from 'phosphor-react';
+import { getPostedLikedStatus, setPostedLikedStatus } from '../lib/file';
+import Cookies from 'js-cookie';
+import { getUserData } from '../lib/file';
 
 export default function FeedItem(props) {
+  const email = Cookies.get("user");
+  const userData = getUserData(email);
+
   const [liked, setLiked] = useState(false);
+
+  useEffect(() => {
+    setLiked(getPostedLikedStatus(email, props.id));
+  }, [userData]);
 
   return (
     <>
@@ -33,6 +43,7 @@ export default function FeedItem(props) {
             onClick={() => {
               setLiked(!liked);
               // props.onLike(props.id);
+              setPostedLikedStatus(email, props.id, !liked);
             }}
             className={`like-button ml-auto ${liked ? 'liked' : ''}`}
           >

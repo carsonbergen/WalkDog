@@ -30,7 +30,8 @@
         "location": "River Park",
         "content": "Alex walked his dog at 10:37 AM today!",
         "imageSrc": "/images/alex.jpeg",
-        "profileLink": "/profile/alexgalindo"
+        "profileLink": "/profile/alexgalindo",
+        "liked": false
       }
     ],
     "achievements": [2],
