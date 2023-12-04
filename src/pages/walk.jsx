@@ -5,6 +5,8 @@ import Map from "../components/Map";
 import Cookies from "js-cookie";
 import { getUserData } from "../lib/file";
 import Modal from "../components/Modal";
+import Achievement from "../components/Achievement";
+import { checkIfAchievementEarned, getAchievement } from "../lib/achievementChecker";
 
 export default function WalkPage() {
     const minDistanceNeeded = 5;
@@ -63,7 +65,7 @@ export default function WalkPage() {
                     progress={(distanceTraveled / minDistanceNeeded) * 100}
                 />) : walkEnded ? (
                     <>
-                        <div className="absolute overflow-hidden h-screen w-full justify-center items-center pt-20 pb-40 px-4 space-y-2">
+                        <div className="absolute overflow-hidden flex flex-col h-screen w-full justify-center items-center pt-20 pb-40 px-4 space-y-2">
                             <span className="text-3xl font-black">
                                 Congratulations!
                             </span>
@@ -71,17 +73,35 @@ export default function WalkPage() {
                                 You walked {localStorage.getItem("total_distance_walked")} km with {userData.dogs[0].name} and took {localStorage.getItem("photos_taken")} photos!
                             </div>
                             {/* Display photos taken. */}
-                            <div className="carousel h-full w-full max-h-[82%] rounded-box px-4 space-x-1 bg-secondary border-2 border-secondary flex justify-start items-center">
+                            <div className="carousel h-screen w-full max-h-[82%] rounded-box px-4 space-x-1 bg-secondary border-2 border-secondary flex justify-start items-center">
                                 {
                                     userData.walks[0].photos.slice(0, localStorage.getItem("photos_taken")).map((photo_src) => (
-                                        <div className="carousel-item w-full h-full object-cover object-center">
+                                        <div className="carousel-item w-full h-auto object-cover object-center">
                                             <img src={`${photo_src}`} />
                                         </div>
                                     ))
                                 }
                             </div>
-                            <div>
+                            <div className="text-lg font-black">
+                                Achievements earned
+                            </div>
+                            <div className="carousel h-full w-full">
                                 {/* Display achievements earned. */}
+                                {
+                                    userData.walks[0].possible_achievements.map((achievementId) => (
+                                        <div className="m-1 w-fit h-fit carousel-item">
+                                            {
+                                                checkIfAchievementEarned(achievementId) ?
+                                                    <Achievement
+                                                        title={getAchievement(achievementId).title}
+                                                        description={getAchievement(achievementId).description}
+                                                    />
+                                                    :
+                                                    null
+                                            }
+                                        </div>
+                                    ))
+                                }
                             </div>
                             <AcceptButton
                                 className="flex flex-row items-center justify-center w-full h-12"
@@ -97,7 +117,7 @@ export default function WalkPage() {
                 ) : (
                 <>
                     <div className="h-screen w-full justify-center items-center pt-20 pb-40 px-4 space-y-2">
-                        <Map paused={true}/>
+                        <Map paused={true} />
                         <AcceptButton
                             className="flex flex-row items-center justify-center w-full h-12"
                             onClick={() => { setWalkedStarted(true) }}

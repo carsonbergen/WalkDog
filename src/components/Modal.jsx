@@ -30,6 +30,7 @@ export default function Modal(props) {
                         rounded-md p-2 overflow-auto container
                         ${props.open ? "animate-jump-in" : "animate-jump-out pointer-events-none"}
                         ${props.height} ${props.width}
+                        ${props.background}
                     `}
                 >
                     <div className="flex flex-row justify-between items-center">

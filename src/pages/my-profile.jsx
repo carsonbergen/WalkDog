@@ -7,6 +7,7 @@ import { SettingsModal } from '../components/Modal';
 import { useState } from "react";
 import { getUserData } from "./../lib/file";
 import Cookies from 'js-cookie';
+import { getAchievement } from '../lib/achievementChecker';
 
 const settings = 
     {
@@ -94,15 +95,16 @@ export default function MyProfile() {
                 />
             </div>
             <div className="section-header font-bold">My Achievements</div>
-            <div className='flex flex-row space-x-2'>
-                {userData.achievements.map((achievement) => (
+            <div className='grid grid-cols-2'>
+                {userData.achievements.map((achievementId) => (
                     <>
+                    <div className='p-1 w-full h-full'>
                         <Achievement 
-                            icon={achievement.icon}
-                            title={achievement.title}
-                            description={achievement.description}
-                            dateAchieved={achievement.date_achieved}
+                            title={getAchievement(achievementId).title}
+                            description={getAchievement(achievementId).description}
+                            dateAchieved={getAchievement(achievementId).date_achieved}
                         />
+                        </div>
                     </>
                 ))}
             </div>

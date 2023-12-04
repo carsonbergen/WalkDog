@@ -1,0 +1,32 @@
+[
+  {
+    "title": "Beginner Photographer I",
+    "description": "Take a photo on a walk!",
+    "date_achieved": "2023-12-04",
+    "icon": "PawPrint",
+    "requirement": {
+      "type": "photos_taken_in_a_walk",
+      "value": 1
+    }
+  },
+  {
+    "title": "Beginner Photographer II",
+    "description": "We see you are stepping up your photography game! 😏",
+    "date_achieved": "2023-12-04",
+    "icon": "PawPrint",
+    "requirement": {
+      "type": "photos_taken_in_a_walk",
+      "value": 2
+    }
+  },
+  {
+    "title": "Pawistively Great!",
+    "description": "Walk your dog 5km in a single walk.",
+    "date_achieved": "2023-11-24",
+    "icon": "PawPrint",
+    "requirement": {
+      "type": "distance_walked",
+      "value": 5
+    }
+  }
+]

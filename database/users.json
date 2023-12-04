@@ -33,14 +33,7 @@
         "profileLink": "/profile/alexgalindo"
       }
     ],
-    "achievements": [
-      {
-        "title": "Pawistively Great!",
-        "description": "Walk your dog 5km.",
-        "date_achieved": "2023-11-24",
-        "icon": "PawPrint"
-      }
-    ],
+    "achievements": [2],
     "notifications": [
       {
         "id": 2,
@@ -81,7 +74,8 @@
           [51.0788, -114.1372],
           [51.079, -114.137],
           [51.079, -114.1368]
-        ]
+        ],
+        "possible_achievements": [0,1]
       }
     ],
     "settings": {
