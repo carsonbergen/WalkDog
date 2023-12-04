@@ -29,4 +29,16 @@
     /* margin-top: 10px; */
     /* Add space between the image and content */
   }
+
+  .like-button {
+    font-size: 1rem; 
+    border: none;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+
+  .like-button.liked {
+    color: none;
+  }
+
 }
