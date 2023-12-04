@@ -10,12 +10,9 @@ export default function SearchResult(props) {
     const email = Cookies.get("user");
     const userData= getUserData(email);
 
-    console.log(userData.friend_requests.includes(props.email));
-
     const [requestSent, setRequestSent] = useState(false);
 
     useEffect(() => {
-        console.log(userData);
         if (userData.friend_requests.includes(props.email)) {
             setRequestSent(true);
         }

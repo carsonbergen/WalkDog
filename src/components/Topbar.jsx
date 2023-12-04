@@ -6,30 +6,6 @@ import { PawPrint } from "phosphor-react";
 import Cookies from "js-cookie";
 import { getUserData } from "../lib/file";
 
-const results = [
-    {
-        id: 1,
-        name: "Carson",
-        username: "slipperychicken14",
-        profilePicSrc: "/images/carson.jpeg",
-        profileLink: "/profile/bergencarson"
-    },
-    {
-        id: 2,
-        name: "Alex",
-        username: "riskyrat23",
-        profilePicSrc: "/images/alex.jpeg",
-        profileLink: "/profile/alexgalindo"
-    },
-    {
-        id: 3,
-        name: "Nusyba",
-        username: "alfa",
-        profilePicSrc: "/images/nusyba.jpg",
-        profileLink: "/profile/nusyba"
-    }
-]
-
 export default function Topbar() {
     const email = Cookies.get("user");
     const userData = getUserData(email);
@@ -45,7 +21,6 @@ export default function Topbar() {
                     setSearchOpen(false);
                 }}
                 open={searchOpen}
-                results={results}
             />
             <NotificationsModal
                 onClose={() => {
