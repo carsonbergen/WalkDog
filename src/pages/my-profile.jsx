@@ -7,7 +7,7 @@ import { SettingsModal } from '../components/Modal';
 import { useState } from "react";
 import { getUserData } from "./../lib/file";
 import Cookies from 'js-cookie';
-import { Fire } from 'phosphor-react';
+import { Fire, PersonSimpleWalk, Camera } from 'phosphor-react';
 
 const settings = 
     {
@@ -74,7 +74,7 @@ export default function MyProfile() {
                 <div className="box-container">
                     <div className="flex">
                         <Fire size={30} color="#ff9f00" />
-                        <div className="streak-info">
+                        <div className="">
                             <StatHighlight
                                 value={userData ? userData.dogs[0].times_walked : -1}
                                 className="bg-orange"
@@ -87,10 +87,13 @@ export default function MyProfile() {
                     </span>
                 </div>
                 <div className="box-container">
-                    <StatHighlight
-                        value={userData ? userData.stats.photos_shared : -1}
-                        className="bg-orange"
-                    />
+                    <div className="flex">
+                        <Camera size={30} color="#ff9f00" />
+                        <StatHighlight
+                            value={userData ? userData.stats.photos_shared : -1}
+                            className="bg-orange"
+                        />
+                    </div>
                     Photos shared!
                 </div>
             </div>
@@ -98,10 +101,11 @@ export default function MyProfile() {
             {/* Line 2 of Statistics*/}
             <div className="flex flex-wrap mt-2">
                 <div className="box-container flex">
+                    <PersonSimpleWalk size={30} color="#ff9f00" />
                     You have walked      
                     <StatHighlight
                         value={userData ? userData.stats.total_distance_walked : -1}
-                        className="bg-orange"
+                        className="bg-orange mb-1"
                     />
                     km!
                 </div>
