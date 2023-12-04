@@ -24,7 +24,6 @@ export default function WalkPage() {
     const [cancelWalkDialogOpen, setCancelWalkDialogOpen] = useState(false);
 
     useEffect(() => {
-        console.log(walkEnded);
         if (walkEnded === true && statsAdded !== true) {
             addDistanceToUserStats(email, localStorage.getItem("total_distance_walked"));
             addPhotosToUserStats(email, localStorage.getItem("photos_taken"));
