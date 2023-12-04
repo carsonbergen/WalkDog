@@ -6,28 +6,55 @@ import WalkStats from '../components/WalkStats';
 import CameraButton from './CameraButton';
 import Cookies from "js-cookie";
 import { getUserData } from "../lib/file";
+import Modal from './Modal';
 
 export default function WalkTracker(props) {
     const email = Cookies.get("user");
-    const [userData, setUserData] = useState(getUserData(email));
+    const userData = getUserData(email);
+
+    const [cameraModalOpen, setCameraModalOpen] = useState(false);
+
     const [walkStarted, setWalkStarted] = useState(true);
+    const [photoIndex, setPhotoIndex] = useState(0);
+
 
     return (
         <>
+            <Modal
+                open={cameraModalOpen}
+                onClose={() => { setCameraModalOpen(false) }}
+                height={"h-full"}
+                width={"w-full"}
+            >
+                <div className='flex flex-col space-y-2'>
+                    <div className='w-full h-full max-w-[100%] max-h-[100%] min-w-[100%] min-h-[100%] overflow-clip border-2 border-secondary rounded-md'>
+                        <img
+                            src={`${userData.walks[0].photos[photoIndex]}`}
+                        />
+                    </div>
+                    <AcceptButton
+                        onClick={() => {
+                            setPhotoIndex(photoIndex + 1);
+                            if (photoIndex > userData.walks[0].photos.length - 2) {
+                                setPhotoIndex(userData.walks[0].photos.length - 1);
+                            }
+                        }}
+                    >
+                        Take photo
+                    </AcceptButton>
+                </div>
+            </Modal>
             <div className={`absolute overflow-hidden h-screen w-full justify-center items-center pt-20 pb-40 px-4`}>
-                <div className='absolute z-20 right-4'>
-                    <WalkStats
-                        mood={0}
-                        distance={props.distanceTraveled}
-                        goal={5}
-                        walkData={userData.walks[0]}
+                <div className='absolute z-20 right-6 bottom-[10.5rem]'>
+                    <CameraButton
+                        onClick={() => {
+
+                            setCameraModalOpen(true);
+                        }}
                     />
                 </div>
-                <div className='absolute z-20 right-6 bottom-[10.5rem]'>
-                    <CameraButton progress={props.progress}></CameraButton>
-                </div>
-                <Map paused={props.walkInProgress}/>
-                
+                <Map paused={props.walkInProgress} />
+
                 {/* Start, pause, and etc. buttons */}
                 <div className='flex flex-row py-2 space-x-2'>
                     {props.walkInProgress ? (
@@ -67,7 +94,6 @@ export default function WalkTracker(props) {
                                 weight='fill'
                             />
                         </OptionalButton>
-
                     )
                     }
                 </div>

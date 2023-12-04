@@ -4,13 +4,14 @@ import 'leaflet/dist/leaflet.css';
 import Cookies from 'js-cookie';
 import { getUserData } from '../lib/file';
 import L from "leaflet";
-import { useSpring, animated } from '@react-spring/web';
+import WalkStats from './WalkStats';
 
 export default function Map(props) {
     const mapRef = useRef(null);
 
     const email = Cookies.get("user");
-    const [userData, setUserData] = useState(getUserData(email));
+    const userData = getUserData(email);
+    
     const [routePoints, setRoutePoints] = useState(userData.walks[0].points)
     const [currentPoint, setCurrentPoint] = useState(0);
     const [center, setCenter] = useState(routePoints[currentPoint]);
@@ -55,31 +56,41 @@ export default function Map(props) {
 
     return (
         <>
-            <div className="flex justify-center items-end h-full w-full border-2 border-secondary rounded-lg overflow-clip z-0">
-                <MapContainer
-                    ref={mapRef}
-                    center={center}
-                    zoom={20}
-                    style={{ width: '100vw', height: '100vh' }}
-                    className='z-0'
-                >
-                    <TileLayer
-                        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                    />
-                    <Polyline positions={routePoints.slice(0, currentPoint + 1)} color='#BDB2FF' weight={6} />
-                    <Marker position={routePoints[currentPoint] ?? routePoints[routePoints.length - 1]} icon={mapPinIcon}>
-                        <Popup>
-                            This is you!
-                        </Popup>
-                    </Marker>
-                    {
-                        routePoints[currentPoint] !== routePoints[0] ?
-                            <Marker position={routePoints[0]} icon={mapStartIcon} />
-                            :
-                            null
-                    }
-                </MapContainer>
+            <div className='flex flex-col h-full w-full space-y-2'>
+                <WalkStats
+                    mood={0}
+                    distance={props.distanceTraveled}
+                    goal={5}
+                    walkData={userData.walks[0]}
+                    className='z-50'
+                />
+                <div className="flex justify-center items-end h-full w-full border-2 border-secondary rounded-lg overflow-clip z-0">
+                    <MapContainer
+                        ref={mapRef}
+                        center={center}
+                        zoom={20}
+                        style={{ width: '100vw', height: '100vh' }}
+                        className='z-0'
+                    >
+
+                        <TileLayer
+                            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                        />
+                        <Polyline positions={routePoints.slice(0, currentPoint + 1)} color='#BDB2FF' weight={6} />
+                        <Marker position={routePoints[currentPoint] ?? routePoints[routePoints.length - 1]} icon={mapPinIcon}>
+                            <Popup>
+                                This is you!
+                            </Popup>
+                        </Marker>
+                        {
+                            routePoints[currentPoint] !== routePoints[0] ?
+                                <Marker position={routePoints[0]} icon={mapStartIcon} />
+                                :
+                                null
+                        }
+                    </MapContainer>
+                </div>
             </div>
         </>
     );
