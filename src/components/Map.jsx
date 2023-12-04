@@ -5,13 +5,14 @@ import Cookies from 'js-cookie';
 import { getUserData } from '../lib/file';
 import L from "leaflet";
 import WalkStats from './WalkStats';
+import haversine from 'haversine';
 
 export default function Map(props) {
     const mapRef = useRef(null);
 
     const email = Cookies.get("user");
     const userData = getUserData(email);
-    
+
     const [routePoints, setRoutePoints] = useState(userData.walks[0].points)
     const [currentPoint, setCurrentPoint] = useState(0);
     const [center, setCenter] = useState(routePoints[currentPoint]);
@@ -59,7 +60,21 @@ export default function Map(props) {
             <div className='flex flex-col h-full w-full space-y-2'>
                 <WalkStats
                     mood={0}
-                    distance={props.distanceTraveled}
+                    distance={                       
+                        haversine(
+                            {
+                                latitude: routePoints[0][0], 
+                                longitude: routePoints[0][1]
+                            },
+                            {
+                                latitude: routePoints[currentPoint] !== undefined ? routePoints[currentPoint][0]  : routePoints[routePoints.length - 1][0], 
+                                longitude: routePoints[currentPoint] !== undefined ? routePoints[currentPoint][1] : routePoints[routePoints.length - 1][1]
+                            },
+                            {
+                                unit: 'km'
+                            }
+                        )
+                    }
                     goal={5}
                     walkData={userData.walks[0]}
                     className='z-50'

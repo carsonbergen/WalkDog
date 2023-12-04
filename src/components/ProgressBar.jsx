@@ -16,16 +16,13 @@ export default function ProgressBar(props) {
 
     return (
         <>
-            <div className="flex flex-row w-full items-center justify-start space-x-2">
-                <div className="flex w-[50%] rounded-full bg-primary border-2 border-secondary h-4">
+            <div className="flex flex-row w-full h-full items-center justify-start space-x-2">
+                <div className="flex w-[100%] rounded-full bg-primary border-2 border-secondary h-4">
                     {/* Inner bar */}
                     <div
                         style={{ width: `${props.percentage}%` }}
                         className={`rounded-full bg-${colour} transition-all`}
                     />
-                </div>
-                <div>
-                    {props.goal} km
                 </div>
             </div>
         </>
