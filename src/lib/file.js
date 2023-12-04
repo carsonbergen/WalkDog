@@ -69,6 +69,12 @@ export const addDistanceToUserStats = (email, distanceAdded) => {
   setUserData(newUserData);
 }
 
+export const addFriendRequestSent = (email, requestSentTo) => {
+  const newUserData = users[email];
+  newUserData.friend_requests.push(requestSentTo);
+  setUserData(email, newUserData);
+}
+
 export const logInUser = (userData) => {
   console.log(
     "If this is undefined then re-enter in the information:",

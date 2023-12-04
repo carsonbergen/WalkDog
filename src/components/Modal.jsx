@@ -65,15 +65,10 @@ export default function Modal(props) {
 export function FriendSearchModal(props) {
     const [results, setResults] = useState([]);
     const [search, setSearch] = useState("");
-    const [users, setUsers] = useState([]);
 
     useEffect(() => {
         setResults(getResults(search));
     }, [search]);
-
-    useEffect(() => {
-        setUsers(getUsers());
-    }, []);
 
     return (
         <>
@@ -99,8 +94,8 @@ export function FriendSearchModal(props) {
                                     key={getUserData(result).id}
                                     name={getUserData(result).name}
                                     username={getUserData(result).username}
-                                    profilePicSrc={getUserData(result).profilePicSrc}
-                                    profileLink={getUserData(result).profileLink}
+                                    profilePicSrc={getUserData(result).avatar_src}
+                                    email={getUserData(result).email}
                                 />
                             ))
                             :
