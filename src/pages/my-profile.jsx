@@ -8,14 +8,6 @@ import { useState } from "react";
 import { getUserData } from "./../lib/file";
 import Cookies from 'js-cookie';
 import { getAchievement } from '../lib/achievementChecker';
-
-const settings = 
-    {
-        id: 1,
-        name: "Carson",
-        username: "slipperychicken14",
-        dog: "Juno"
-    }
     
 export default function MyProfile() {
 
