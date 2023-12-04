@@ -1,8 +1,9 @@
 import { SmileyXEyes, SmileyBlank, SmileySad, SmileyMeh, Smiley } from "phosphor-react";
 import ProgressBar from "./ProgressBar";
+import { useEffect } from "react";
+import { addDistanceToUserStats } from "../lib/file";
 
 export default function WalkStats(props) {
-
     localStorage.setItem("total_distance_walked", props.distance);
 
     return (

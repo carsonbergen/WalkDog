@@ -3,7 +3,7 @@ import WalkTracker from "../components/WalkTracker";
 import { AcceptButton, RejectButton } from "../components/Button";
 import Map from "../components/Map";
 import Cookies from "js-cookie";
-import { getUserData } from "../lib/file";
+import { addDistanceToUserStats, addPhotosToUserStats, getUserData } from "../lib/file";
 import Modal from "../components/Modal";
 import Achievement from "../components/Achievement";
 import { checkIfAchievementEarned, getAchievement } from "../lib/achievementChecker";
@@ -16,15 +16,21 @@ export default function WalkPage() {
 
     const [walkStarted, setWalkedStarted] = useState(false);
     const [walkEnded, setWalkEnded] = useState(false);
+    const [statsAdded, setStatsAdded] = useState(false);
 
     const [distanceTraveled, setDistanceTraveled] = useState(0);
-    const [photosTaken, setPhotosTaken] = useState(0);
     const [walkInProgress, setWalkInProgress] = useState(false);
 
     const [cancelWalkDialogOpen, setCancelWalkDialogOpen] = useState(false);
 
-    const [photos, setPhotos] = useState([]);
-    const [achievements, setAchievements] = useState([]);
+    useEffect(() => {
+        console.log(walkEnded);
+        if (walkEnded === true && statsAdded !== true) {
+            addDistanceToUserStats(email, localStorage.getItem("total_distance_walked"));
+            addPhotosToUserStats(email, localStorage.getItem("photos_taken"));
+            setStatsAdded(true);
+        }
+    }, [walkEnded]);
 
     return (
         <>
@@ -73,7 +79,7 @@ export default function WalkPage() {
                                 You walked {localStorage.getItem("total_distance_walked")} km with {userData.dogs[0].name} and took {localStorage.getItem("photos_taken")} photos!
                             </div>
                             {/* Display photos taken. */}
-                            <div className="carousel h-screen w-full max-h-[82%] rounded-box px-4 space-x-1 bg-secondary border-2 border-secondary flex justify-start items-center">
+                            <div className="carousel w-full h-full min-h-max rounded-box px-4 space-x-1 bg-secondary border-2 border-secondary flex justify-start items-center">
                                 {
                                     userData.walks[0].photos.slice(0, localStorage.getItem("photos_taken")).map((photo_src) => (
                                         <div className="carousel-item w-full h-auto object-cover object-center">
@@ -85,11 +91,11 @@ export default function WalkPage() {
                             <div className="text-lg font-black">
                                 Achievements earned
                             </div>
-                            <div className="carousel h-full w-full">
+                            <div className="carousel h-full w-full min-h-min">
                                 {/* Display achievements earned. */}
                                 {
                                     userData.walks[0].possible_achievements.map((achievementId) => (
-                                        <div className="m-1 w-fit h-fit carousel-item">
+                                        <div className="m-1 w-fit h-fit carousel-item" key={achievementId}>
                                             {
                                                 checkIfAchievementEarned(achievementId) ?
                                                     <Achievement

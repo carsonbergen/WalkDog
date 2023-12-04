@@ -37,6 +37,20 @@ export const setUserData = (email, newUserData) => {
   users[email] = newUserData;
 };
 
+export const addPhotosToUserStats = (email, photosAdded) => {
+  const newUserData = users[email];
+  const val = parseInt(photosAdded);
+  newUserData.stats.photos_shared = newUserData.stats.photos_shared + val;
+  setUserData(newUserData);
+}
+
+export const addDistanceToUserStats = (email, distanceAdded) => {
+  const newUserData = users[email];
+  const val = parseFloat(distanceAdded);
+  newUserData.stats.total_distance_walked = newUserData.stats.total_distance_walked + val;
+  setUserData(newUserData);
+}
+
 export const logInUser = (userData) => {
   console.log(
     "If this is undefined then re-enter in the information:",
