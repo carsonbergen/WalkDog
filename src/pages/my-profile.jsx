@@ -7,6 +7,7 @@ import { SettingsModal } from '../components/Modal';
 import { useState } from "react";
 import { getUserData } from "./../lib/file";
 import Cookies from 'js-cookie';
+import { Fire } from 'phosphor-react';
 
 const settings = 
     {
@@ -58,40 +59,52 @@ export default function MyProfile() {
                         />
                 </div>                    
             </div>
-            <div className="font-bold text-base">Dog's name(s):</div>
+            <div className="section-header font-bold">Dog's name(s):</div>
                         {userData && (userData.dogs.map((dog) => (
                             <>
                                 <StatHighlight 
                                     value={dog.name}
-                                    className="bg-grey mb-1"
+                                    className="bg-grey mb-1 inline-flex"
                                 />
                             </>
                         )))}
-            <div className="section-header font-bold">My Stats</div>
-            <div className='flex flex-wrap mt-1'>
-                You've walked
-                <span className='mx-1 bg-cyan border-2 border-secondary rounded-md px-1 font-bold max-h-min'>
-                    {userData ? userData.dogs[0].name : "empty"}
-                </span>
-                <StatHighlight
-                    value={userData ? userData.dogs[0].times_walked : -1}
-                    className="bg-orange"
-                />
-                times in a row!
+            <div className="section-header font-bold">My Statistics</div>
+            {/* Line 1 of statistics */}
+            <div className="flex">
+                <div className="box-container">
+                    <div className="flex">
+                        <Fire size={30} color="#ff9f00" />
+                        <div className="streak-info">
+                            <StatHighlight
+                                value={userData ? userData.dogs[0].times_walked : -1}
+                                className="bg-orange"
+                            />
+                        </div>
+                    </div>
+                    Days of Walking 
+                    <span className='mx-1 bg-cyan border-2 border-secondary rounded-md px-1 font-bold max-h-min'>
+                        {userData ? userData.dogs[0].name : "empty"}
+                    </span>
+                </div>
+                <div className="box-container">
+                    <StatHighlight
+                        value={userData ? userData.stats.photos_shared : -1}
+                        className="bg-orange"
+                    />
+                    Photos shared!
+                </div>
             </div>
-            <div className='flex flex-wrap mt-1'>
-                Total distance walked (km):
-                <StatHighlight
-                    value={userData ? userData.stats.total_distance_walked : -1}
-                    className="bg-orange"
-                />
-            </div>
-            <div className='flex flex-wrap mt-1'>
-                Photos shared:
-                <StatHighlight
-                    value={userData ? userData.stats.photos_shared : -1}
-                    className="bg-orange"
-                />
+
+            {/* Line 2 of Statistics*/}
+            <div className="flex flex-wrap mt-2">
+                <div className="box-container flex">
+                    You have walked      
+                    <StatHighlight
+                        value={userData ? userData.stats.total_distance_walked : -1}
+                        className="bg-orange"
+                    />
+                    km!
+                </div>
             </div>
             <div className="section-header font-bold">My Achievements</div>
             <div className='flex flex-row space-x-2'>
