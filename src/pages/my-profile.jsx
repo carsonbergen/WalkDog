@@ -46,7 +46,7 @@ export default function MyProfile() {
                         />
                         <div className="font-bold text-base">Name:</div>
                         <StatHighlight
-                            value={userData ? useState.name : "empty"}
+                            value={userData ? userData.name : "empty"}
                             className="bg-grey"
                         />
                 </div>                    
