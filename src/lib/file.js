@@ -2,6 +2,24 @@ import Cookies from "js-cookie";
 
 import users from "./../../database/users.json";
 
+export const getResults = (search) => {
+  let isEmpty = /^\s*$/.test(search);
+
+  if (isEmpty) return [];
+
+  let results = [];
+  for (const key in users) {
+    if (users[key].username.includes(search)) {
+      results.push(key);
+    }
+  }
+  return results;
+}
+
+export const getUsers = () => {
+  return users;
+}
+
 export const getUserData = (email) => {
   if (email === undefined || email === null) {
     return {

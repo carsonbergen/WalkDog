@@ -3,8 +3,8 @@ import Notification from "./Notification";
 import SearchResult from "./SearchResult";
 import TextInput from "./TextInput";
 import ToggleSwitch from '../components/ToggleSwitch';
-import { useState } from "react";
-import { getUserData } from "./../lib/file";
+import { useEffect, useState } from "react";
+import { getResults, getUserData, getUsers } from "./../lib/file";
 import Cookies from 'js-cookie';
 
 /**
@@ -63,6 +63,18 @@ export default function Modal(props) {
 
 
 export function FriendSearchModal(props) {
+    const [results, setResults] = useState([]);
+    const [search, setSearch] = useState("");
+    const [users, setUsers] = useState([]);
+
+    useEffect(() => {
+        setResults(getResults(search));
+    }, [search]);
+
+    useEffect(() => {
+        setUsers(getUsers());
+    }, []);
+
     return (
         <>
             <Modal
@@ -73,19 +85,22 @@ export function FriendSearchModal(props) {
                 width="w-full"
             >
                 <TextInput
-                    title="Enter your friend's username below"
-                    placeholder="Name of your friend"
+                    title="Enter your friend's email below"
+                    placeholder="johndoe@example.com"
+                    onChange={(e) => {
+                        setSearch(e.target.value)
+                    }}
                 />
                 <div className="flex flex-col space-y-2 py-2">
                     {
-                        props.results !== undefined ?
-                            props.results.map((result) => (
+                        results !== undefined ?
+                            results.map((result) => (
                                 <SearchResult
-                                    key={result.id}
-                                    name={result.name}
-                                    username={result.username}
-                                    profilePicSrc={result.profilePicSrc}
-                                    profileLink={result.profileLink}
+                                    key={getUserData(result).id}
+                                    name={getUserData(result).name}
+                                    username={getUserData(result).username}
+                                    profilePicSrc={getUserData(result).profilePicSrc}
+                                    profileLink={getUserData(result).profileLink}
                                 />
                             ))
                             :
