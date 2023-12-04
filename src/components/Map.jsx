@@ -11,7 +11,6 @@ export default function Map(props) {
 
     const email = Cookies.get("user");
     const [userData, setUserData] = useState(getUserData(email));
-    const [position, setPosition] = useState(userData.location);
     const [routePoints, setRoutePoints] = useState(userData.walks[0].points)
     const [currentPoint, setCurrentPoint] = useState(0);
     const [center, setCenter] = useState(routePoints[currentPoint]);
@@ -27,25 +26,26 @@ export default function Map(props) {
     })
 
     useEffect(() => {
-        const animate = () => {
-            console.log(props.walkInProgress)
-            if (!props.walkInProgress) {
-                return;
+        let animationFrame;
+        let prevTimeStamp;
+
+        const animate = (timeStamp) => {
+            if (props.paused) return;
+            if (!prevTimeStamp) prevTimeStamp = timeStamp;
+
+            const dt = timeStamp - prevTimeStamp;
+
+            if (dt >= 500) {
+                setCurrentPoint(currentPoint + 1);
+                prevTimeStamp = timeStamp;
             }
-            if (currentPoint < routePoints.length) {
-                setCurrentPoint((currentPoint) => currentPoint + 1);
-            } else {
-                return;
-            }
-            setTimeout(animate, 1000);
+            animationFrame = requestAnimationFrame(animate);
         };
-        console.log(props.walkInProgress);
 
         animate();
 
-        return () => clearTimeout(animate);
-    }, [props.walkInProgress]);
-
+        return () => cancelAnimationFrame(animationFrame);
+    }, [props.paused, currentPoint]);
 
     useEffect(() => {
         if (mapRef.current) {
