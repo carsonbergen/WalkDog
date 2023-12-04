@@ -28,5 +28,15 @@
       "type": "distance_walked",
       "value": 5
     }
+  },
+  {
+    "title": "Baby Steps...",
+    "description": "You've walked under 1km in a walk.",
+    "date_achieved": "2023-12-04",
+    "icon": "PawPrint",
+    "requirement": {
+      "type": "less_than_distance_walked",
+      "value": 1
+    }
   }
 ]
