@@ -26,11 +26,7 @@ export default function WalkTracker(props) {
                     <CameraButton progress={props.progress}></CameraButton>
                 </div>
                 <Map />
-                <svg className='absolute top-0 left-0 z-50'>
-                <line x1="400" y1="2" x2="24" y2="150" stroke="black" stroke-width="2" />
-                </svg>
                 
-
                 {/* Start, pause, and etc. buttons */}
                 <div className='flex flex-row py-2 space-x-2'>
                     {props.walkInProgress ? (
