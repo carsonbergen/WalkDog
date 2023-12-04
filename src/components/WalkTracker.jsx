@@ -39,6 +39,7 @@ export default function WalkTracker(props) {
                                 setPhotoIndex(userData.walks[0].photos.length-1);
                             }
                             localStorage.setItem("photos_taken", photoIndex+1);
+                            setCameraModalOpen(false);
                         }}
                     >
                         Take photo

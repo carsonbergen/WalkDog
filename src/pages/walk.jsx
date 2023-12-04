@@ -32,7 +32,7 @@ export default function WalkPage() {
                     setCancelWalkDialogOpen(false);
                 }}
                 open={cancelWalkDialogOpen}
-                title="Cancel walk?"
+                title="End walk?"
                 className="flex flex-col justify-center items-center"
                 width="w-full"
                 height="h-auto"
