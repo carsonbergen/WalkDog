@@ -31,7 +31,7 @@ export default function FeedItem(props) {
               <button
                 onClick={() => {
                   setLiked(!liked);
-                  props.onLike(props.id);
+                  // props.onLike(props.id);
                 }}
                 className={`like-button ml-auto ${liked ? 'liked' : ''}`}
               >
