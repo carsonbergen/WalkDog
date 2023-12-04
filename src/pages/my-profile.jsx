@@ -107,7 +107,7 @@ export default function MyProfile() {
                         />
                         </div>
                     </>
-                )))}
+                ))}
             </div>
         </>
     );
