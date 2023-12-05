@@ -52,7 +52,7 @@ export default function Modal(props) {
                             </svg>
                         </Button>
                     </div>
-                    <div className="p-2">
+                    <div className="p-2 scroll-auto overflow-scroll">
                         {props.children}
                     </div>
                 </div>
