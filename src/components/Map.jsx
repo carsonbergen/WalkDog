@@ -64,7 +64,7 @@ export default function Map(props) {
 
     return (
         <>
-            <div className='flex flex-col max-h-[20vh] w-full space-y-2'>
+            <div className='flex flex-col h-full w-full space-y-2'>
                 <WalkStats
                     mood={0}
                     distance={
@@ -87,7 +87,7 @@ export default function Map(props) {
                     walkData={userData.walks[0]}
                     className='z-50'
                 />
-                <div className="flex justify-center items-end w-auto overflow-clip border-2 border-secondary rounded-md h-[55vh]">
+                <div className='flex flex-col w-full h-full overflow-clip rounded-md border-2 border-secondary'>
                     <MapContainer
                         ref={mapRef}
                         center={center}
