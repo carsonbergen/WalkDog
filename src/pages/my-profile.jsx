@@ -20,16 +20,21 @@ export default function MyProfile() {
     const faqs = [
         {
             question: 'How do I update my profile?',
-            answer: 'Go to the settings page and click on the profile section to update your profile information.'
+            answer: 'After closing this pop-up, you can press the gear button besides the question mark button to open the settings pop-up. There you can edit relevant profile data, and permission settings. '
         },
         {
-            question: 'What is this app about?',
-            answer: 'This app helps you keep track of your daily activities and connect with friends.'
+            question: 'What is the purpose of this app?',
+            answer: 'This app helps you keep track of you and your dog\'s activity. Additionally, you can share photos with friends!'
         },
         {
             question: 'Who can see my data?',
-            answer: 'Your data is private and can only be seen by you unless you choose to share it with others.'
-        }
+            answer: 'Any sensitive data like your email address, and account password and not shown publicly. Other data, like the name you entered, your dog\'s name and location may be shared with other users whom you have added as friends on this application.'
+        },
+        {
+            question: 'How do I earn achievements?',
+            answer: 'Achievements can be earned on walks by meeting a certain criteria. You can earn achievements more than once, but it will only be displayed on the my profile page once.'
+        },
+
     ];
 
     return (
@@ -39,6 +44,8 @@ export default function MyProfile() {
                     setHelpOpen(false);
                 }}
                 open={helpOpen}
+                height="h-full"
+                width="w-full"
             >
                 <div className="help-container">
                     <h2 className='text-lg font-black'>Frequently Asked Questions</h2>
