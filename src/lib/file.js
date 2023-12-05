@@ -10,7 +10,7 @@ export const getResults = (search) => {
   let results = [];
   for (const key in users) {
     if (
-      users[key].username &&
+      users[key].username && users[key] &&
       users[key].username.includes(search) &&
       key !== Cookies.get('user')
     ) {
