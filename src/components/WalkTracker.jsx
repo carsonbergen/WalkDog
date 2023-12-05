@@ -50,7 +50,7 @@ export default function WalkTracker(props) {
                     </AcceptButton>
                 </div>
             </Modal>
-            <div className={`absolute overflow-hidden h-screen w-full justify-center items-center pt-20 pb-40 px-4`}>
+            <div className={`flex absolute overflow-hidden h-full w-full justify-center items-center pt-20 pb-40 px-4`}>
                 <div className='absolute z-20 right-6 bottom-[10.5rem]'>
                     <CameraButton
                         onClick={() => {
