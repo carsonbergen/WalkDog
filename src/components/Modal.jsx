@@ -91,11 +91,11 @@ export function FriendSearchModal(props) {
                         results !== undefined ?
                             results.map((result) => (
                                 <SearchResult
-                                    key={getUserData(result).id}
-                                    name={getUserData(result).name}
-                                    username={getUserData(result).username}
-                                    profilePicSrc={getUserData(result).avatar_src}
-                                    email={getUserData(result).email}
+                                    key={result.id}
+                                    name={getUserData(result.user).name}
+                                    username={getUserData(result.user).username}
+                                    profilePicSrc={getUserData(result.user).avatar_src}
+                                    email={getUserData(result.user).email}
                                 />
                             ))
                             :
