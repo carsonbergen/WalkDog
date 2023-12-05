@@ -210,4 +210,39 @@ export function SettingsModal(props) {
             </Modal>
         </>
     )
+   
+}
+export function FriendSearchModal(props) {
+    return (
+        <>
+            <Modal
+                onClose={props.onClose}
+                open={props.open}
+                title="Help"
+            >
+                <TextInput
+                    title="Enter your friend's username below"
+                    placeholder="Name of your friend"
+                />
+                <div className="flex flex-col space-y-2 py-2">
+                    {
+                        props.results !== undefined ?
+                            props.results.map((result) => (
+                                <SearchResult
+                                    key={result.id}
+                                    name={result.name}
+                                    username={result.username}
+                                    profilePicSrc={result.profilePicSrc}
+                                    profileLink={result.profileLink}
+                                />
+                            ))
+                            :
+                            <div>
+                                No results!
+                            </div>
+                    }
+                </div>
+            </Modal>
+        </>
+    );
 }

@@ -7,7 +7,7 @@ import { SettingsModal } from '../components/Modal';
 import { useState } from "react";
 import { getUserData } from "./../lib/file";
 import Cookies from 'js-cookie';
-
+import Modal from '../components/Modal';
 const settings = 
     {
         id: 1,
@@ -17,14 +17,21 @@ const settings =
     }
     
 export default function MyProfile() {
-
+    
+    const [HelpOpen, setHelpOpen] = useState(false);
     const [settingsOpen, setSettingsOpen] = useState(false);
     const email = Cookies.get("user");
     const [userData, setUserData] = useState(getUserData(email));
 
     return (
         <>
-            <SettingsModal
+        <Modal
+                onClose={() => {
+                    setHelpOpen(false);
+                }}
+                open={HelpOpen}
+            />
+                    <SettingsModal
                 onClose={() => {
                     setSettingsOpen(false);
                 }}
@@ -46,7 +53,15 @@ export default function MyProfile() {
                         >
                             <Gear size={32} weight="fill"/>
                         </button>
-                        <div className="font-bold text-base">Username:</div>
+                        <button
+                        className="absolute end-0 bottom-28 right-8"  // Adjust position as needed
+                        onClick={() => {
+                            setHelpOpen(!HelpOpen);
+                        }}
+                    >
+                        <Question size={32} weight="fill" />
+                    </button>
+                                                <div className="font-bold text-base">Username:</div>
                         <StatHighlight
                             value={userData.username}
                             className="bg-grey"
