@@ -16,9 +16,11 @@ export default function WalkTracker(props) {
 
     const [photoIndex, setPhotoIndex] = useState(0);
     const [photosTaken, setPhotosTaken] = useState(0);
+    const [canTakePicture, setCanTakePicture] = useState(false);
 
     useEffect(() => {
         localStorage.setItem("photos_taken", 0);
+        localStorage.setItem("current_distance_traveled", 0);
     }, []);
 
     return (
@@ -33,23 +35,32 @@ export default function WalkTracker(props) {
                     <div className='w-auto h-full border-2 border-secondary rounded-md'>
                         <img
                             src={`${userData.walks[0].photos[photoIndex]}`}
-                            className='w-auto h-full object-cover'
+                            className='w-full h-full object-cover'
                         />
                     </div>
-                    <AcceptButton
-                        onClick={() => {
-                            setPhotoIndex(photoIndex + 1);
-                            setPhotosTaken(photoIndex + 1);
-                            if (photoIndex > userData.walks[0].photos.length - 2) {
-                                setPhotoIndex(userData.walks[0].photos.length - 1);
-                            }
-                            localStorage.setItem("photos_taken", photoIndex + 1);
-                            setCameraModalOpen(false);
-                        }}
-                    >
-                        Take photo
-                    </AcceptButton>
+                    {
+                        localStorage.getItem("current_distance_traveled") >= 0.5 ?
+                            <AcceptButton
+                                onClick={() => {
+                                    setPhotoIndex(photoIndex + 1);
+                                    setPhotosTaken(photoIndex + 1);
+                                    if (photoIndex > userData.walks[0].photos.length - 2) {
+                                        setPhotoIndex(userData.walks[0].photos.length - 1);
+                                    }
+                                    localStorage.setItem("photos_taken", photoIndex + 1);
+                                    setCameraModalOpen(false);
+                                }}
+                            >
+                                Take photo
+                            </AcceptButton>
+                            :
+                            <RejectButton>
+                                Reach 0.5km to take a photo!
+                            </RejectButton>
+                    }
+
                 </div>
+
             </Modal>
 
             <div className="flex flex-col h-full w-full pt-24 pb-32 px-4 space-y-2 absolute overflow-hidden justify-center items-center">

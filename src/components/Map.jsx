@@ -67,6 +67,8 @@ export default function Map(props) {
 
                 setTotalDistance(parseFloat(totalDistance)+parseFloat(distance));
 
+                localStorage.setItem("current_distance_traveled", totalDistance);
+
                 prevTimeStamp = timeStamp;
             }
             animationFrame = requestAnimationFrame(animate);
@@ -90,7 +92,7 @@ export default function Map(props) {
                     mood={0}
                     distance={totalDistance.toFixed(2)}
                     photosTaken={props.photosTaken}
-                    goal={5}
+                    goal={1}
                     walkData={userData.walks[0]}
                     className='z-50'
                 />
