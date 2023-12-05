@@ -5,7 +5,7 @@
     "email": "bergencarson@gmail.com",
     "location": [51.0754748, -114.1365543],
     "password": "guest123",
-    "avatar_src": "/avatars/slipperychicken14.png",
+    "avatar_src": "/avatars/slipperychicken14.webp",
     "dogs": [
       {
         "name": "Juno",
@@ -93,6 +93,171 @@
     "email": "alex@gmail.com",
     "password": "guest123",
     "avatar_src": "/avatars/riskyrat17.png",
+    "dogs": [
+      {
+        "name": "Juno",
+        "times_walked": 25
+      }
+    ],
+    "stats": {
+      "total_distance_walked": 15,
+      "photos_shared": 2
+    },
+    "posts": [
+      {
+        "id": 2,
+        "author": "Carson",
+        "dog": "Juno",
+        "date": "Oct. 12th, 2023",
+        "distance": "24km",
+        "location": "River Park",
+        "content": "Alex walked his dog at 10:37 AM today!",
+        "imageSrc": "/images/alex.jpeg",
+        "profileLink": "/profile/alexgalindo"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "Pawistively Great!",
+        "description": "Walk your dog 5km.",
+        "date_achieved": "2023-11-24",
+        "icon": "PawPrint"
+      }
+    ],
+    "notifications": [
+      {
+        "id": 2,
+        "name": "Alliana",
+        "dog": "Haru",
+        "profile": "/profile/allianadelapena",
+        "notificationData": {
+          "type": "sent-friend-request",
+          "description": " sent you a friend request!"
+        }
+      }
+    ],
+    "settings": {
+      "location": true,
+      "camera": true,
+      "notification": true
+    }
+  },
+  "jacob@gmail.com": {
+    "name": "Jacob Adeyemo",
+    "username": "kickingkangaroo28",
+    "email": "jacob@gmail.com",
+    "password": "guest123",
+    "avatar_src": "/avatars/kickingkangaroo28.jpg",
+    "dogs": [
+      {
+        "name": "Juno",
+        "times_walked": 25
+      }
+    ],
+    "stats": {
+      "total_distance_walked": 15,
+      "photos_shared": 2
+    },
+    "posts": [
+      {
+        "id": 2,
+        "author": "Carson",
+        "dog": "Juno",
+        "date": "Oct. 12th, 2023",
+        "distance": "24km",
+        "location": "River Park",
+        "content": "Alex walked his dog at 10:37 AM today!",
+        "imageSrc": "/images/alex.jpeg",
+        "profileLink": "/profile/alexgalindo"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "Pawistively Great!",
+        "description": "Walk your dog 5km.",
+        "date_achieved": "2023-11-24",
+        "icon": "PawPrint"
+      }
+    ],
+    "notifications": [
+      {
+        "id": 2,
+        "name": "Alliana",
+        "dog": "Haru",
+        "profile": "/profile/allianadelapena",
+        "notificationData": {
+          "type": "sent-friend-request",
+          "description": " sent you a friend request!"
+        }
+      }
+    ],
+    "settings": {
+      "location": true,
+      "camera": true,
+      "notification": true
+    }
+  },
+  "alliana@gmail.com": {
+    "name": "Alliana Dela Pena",
+    "username": "supersloth9999",
+    "email": "alliana@gmail.com",
+    "password": "guest123",
+    "avatar_src": "/avatars/supersloth9999.webp",
+    "dogs": [
+      {
+        "name": "Haru",
+        "times_walked": 25
+      }
+    ],
+    "stats": {
+      "total_distance_walked": 15,
+      "photos_shared": 2
+    },
+    "posts": [
+      {
+        "id": 2,
+        "author": "Carson",
+        "dog": "Juno",
+        "date": "Oct. 12th, 2023",
+        "distance": "24km",
+        "location": "River Park",
+        "content": "Alex walked his dog at 10:37 AM today!",
+        "imageSrc": "/images/alex.jpeg",
+        "profileLink": "/profile/alexgalindo"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "Pawistively Great!",
+        "description": "Walk your dog 5km.",
+        "date_achieved": "2023-11-24",
+        "icon": "PawPrint"
+      }
+    ],
+    "notifications": [
+      {
+        "id": 2,
+        "name": "Alliana",
+        "dog": "Haru",
+        "profile": "/profile/allianadelapena",
+        "notificationData": {
+          "type": "sent-friend-request",
+          "description": " sent you a friend request!"
+        }
+      }
+    ],
+    "settings": {
+      "location": true,
+      "camera": true,
+      "notification": true
+    }
+  },
+  "nusyba@gmail.com": {
+    "name": "Nusyba",
+    "username": "luckyduck299",
+    "email": "alliana@gmail.com",
+    "password": "guest123",
+    "avatar_src": "/avatars/luckyduck299.avif",
     "dogs": [
       {
         "name": "Juno",
@@ -407,7 +572,7 @@
 
           [51.076, -114.140]
         ],
-        "possible_achievements": [0, 1, 2, 3]
+        "possible_achievements": [0, 1, 2, 3, 4, 5]
       }
     ],
     "friend_requests": [],

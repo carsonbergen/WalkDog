@@ -11,7 +11,7 @@
   },
   {
     "title": "Beginner Photographer II",
-    "description": "We see you are stepping up your photography game! 😏",
+    "description": "We see you are stepping up your photography game! 😏 You took two photos in a single walk.",
     "date_achieved": "2023-12-04",
     "icon": "PawPrint",
     "requirement": {
@@ -37,6 +37,26 @@
     "requirement": {
       "type": "less_than_distance_walked",
       "value": 1
+    }
+  },
+  {
+    "title": "Beginner Photographer III",
+    "description": "Uno, dos, tres! You took three photos on a walk. You took three photos in a single walk.",
+    "date_achieved": "2023-12-04",
+    "icon": "PawPrint",
+    "requirement": {
+      "type": "photos_taken_in_a_walk",
+      "value": 3
+    }
+  },
+  {
+    "title": "Beginner Photographer IV",
+    "description": "Fourth times the charm when it comes to taking photos. 😏 You took four photos in a single walk.",
+    "date_achieved": "2023-12-04",
+    "icon": "PawPrint",
+    "requirement": {
+      "type": "photos_taken_in_a_walk",
+      "value": 3
     }
   }
 ]
