@@ -121,10 +121,12 @@ export default function WalkPage() {
                     </>
                 ) : (
                 <>
-                    <div className="h-screen w-full justify-center items-center pt-20 pb-40 px-4 space-y-2">
-                        <Map paused={true} />
+                    <div className="flex flex-col h-full w-full pt-24 pb-32 px-4 space-y-2 absolute overflow-hidden justify-center items-center">
+                        <div className="w-full h-full">
+                            <Map paused={true} />
+                        </div>
                         <AcceptButton
-                            className="flex flex-row items-center justify-center w-full h-12"
+                            className="flex flex-row items-center justify-center min-h-[2.5rem] h-10 z-0"
                             onClick={() => { setWalkedStarted(true) }}
                         >
                             Click here to start a walk!

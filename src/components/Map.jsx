@@ -87,7 +87,7 @@ export default function Map(props) {
                     walkData={userData.walks[0]}
                     className='z-50'
                 />
-                <div className="flex justify-center items-end h-full w-full border-2 border-secondary rounded-lg overflow-clip z-0">
+                <div className='flex flex-col w-full h-full overflow-clip rounded-md border-2 border-secondary'>
                     <MapContainer
                         ref={mapRef}
                         center={center}
