@@ -81,8 +81,8 @@ export default function WalkPage() {
                             <div className="carousel w-full h-full rounded-box px-4 space-x-1 bg-secondary border-2 border-secondary flex justify-start items-center">
                                 {
                                     userData.walks[0].photos.slice(0, localStorage.getItem("photos_taken")).map((photo_src) => (
-                                        <div className="carousel-item w-full h-auto object-cover object-center">
-                                            <img src={`${photo_src}`} />
+                                        <div className="carousel-item w-auto h-full">
+                                            <img src={`${photo_src}`} className='w-auto h-full object-cover'/>
                                         </div>
                                     ))
                                 }

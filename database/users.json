@@ -161,6 +161,19 @@
     },
     "posts": [
       {
+        "id": 6,
+        "author": "Nusyba",
+        "dog": "Spot",
+        "date": "Dec. 5th, 2023",
+        "distance": "8km",
+        "location": "River Park",
+        "content": "Alex walked his dog at 10:55 AM today!",
+        "imageSrc": "/images/nusyba.jpg",
+        "profileLink": "/feed",
+        "liked": false,
+        "deleted": false
+      },
+      {
         "id": 5,
         "author": "Jacob",
         "dog": "Astro",
@@ -181,7 +194,7 @@
         "distance": "2km",
         "location": "River Park",
         "content": "Alex walked his dog at 10:55 AM today!",
-        "imageSrc": "/images/carson.jpeg",
+        "imageSrc": "/images/carson-2.jpg",
         "profileLink": "/feed",
         "liked": false,
         "deleted": false
@@ -226,12 +239,104 @@
         "deleted": false
       }
     ],
-    "achievements": [],
+    "achievements": [2],
     "notifications": [
       {
-        "id": 2,
+        "id": 7,
+        "name": "You",
+        "dog": "Rex",
+        "profile": "/feed",
+        "notificationData": {
+          "type": "achievement",
+          "title": "Pawsitively great!",
+          "description": " walked your dog for 25km in one walk!",
+          "avatar_src": "/avatars/jazzhands.png"
+        }
+      },
+      {
+        "id": 7,
+        "name": "Alex",
+        "dog": "Rex",
+        "profile": "/feed",
+        "notificationData": {
+          "type": "friend-posted",
+          "description": " posted a new photo with "
+        }
+      },
+      {
+        "id": 7,
+        "name": "Jimmy",
+        "dog": "Oreo",
+        "profile": "/feed",
+        "notificationData": {
+          "type": "friend-posted",
+          "description": " posted a new photo with "
+        }
+      },
+      {
+        "id": 6,
+        "name": "Jazmin's mom",
+        "dog": "Joe",
+        "profile": "/feed",
+        "notificationData": {
+          "type": "friend-posted",
+          "description": " posted a new photo with "
+        }
+      },
+      {
+        "id": 5,
+        "name": "Mrs. Garcia",
+        "dog": "Juno",
+        "profile": "/feed",
+        "notificationData": {
+          "type": "accepted-friend-request",
+          "description": " accepted your friend request!"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Mr. Garcia",
+        "dog": "Joe",
+        "profile": "/feed",
+        "notificationData": {
+          "type": "friend-posted",
+          "description": " posted a new photo with "
+        }
+      },
+      {
+        "id": 4,
+        "name": "Carson",
+        "dog": "Juno",
+        "profile": "/feed",
+        "notificationData": {
+          "type": "accepted-friend-request",
+          "description": " accepted your friend request!"
+        }
+      },
+      {
+        "id": 3,
         "name": "Alliana",
         "dog": "Haru",
+        "profile": "/feed",
+        "notificationData": {
+          "type": "sent-friend-request",
+          "description": " sent you a friend request!"
+        }
+      },
+      {
+        "id": 2,
+        "name": "John",
+        "dog": "Juno",
+        "profile": "/feed",
+        "notificationData": {
+          "type": "accepted-friend-request",
+          "description": " accepted your friend request!"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Mikaela",
+        "dog": "Dally",
         "profile": "/feed",
         "notificationData": {
           "type": "sent-friend-request",
@@ -245,7 +350,8 @@
         "photos_taken": 1,
         "photos": [
           "/placeholders/walks/walking_photo_1.jpeg",
-          "/placeholders/walks/walking_photo_2.jpeg"
+          "/placeholders/walks/walking_photo_2.jpeg",
+          "/placeholders/walks/walking_photo_3.jpg"
         ],
         "points": [
           [51.0754748, -114.1365543],

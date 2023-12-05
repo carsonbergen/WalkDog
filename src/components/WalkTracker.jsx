@@ -29,10 +29,11 @@ export default function WalkTracker(props) {
                 height={"h-full"}
                 width={"w-full"}
             >
-                <div className='flex flex-col space-y-2'>
-                    <div className='w-full h-full max-w-[100%] max-h-[100%] min-w-[100%] min-h-[100%] overflow-clip border-2 border-secondary rounded-md'>
+                <div className='flex flex-col space-y-2 h-full'>
+                    <div className='w-auto h-full border-2 border-secondary rounded-md'>
                         <img
                             src={`${userData.walks[0].photos[photoIndex]}`}
+                            className='w-auto h-full object-cover'
                         />
                     </div>
                     <AcceptButton
