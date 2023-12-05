@@ -351,7 +351,8 @@
         "photos": [
           "/placeholders/walks/walking_photo_1.jpeg",
           "/placeholders/walks/walking_photo_2.jpeg",
-          "/placeholders/walks/walking_photo_3.jpg"
+          "/placeholders/walks/walking_photo_3.jpg",
+          "/placeholders/walks/walking_photo_4.jpg"
         ],
         "points": [
           [51.0754748, -114.1365543],
@@ -372,7 +373,12 @@
           [51.0787, -114.1373],
           [51.0788, -114.1372],
           [51.079, -114.137],
-          [51.079, -114.1368]
+          [51.079, -114.1368],
+
+          [51.079, -114.137],
+          [51.079, -114.1368],
+          [51.0788, -114.1372],
+          [51.076, -114.140]
         ],
         "possible_achievements": [0, 1, 2, 3]
       }

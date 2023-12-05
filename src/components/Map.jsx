@@ -15,6 +15,9 @@ export default function Map(props) {
 
     const [routePoints, setRoutePoints] = useState(userData.walks[0].points)
     const [currentPoint, setCurrentPoint] = useState(0);
+
+    const [totalDistance, setTotalDistance] = useState(0);
+
     let pointsPictureTaken = [];
 
     const center = routePoints[currentPoint];
@@ -44,8 +47,26 @@ export default function Map(props) {
 
             const dt = timeStamp - prevTimeStamp;
 
-            if (dt >= 200) {
+            if (dt >= 100) {
                 setCurrentPoint(currentPoint + 1);
+
+                // Add distance
+                let distance = haversine(
+                    {
+                        latitude: routePoints[currentPoint-1][0],
+                        longitude: routePoints[currentPoint-1][1]
+                    },
+                    {
+                        latitude: routePoints[currentPoint] !== undefined ? routePoints[currentPoint][0] : routePoints[routePoints.length - 1][0],
+                        longitude: routePoints[currentPoint] !== undefined ? routePoints[currentPoint][1] : routePoints[routePoints.length - 1][1]
+                    },
+                    {
+                        unit: 'km'
+                    }
+                ).toFixed(2);
+
+                setTotalDistance(parseFloat(totalDistance)+parseFloat(distance));
+
                 prevTimeStamp = timeStamp;
             }
             animationFrame = requestAnimationFrame(animate);
@@ -67,21 +88,7 @@ export default function Map(props) {
             <div className='flex flex-col h-full w-full space-y-2'>
                 <WalkStats
                     mood={0}
-                    distance={
-                        haversine(
-                            {
-                                latitude: routePoints[0][0],
-                                longitude: routePoints[0][1]
-                            },
-                            {
-                                latitude: routePoints[currentPoint] !== undefined ? routePoints[currentPoint][0] : routePoints[routePoints.length - 1][0],
-                                longitude: routePoints[currentPoint] !== undefined ? routePoints[currentPoint][1] : routePoints[routePoints.length - 1][1]
-                            },
-                            {
-                                unit: 'km'
-                            }
-                        ).toFixed(2)
-                    }
+                    distance={totalDistance.toFixed(2)}
                     photosTaken={props.photosTaken}
                     goal={5}
                     walkData={userData.walks[0]}
