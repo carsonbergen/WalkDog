@@ -80,7 +80,7 @@ export const addFriendRequestSent = (email, requestSentTo) => {
   setUserData(email, newUserData);
 };
 
-export const setPostedLikedStatus = (email, id, status) => {
+export const setPostLikedStatus = (email, id, status) => {
   const newUserData = users[email];
   for (let i = 0; i < newUserData.posts.length; i++) {
     let post = newUserData.posts[i];
@@ -88,16 +88,38 @@ export const setPostedLikedStatus = (email, id, status) => {
       newUserData.posts[i].liked = status;
     }
   }
-  console.log(newUserData.posts)
   setUserData(email, newUserData);
 };
 
-export const getPostedLikedStatus = (email, id) => {
+export const getPostLikedStatus = (email, id) => {
   const userData = users[email];
   for (let i = 0; i < userData.posts.length; i++) {
     let post = userData.posts[i];
     if (post.id === id) {
       return userData.posts[i].liked;
+    }
+  }
+  return false;
+};
+
+export const setPostDeletedStatus = (email, id, status) => {
+  const newUserData = users[email];
+  for (let i = 0; i < newUserData.posts.length; i++) {
+    let post = newUserData.posts[i];
+    if (post.id === id) {
+      newUserData.posts[i].deleted = status;
+    }
+  }
+  console.log(newUserData)
+  setUserData(email, newUserData);
+};
+
+export const getPostDeletedStatus = (email, id) => {
+  const userData = users[email];
+  for (let i = 0; i < userData.posts.length; i++) {
+    let post = userData.posts[i];
+    if (post.id === id) {
+      return userData.posts[i].deleted;
     }
   }
   return false;
