@@ -126,7 +126,7 @@ export default function WalkPage() {
                             <Map paused={true} />
                         </div>
                         <AcceptButton
-                            className="flex flex-row items-center justify-center min-h-[2.5rem] h-10 z-50"
+                            className="flex flex-row items-center justify-center min-h-[2.5rem] h-10 z-0"
                             onClick={() => { setWalkedStarted(true) }}
                         >
                             Click here to start a walk!

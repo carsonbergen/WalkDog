@@ -52,13 +52,20 @@ export default function WalkTracker(props) {
             </Modal>
 
             <div className="flex flex-col h-full w-full pt-24 pb-32 px-4 space-y-2 absolute overflow-hidden justify-center items-center">
+                <div className='absolute z-20 right-6 bottom-[10.5rem]'>
+                    <CameraButton
+                        onClick={() => {
+                            setCameraModalOpen(true);
+                        }}
+                    />
+                </div>
                 <div className="w-full h-full">
-                    <Map paused={true} />
+                    <Map paused={props.walkInProgress} photosTaken={photosTaken} />
                 </div>
                 {props.walkInProgress ? (
                     <div className='flex flex-row justify-stretch space-x-2 w-full h-full'>
                         <RejectButton
-                            className="flex flex-row items-center justify-center w-full h-12 z-50"
+                            className="flex flex-row items-center justify-center w-full h-12 z-0"
                             onClick={() => {
                                 props.onEndWalk();
                             }}
@@ -69,7 +76,7 @@ export default function WalkTracker(props) {
                             />
                         </RejectButton>
                         <AcceptButton
-                            className="flex flex-row items-center justify-center w-full h-12 z-50"
+                            className="flex flex-row items-center justify-center w-full h-12 z-0"
                             onClick={() => {
                                 props.onWalkInProgressChanged(false);
                             }}
@@ -82,7 +89,7 @@ export default function WalkTracker(props) {
                     </div>
                 ) : (
                     <OptionalButton
-                        className="flex flex-row items-center justify-center w-full h-12"
+                        className="flex flex-row items-center justify-center w-full h-12 z-0"
                         onClick={() => {
                             props.onWalkInProgressChanged(true);
                         }}
