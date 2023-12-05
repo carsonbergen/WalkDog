@@ -3,8 +3,8 @@ import Notification from "./Notification";
 import SearchResult from "./SearchResult";
 import TextInput from "./TextInput";
 import ToggleSwitch from '../components/ToggleSwitch';
-import { useState } from "react";
-import { getUserData } from "./../lib/file";
+import { useEffect, useState } from "react";
+import { getResults, getUserData, getUsers } from "./../lib/file";
 import Cookies from 'js-cookie';
 
 /**
@@ -21,13 +21,16 @@ export default function Modal(props) {
                     fixed w-full h-full z-30 py-20 px-4 backdrop-blur-sm 
                     shadow-md transition-all duration-500 top-0 left-0
                     ${props.open ? "opacity-100" : "opacity-0 pointer-events-none"}
+                    ${props.className}
                 `}
             >
                 <div 
                     className={`
-                        flex flex-col w-full h-full z-[9999] bg-primary border-secondary border-2 
+                        flex flex-col z-[9999] bg-primary border-secondary border-2 
                         rounded-md p-2 overflow-auto container
                         ${props.open ? "animate-jump-in" : "animate-jump-out pointer-events-none"}
+                        ${props.height} ${props.width}
+                        ${props.background}
                     `}
                 >
                     <div className="flex flex-row justify-between items-center">
@@ -60,27 +63,39 @@ export default function Modal(props) {
 
 
 export function FriendSearchModal(props) {
+    const [results, setResults] = useState([]);
+    const [search, setSearch] = useState("");
+
+    useEffect(() => {
+        setResults(getResults(search));
+    }, [search]);
+
     return (
         <>
             <Modal
                 onClose={props.onClose}
                 open={props.open}
                 title="Search for friends"
+                height="h-full"
+                width="w-full"
             >
                 <TextInput
-                    title="Enter your friend's username below"
-                    placeholder="Name of your friend"
+                    title="Enter your friend's email below"
+                    placeholder="johndoe@example.com"
+                    onChange={(e) => {
+                        setSearch(e.target.value)
+                    }}
                 />
                 <div className="flex flex-col space-y-2 py-2">
                     {
-                        props.results !== undefined ?
-                            props.results.map((result) => (
+                        results !== undefined ?
+                            results.map((result) => (
                                 <SearchResult
-                                    key={result.id}
-                                    name={result.name}
-                                    username={result.username}
-                                    profilePicSrc={result.profilePicSrc}
-                                    profileLink={result.profileLink}
+                                    key={getUserData(result).id}
+                                    name={getUserData(result).name}
+                                    username={getUserData(result).username}
+                                    profilePicSrc={getUserData(result).avatar_src}
+                                    email={getUserData(result).email}
                                 />
                             ))
                             :
@@ -101,6 +116,8 @@ export function NotificationsModal(props) {
                 onClose={props.onClose}
                 open={props.open}
                 title="Notifications"
+                height="h-full"
+                width="w-full"
             >
                 <div className="flex flex-col space-y-2 py-2">
                     {

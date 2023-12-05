@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer components {
+    .button-icon {
+        @apply stroke-[2rem] fill-yellow stroke-black paint-stroke;
+    }
+
     .paint-stroke {
         paint-order: stroke;
     }

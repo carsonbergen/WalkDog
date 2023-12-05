@@ -25,7 +25,7 @@ export default function Navbar(props) {
           </div>
           <div className="flex-grow flex flex-row justify-center">
             <Link
-              to="home"
+              to="walk"
               className={`flex items-center justify-center rounded-full bg-purple w-20 h-20 p-2 border-secondary border-2`}
             >
               <svg

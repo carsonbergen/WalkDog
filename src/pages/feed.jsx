@@ -16,6 +16,7 @@ export default function Feed() {
             <div className="feed-container space-y-2">
                 {posts.map((post) => (
                     <FeedItem
+                        key={post.id}
                         id={post.id}
                         imageSrc={post.imageSrc}
                         author={post.author}

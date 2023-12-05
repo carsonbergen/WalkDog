@@ -8,14 +8,7 @@ import { useState } from "react";
 import { getUserData } from "./../lib/file";
 import Cookies from 'js-cookie';
 import { Fire, PersonSimpleWalk, Camera } from 'phosphor-react';
-
-const settings = 
-    {
-        id: 1,
-        name: "Carson",
-        username: "slipperychicken14",
-        dog: "Juno"
-    }
+import { getAchievement } from '../lib/achievementChecker';
     
 export default function MyProfile() {
 
@@ -54,7 +47,7 @@ export default function MyProfile() {
                         />
                         <div className="font-bold text-base">Name:</div>
                         <StatHighlight
-                            value={userData ? useState.name : "empty"}
+                            value={userData ? userData.name : "empty"}
                             className="bg-grey"
                         />
                 </div>                    
@@ -111,17 +104,19 @@ export default function MyProfile() {
                 </div>
             </div>
             <div className="section-header font-bold">My Achievements</div>
-            <div className='flex flex-row space-x-2'>
-                {userData && (userData.achievements.map((achievement) => (
+            <div className='grid grid-cols-2'>
+                {userData.achievements.map((achievementId) => (
+
                     <>
+                    <div className='p-1 w-full h-full'>
                         <Achievement 
-                            icon={achievement.icon}
-                            title={achievement.title}
-                            description={achievement.description}
-                            dateAchieved={achievement.date_achieved}
+                            title={getAchievement(achievementId).title}
+                            description={getAchievement(achievementId).description}
+                            dateAchieved={getAchievement(achievementId).date_achieved}
                         />
+                        </div>
                     </>
-                )))}
+                ))}
             </div>
         </>
     );

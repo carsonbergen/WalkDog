@@ -1,30 +1,58 @@
+import React, { useEffect, useState } from 'react';
 import { UserButton } from "./Button";
 import Image from "./Image";
 import { DateSpan, DistanceSpan, DogSpan, LocationSpan } from "./Misc/InlineComponents";
+import { Heart } from 'phosphor-react';
+import { getPostedLikedStatus, setPostedLikedStatus } from '../lib/file';
+import Cookies from 'js-cookie';
+import { getUserData } from '../lib/file';
 
 export default function FeedItem(props) {
-    return (
-        <>
-            <div key={props.id} className="flex flex-row bg-pink border-secondary rounded-md border-2">
-                {props.imageSrc && (
-                    <Image
-                        src={props.imageSrc}
-                        alt={props.imageAlt}
-                        className="border-r-2 rounded-r-md"
-                    />
-                )}
-                <div className="font-nunito px-2 flex flex-wrap justify-start items-baseline space-y-1 py-1">
-                    <UserButton to={props.profileLink}>{props.author}</UserButton>
-                    <span className="mx-1">walked</span>
-                    <DogSpan>{props.dog}</DogSpan>
-                    <span className="mx-1">on</span>
-                    <DateSpan>{props.date}</DateSpan>
-                    <span className="mx-1">for</span>
-                    <DistanceSpan>{props.distance}</DistanceSpan>
-                    <span className="mx-1">at</span>
-                    <LocationSpan>{props.location}</LocationSpan>
-                </div>
-            </div>
-        </>
-    );
+  const email = Cookies.get("user");
+  const userData = getUserData(email);
+
+  const [liked, setLiked] = useState(false);
+
+  useEffect(() => {
+    setLiked(getPostedLikedStatus(email, props.id));
+  }, [userData]);
+
+  return (
+    <>
+      <div key={props.id} className="flex flex-row bg-primary border-secondary rounded-md border-2">
+        {props.imageSrc && (
+          <Image
+            src={props.imageSrc}
+            alt={props.imageAlt}
+            className="border-r-2 rounded-r-md"
+          />
+        )}
+        <div className="font-nunito flex flex-col justify-start items-start space-y-1 px-2 py-1 w-full">
+          <div className="flex flex-wrap items-baseline space-y-1">
+            <UserButton to={props.profileLink}>{props.author}</UserButton>
+            <span className="mx-1">walked</span>
+            <DogSpan>{props.dog}</DogSpan>
+            <span className="mx-1">on</span>
+            <DateSpan>{props.date}</DateSpan>
+            <span className="mx-1">for</span>
+            <DistanceSpan>{props.distance}</DistanceSpan>
+            <span className="mx-4">at</span>
+            <LocationSpan>{props.location}</LocationSpan>
+          </div>
+          <button
+            onClick={() => {
+              setLiked(!liked);
+              // props.onLike(props.id);
+              setPostedLikedStatus(email, props.id, !liked);
+            }}
+            className={`like-button ml-auto ${liked ? 'liked' : ''}`}
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" className={`stroke-[2rem] ${liked ? "fill-red" : "fill-primary"} stroke-black paint-stroke w-8 h-8 transition-all duration-750`}>
+              <path d="M240,94c0,70-103.79,126.66-108.21,129a8,8,0,0,1-7.58,0C119.79,220.66,16,164,16,94A62.07,62.07,0,0,1,78,32c20.65,0,38.73,8.88,50,23.89C139.27,40.88,157.35,32,178,32A62.07,62.07,0,0,1,240,94Z"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </>
+  );
 }
