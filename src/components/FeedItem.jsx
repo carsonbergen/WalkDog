@@ -12,10 +12,25 @@ export default function FeedItem(props) {
   const userData = getUserData(email);
 
   const [liked, setLiked] = useState(false);
+  const [showDeletePopup, setShowDeletePopup] = useState(false); // Add this line
 
   useEffect(() => {
     setLiked(getPostedLikedStatus(email, props.id));
   }, [userData]);
+
+  
+  const handleDeleteClick = () => {
+    setShowDeletePopup(true);
+  };
+
+  const handleCancelDelete = () => {
+    setShowDeletePopup(false);
+  };
+
+  const handleConfirmDelete = () => {
+    // Perform delete action here
+    setShowDeletePopup(false);
+  };
 
   return (
     <>
@@ -38,6 +53,12 @@ export default function FeedItem(props) {
             <DistanceSpan>{props.distance}</DistanceSpan>
             <span className="mx-4">at</span>
             <LocationSpan>{props.location}</LocationSpan>
+            <button
+              onClick={handleDeleteClick}
+              className="absolute right-6 text-black"
+            >
+            <svg xmlns="http://www.w3.org/2000/svg" width="29" height="29" fill="#000000" viewBox="0 0 256 256"><path d="M128,96a32,32,0,1,0,32,32A32,32,0,0,0,128,96Zm0,48a16,16,0,1,1,16-16A16,16,0,0,1,128,144Zm0-64A32,32,0,1,0,96,48,32,32,0,0,0,128,80Zm0-48a16,16,0,1,1-16,16A16,16,0,0,1,128,32Zm0,144a32,32,0,1,0,32,32A32,32,0,0,0,128,176Zm0,48a16,16,0,1,1,16-16A16,16,0,0,1,128,224Z"></path></svg>
+            </button>
           </div>
           <button
             onClick={() => {
@@ -53,6 +74,27 @@ export default function FeedItem(props) {
           </button>
         </div>
       </div>
+      {showDeletePopup && (
+        <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-gray-800 bg-opacity-50">
+          <div className="bg-white p-4 rounded-md shadow-md">
+            <p className="text-red-500">Warning: This action cannot be undone!</p>
+            <div className="flex justify-end mt-4">
+              <button
+                onClick={handleCancelDelete}
+                className="mr-2 px-4 py-2 border border-gray-300 rounded-md focus:outline-none"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={handleConfirmDelete}
+                className="mr-2 px-4 py-2 border border-gray-300 rounded-md focus:outline-none"
+              >
+                Delete Post
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 }
