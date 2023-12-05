@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { UserButton } from "./Button";
 import Image from "./Image";
 import { DateSpan, DistanceSpan, DogSpan, LocationSpan } from "./Misc/InlineComponents";
@@ -9,7 +9,6 @@ import { getUserData } from '../lib/file';
 
 export default function FeedItem(props) {
   const email = Cookies.get("user");
-  const userData = getUserData(email);
 
   const [liked, setLiked] = useState(false);
   const [showDeletePopup, setShowDeletePopup] = useState(false);
@@ -39,9 +38,9 @@ export default function FeedItem(props) {
 
   return (
     <>
-      {mounted ?
+      {(mounted && !postDeleted) ?
         <>
-          <div key={props.id} className={`flex flex-row bg-primary border-secondary rounded-md border-2 ${postDeleted ? "opacity-0" : "opacity-100"} transition-opacity duration-200`}>
+          <div key={props.id} className={`flex flex-row bg-primary border-secondary rounded-md border-2`}>
             {props.imageSrc && (
               <Image
                 src={props.imageSrc}
@@ -81,7 +80,7 @@ export default function FeedItem(props) {
             </div>
           </div>
           {showDeletePopup && (
-            <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-gray-800 bg-opacity-50">
+            <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-gray-800 bg-opacity-50 z-20">
               <div className="bg-white p-4 rounded-md shadow-md">
                 <p className="text-red-500">Warning: This action cannot be undone!</p>
                 <div className="flex justify-end mt-4">
