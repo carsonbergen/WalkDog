@@ -1,3 +1,9 @@
+# Authors
+- Carson Bergen
+- Rafael Galindo
+- Jacob Adeyemo
+- Alliana Dela Pena
+
 # Dependencies
 - NodeJS
 - npm
