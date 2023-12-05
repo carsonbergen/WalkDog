@@ -34,7 +34,14 @@ export default function MyProfile() {
             question: 'How do I earn achievements?',
             answer: 'Achievements can be earned on walks by meeting a certain criteria. You can earn achievements more than once, but it will only be displayed on the my profile page once.'
         },
-
+        {
+            question: 'Who can see my stats?',
+            answer: 'Only you can see your stats.'
+        },
+        {
+            question: 'Who can see my achievements?',
+            answer: 'Only you can see the achievements you have earned.'
+        },
     ];
 
     return (
