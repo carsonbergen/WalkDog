@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { UserButton } from "./Button";
 import Image from "./Image";
 import { DateSpan, DistanceSpan, DogSpan, LocationSpan } from "./Misc/InlineComponents";
@@ -9,7 +9,6 @@ import { getUserData } from '../lib/file';
 
 export default function FeedItem(props) {
   const email = Cookies.get("user");
-  const userData = getUserData(email);
 
   const [liked, setLiked] = useState(false);
   const [showDeletePopup, setShowDeletePopup] = useState(false);
@@ -39,9 +38,9 @@ export default function FeedItem(props) {
 
   return (
     <>
-      {mounted ?
+      {(mounted && !postDeleted) ?
         <>
-          <div key={props.id} className={`flex flex-row bg-primary border-secondary rounded-md border-2 ${postDeleted ? "opacity-0" : "opacity-100"} transition-opacity duration-200`}>
+          <div key={props.id} className={`flex flex-row bg-primary border-secondary rounded-md border-2`}>
             {props.imageSrc && (
               <Image
                 src={props.imageSrc}
