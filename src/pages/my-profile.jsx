@@ -15,6 +15,8 @@ const settings =
         username: "slipperychicken14",
         dog: "Juno"
     }
+import { Fire, PersonSimpleWalk, Camera } from 'phosphor-react';
+import { getAchievement } from '../lib/achievementChecker';
     
 export default function MyProfile() {
     
@@ -36,11 +38,11 @@ export default function MyProfile() {
                     setSettingsOpen(false);
                 }}
                 open={settingsOpen}
-                userData={userData}
+                userData={userData ? userData : undefined}
             />
             <div className="profile-container">
                 <div className="rounded-md border-2 border-secondary mr-4 min-w-[150px] min-h-[150px] max-w-[150px] max-h-[150px] overflow-clip">
-                    <img src={userData.avatar_src} alt="profilePicture" className="" />
+                    <img src={userData.avatar_src ?? "/avatars/default.png"} alt="profilePicture" className="" />
                 </div>
                 <div className="relative">
                         <button
@@ -63,61 +65,79 @@ export default function MyProfile() {
                     </button>
                                                 <div className="font-bold text-base">Username:</div>
                         <StatHighlight
-                            value={userData.username}
+                            value={userData ? userData.username : "empty"}
                             className="bg-grey"
                         />
                         <div className="font-bold text-base">Name:</div>
                         <StatHighlight
-                            value={userData.name}
+                            value={userData ? userData.name : "empty"}
                             className="bg-grey"
                         />
                 </div>                    
             </div>
-            <div className="font-bold text-base">Dog's name(s):</div>
-                        {userData.dogs.map((dog) => (
+            <div className="section-header font-bold">Dog's name(s):</div>
+                        {userData && (userData.dogs.map((dog) => (
                             <>
                                 <StatHighlight 
                                     value={dog.name}
-                                    className="bg-grey mb-1"
+                                    className="bg-grey mb-1 inline-flex"
                                 />
                             </>
-                        ))}
-            <div className="section-header font-bold">My Stats</div>
-            <div className='flex flex-wrap mt-1'>
-                You've walked
-                <span className='mx-1 bg-cyan border-2 border-secondary rounded-md px-1 font-bold max-h-min'>
-                    {userData.dogs[0].name}
-                </span>
-                <StatHighlight
-                    value={userData.dogs[0].times_walked}
-                    className="bg-orange"
-                />
-                times in a row!
+                        )))}
+            <div className="section-header font-bold">My Statistics</div>
+            {/* Line 1 of statistics */}
+            <div className="flex">
+                <div className="box-container">
+                    <div className="flex">
+                        <Fire size={30} color="#ff9f00" />
+                        <div className="">
+                            <StatHighlight
+                                value={userData ? userData.dogs[0].times_walked : -1}
+                                className="bg-orange"
+                            />
+                        </div>
+                    </div>
+                    Days of Walking 
+                    <span className='mx-1 bg-cyan border-2 border-secondary rounded-md px-1 font-bold max-h-min'>
+                        {userData ? userData.dogs[0].name : "empty"}
+                    </span>
+                </div>
+                <div className="box-container">
+                    <div className="flex">
+                        <Camera size={30} color="#ff9f00" />
+                        <StatHighlight
+                            value={userData ? userData.stats.photos_shared : -1}
+                            className="bg-orange"
+                        />
+                    </div>
+                    Photos shared!
+                </div>
             </div>
-            <div className='flex flex-wrap mt-1'>
-                Total distance walked (km):
-                <StatHighlight
-                    value={userData.stats.total_distance_walked}
-                    className="bg-orange"
-                />
-            </div>
-            <div className='flex flex-wrap mt-1'>
-                Photos shared:
-                <StatHighlight
-                    value={userData.stats.photos_shared}
-                    className="bg-orange"
-                />
+
+            {/* Line 2 of Statistics*/}
+            <div className="flex flex-wrap mt-2">
+                <div className="box-container flex">
+                    <PersonSimpleWalk size={30} color="#ff9f00" />
+                    You have walked      
+                    <StatHighlight
+                        value={userData ? userData.stats.total_distance_walked : -1}
+                        className="bg-orange mb-1"
+                    />
+                    km!
+                </div>
             </div>
             <div className="section-header font-bold">My Achievements</div>
-            <div className='flex flex-row space-x-2'>
-                {userData.achievements.map((achievement) => (
+            <div className='grid grid-cols-2'>
+                {userData.achievements.map((achievementId) => (
+
                     <>
+                    <div className='p-1 w-full h-full'>
                         <Achievement 
-                            icon={achievement.icon}
-                            title={achievement.title}
-                            description={achievement.description}
-                            dateAchieved={achievement.date_achieved}
+                            title={getAchievement(achievementId).title}
+                            description={getAchievement(achievementId).description}
+                            dateAchieved={getAchievement(achievementId).date_achieved}
                         />
+                        </div>
                     </>
                 ))}
             </div>

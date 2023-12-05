@@ -3,6 +3,7 @@
     "name": "Carson Bergen",
     "username": "slipperychicken14",
     "email": "bergencarson@gmail.com",
+    "location": [51.0754748, -114.1365543],
     "password": "guest123",
     "avatar_src": "/avatars/slipperychicken14.png",
     "dogs": [
@@ -29,17 +30,11 @@
         "location": "River Park",
         "content": "Alex walked his dog at 10:37 AM today!",
         "imageSrc": "/images/alex.jpeg",
-        "profileLink": "/profile/alexgalindo"
+        "profileLink": "/profile/alexgalindo",
+        "liked": false
       }
     ],
-    "achievements": [
-      {
-        "title": "Pawistively Great!",
-        "description": "Walk your dog 5km.",
-        "date_achieved": "2023-11-24",
-        "icon": "PawPrint"
-      }
-    ],
+    "achievements": [2],
     "notifications": [
       {
         "id": 2,
@@ -52,6 +47,39 @@
         }
       }
     ],
+    "walks": [
+      {
+        "total_distance_walked": 5,
+        "photos_taken": 1,
+        "photos": [
+          "/placeholders/walks/walking_photo_1.jpeg",
+          "/placeholders/walks/walking_photo_2.jpeg"
+        ],
+        "points": [
+          [51.0754748, -114.1365543],
+          [51.0755748, -114.1367543],
+          [51.0756948, -114.1367543],
+          [51.0758, -114.1367243],
+          [51.07599, -114.13655],
+          [51.0761, -114.13645],
+          [51.0762, -114.136425],
+          [51.0764, -114.136525],
+          [51.0766, -114.136725],
+          [51.0768, -114.136925],
+          [51.077, -114.137],
+          [51.078, -114.136925],
+          [51.0784, -114.136525],
+          [51.0785, -114.136725],
+          [51.07856, -114.137],
+          [51.0787, -114.1373],
+          [51.0788, -114.1372],
+          [51.079, -114.137],
+          [51.079, -114.1368]
+        ],
+        "possible_achievements": [0,1,3]
+      }
+    ],
+    "friend_requests": [],
     "settings": {
       "location": true,
       "camera": false,

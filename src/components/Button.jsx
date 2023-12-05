@@ -19,7 +19,7 @@ export function AcceptButton(props) {
         <>
             <Button
                 onClick={props.onClick}
-                className={`w-full h-10 rounded-md font-black border-2 hover:ring-2 text-lg border-secondary bg-green text-secondary ring-green`}
+                className={`w-full min-h-[2.5rem] max-h-[2.5rem] h-10 rounded-md font-black border-2 hover:ring-2 text-lg border-secondary bg-green text-secondary ring-green ${props.className}`}
             >
                 {props.children}
             </Button>
@@ -32,7 +32,7 @@ export function RejectButton(props) {
         <>
             <Button
                 onClick={props.onClick}
-                className={`w-full h-10 rounded-md font-black border-2 hover:ring-2 text-lg border-secondary bg-red text-secondary ring-red`}
+                className={`w-full min-h-[2.5rem] max-h-[2.5rem] h-10 rounded-md font-black border-2 hover:ring-2 text-lg border-secondary bg-red text-secondary ring-red ${props.className}`}
             >
                 {props.children}
             </Button>
@@ -45,7 +45,7 @@ export function OptionalButton(props) {
         <>
             <Button
                 onClick={props.onClick}
-                className={`w-full h-10 rounded-md font-black border-2 hover:ring-2 text-lg border-secondary bg-orange text-secondary ring-orange`}
+                className={`w-full min-h-[2.5rem] max-h-[2.5rem] h-10 rounded-md font-black border-2 hover:ring-2 text-lg border-secondary bg-orange text-secondary ring-orange ${props.className}`}
             >
                 {props.children}
             </Button>

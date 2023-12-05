@@ -1,10 +1,10 @@
-import Button from "./Button";
+import Button, { AcceptButton, OptionalButton } from "./Button";
 import Notification from "./Notification";
 import SearchResult from "./SearchResult";
 import TextInput from "./TextInput";
 import ToggleSwitch from '../components/ToggleSwitch';
-import { useState } from "react";
-import { getUserData } from "./../lib/file";
+import { useEffect, useState } from "react";
+import { getResults, getUserData, getUsers } from "./../lib/file";
 import Cookies from 'js-cookie';
 
 /**
@@ -21,13 +21,16 @@ export default function Modal(props) {
                     fixed w-full h-full z-30 py-20 px-4 backdrop-blur-sm 
                     shadow-md transition-all duration-500 top-0 left-0
                     ${props.open ? "opacity-100" : "opacity-0 pointer-events-none"}
+                    ${props.className}
                 `}
             >
                 <div 
                     className={`
-                        flex flex-col w-full h-full z-[9999] bg-primary border-secondary border-2 
+                        flex flex-col z-[9999] bg-primary border-secondary border-2 
                         rounded-md p-2 overflow-auto container
                         ${props.open ? "animate-jump-in" : "animate-jump-out pointer-events-none"}
+                        ${props.height} ${props.width}
+                        ${props.background}
                     `}
                 >
                     <div className="flex flex-row justify-between items-center">
@@ -60,27 +63,39 @@ export default function Modal(props) {
 
 
 export function FriendSearchModal(props) {
+    const [results, setResults] = useState([]);
+    const [search, setSearch] = useState("");
+
+    useEffect(() => {
+        setResults(getResults(search));
+    }, [search]);
+
     return (
         <>
             <Modal
                 onClose={props.onClose}
                 open={props.open}
                 title="Search for friends"
+                height="h-full"
+                width="w-full"
             >
                 <TextInput
-                    title="Enter your friend's username below"
-                    placeholder="Name of your friend"
+                    title="Enter your friend's email below"
+                    placeholder="johndoe@example.com"
+                    onChange={(e) => {
+                        setSearch(e.target.value)
+                    }}
                 />
                 <div className="flex flex-col space-y-2 py-2">
                     {
-                        props.results !== undefined ?
-                            props.results.map((result) => (
+                        results !== undefined ?
+                            results.map((result) => (
                                 <SearchResult
-                                    key={result.id}
-                                    name={result.name}
-                                    username={result.username}
-                                    profilePicSrc={result.profilePicSrc}
-                                    profileLink={result.profileLink}
+                                    key={getUserData(result).id}
+                                    name={getUserData(result).name}
+                                    username={getUserData(result).username}
+                                    profilePicSrc={getUserData(result).avatar_src}
+                                    email={getUserData(result).email}
                                 />
                             ))
                             :
@@ -101,6 +116,8 @@ export function NotificationsModal(props) {
                 onClose={props.onClose}
                 open={props.open}
                 title="Notifications"
+                height="h-full"
+                width="w-full"
             >
                 <div className="flex flex-col space-y-2 py-2">
                     {
@@ -127,13 +144,12 @@ export function NotificationsModal(props) {
 
 export function SettingsModal(props) {
     const email = Cookies.get("user");
-    const [userData, setUserData] = useState(getUserData(email));
-    const [username, setUsername] = useState(userData.username);
-    const [name, setName] = useState(userData.name);
-    const [dogs, setDogs] = useState(userData.dogs);
-    const [location, setLocation] = useState(userData.settings.location);
-    const [camera, setCamera] = useState(userData.settings.camera);
-    const [notification, setNotification] = useState(userData.settings.notification);
+    const [username, setUsername] = useState(props.userData.username);
+    const [name, setName] = useState(props.userData.name);
+    const [dogs, setDogs] = useState(props.userData.dogs);
+    const [location, setLocation] = useState(props.userData.settings ? props.userData.settings.location : "");
+    const [camera, setCamera] = useState(props.userData.settings ? props.userData.settings.camera : "");
+    const [notification, setNotification] = useState(props.userData.settings ? props.userData.settings.notification : []);
 
     return (
         <>
@@ -144,7 +160,7 @@ export function SettingsModal(props) {
             >
                 <div className="flex flex-col space-y-2 py-2">
                     {
-                        props.userData !== undefined ? 
+                        props.userData !== undefined || props.userData.settings === undefined ? 
                         <div>
                             <div className="pb-1 text-xl font-bold">General</div>
                             <TextInput
@@ -210,14 +226,23 @@ export function SettingsModal(props) {
             </Modal>
         </>
     )
+<<<<<<< HEAD
    
 }
 export function FriendSearchModal(props) {
+=======
+}
+
+export function ForgotPasswordModal(props) {
+    const [emailSent, setEmailSent] = useState(false);
+
+>>>>>>> 1f4e4bfa4401540a568718c14e6236d9d4b64ac1
     return (
         <>
             <Modal
                 onClose={props.onClose}
                 open={props.open}
+<<<<<<< HEAD
                 title="Help"
             >
                 <TextInput
@@ -245,4 +270,48 @@ export function FriendSearchModal(props) {
             </Modal>
         </>
     );
+=======
+                title="Forgot password"
+            >
+                <div className="flex flex-col space-y-2 py-2">
+                    {
+                        !emailSent ? 
+                        <div className="flex flex-col space-y-2 py-2">
+                            <div>We'll send you an email with a reset password link.</div>
+                            <TextInput
+                                title="What is your account's email?"
+                                type="text"
+                                id="email"
+                                onChange={(e) => {
+                                    setFormData({
+                                        ...formData,
+                                        "email": e.target.value,
+                                    });
+                                }}
+                                placeholder="johnDoe@gmail.com"
+                            />
+                            <div className="flex flex-col space-y-4 py-2 pt-7">
+                                <AcceptButton
+                                    onClick={() => {
+                                        setEmailSent(true)
+                                    }}
+                                >
+                                    Send reset link
+                                </AcceptButton>
+                                <OptionalButton
+                                    onClick={props.onClose}
+                                >
+                                    Cancel
+                                </OptionalButton>
+                            </div>
+                            
+                        </div>
+                        : <div>Email successfully sent!</div>
+                    }
+                </div>
+               
+            </Modal>
+        </>
+    )
+>>>>>>> 1f4e4bfa4401540a568718c14e6236d9d4b64ac1
 }
