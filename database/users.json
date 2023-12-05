@@ -31,7 +31,8 @@
         "content": "Alex walked his dog at 10:37 AM today!",
         "imageSrc": "/images/alex.jpeg",
         "profileLink": "/profile/alexgalindo",
-        "liked": false
+        "liked": false,
+        "deleted": false
       }
     ],
     "achievements": [2],
