@@ -70,7 +70,7 @@ export default function WalkPage() {
                     progress={(distanceTraveled / minDistanceNeeded) * 100}
                 />) : walkEnded ? (
                     <>
-                        <div className="absolute overflow-hidden flex flex-col h-screen w-full justify-center items-center pt-20 pb-40 px-4 space-y-2">
+                        <div className="flex flex-col h-screen w-full pt-20 pb-24 px-4 space-y-2">
                             <span className="text-3xl font-black">
                                 Congratulations!
                             </span>
@@ -78,7 +78,7 @@ export default function WalkPage() {
                                 You walked {localStorage.getItem("total_distance_walked")} km with {userData.dogs[0].name} and took {localStorage.getItem("photos_taken")} photos!
                             </div>
                             {/* Display photos taken. */}
-                            <div className="carousel w-full h-full min-h-max rounded-box px-4 space-x-1 bg-secondary border-2 border-secondary flex justify-start items-center">
+                            <div className="carousel w-full h-full rounded-box px-4 space-x-1 bg-secondary border-2 border-secondary flex justify-start items-center">
                                 {
                                     userData.walks[0].photos.slice(0, localStorage.getItem("photos_taken")).map((photo_src) => (
                                         <div className="carousel-item w-full h-auto object-cover object-center">
@@ -90,7 +90,7 @@ export default function WalkPage() {
                             <div className="text-lg font-black">
                                 Achievements earned
                             </div>
-                            <div className="carousel h-full w-full min-h-min">
+                            <div className="carousel h-auto w-full min-h-min pb-12">
                                 {/* Display achievements earned. */}
                                 {
                                     userData.walks[0].possible_achievements.map((achievementId) => (
@@ -100,6 +100,7 @@ export default function WalkPage() {
                                                     <Achievement
                                                         title={getAchievement(achievementId).title}
                                                         description={getAchievement(achievementId).description}
+                                                        className={'h-fit'}
                                                     />
                                                     :
                                                     null

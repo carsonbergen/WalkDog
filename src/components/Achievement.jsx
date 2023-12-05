@@ -18,7 +18,7 @@ export default function Achievement(props) {
                 <p className="font-semibold">{props.description}</p>
             </Modal>
             <div
-                className="bg-purple border-2 border-secondary rounded-md px-1 max-w-[10rem] min-w-[5rem] min-h-[5rem]"
+                className="bg-purple border-2 border-secondary rounded-md px-1 max-w-[10rem] min-w-[5rem] min-h-[4rem]"
                 onClick={() => { setModalOpen(true) }}
             >
                 <div className="flex flex-row space-x-1 justify-start items-center">
