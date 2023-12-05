@@ -226,51 +226,16 @@ export function SettingsModal(props) {
             </Modal>
         </>
     )
-<<<<<<< HEAD
-   
-}
-export function FriendSearchModal(props) {
-=======
 }
 
 export function ForgotPasswordModal(props) {
     const [emailSent, setEmailSent] = useState(false);
 
->>>>>>> 1f4e4bfa4401540a568718c14e6236d9d4b64ac1
     return (
         <>
             <Modal
                 onClose={props.onClose}
                 open={props.open}
-<<<<<<< HEAD
-                title="Help"
-            >
-                <TextInput
-                    title="Enter your friend's username below"
-                    placeholder="Name of your friend"
-                />
-                <div className="flex flex-col space-y-2 py-2">
-                    {
-                        props.results !== undefined ?
-                            props.results.map((result) => (
-                                <SearchResult
-                                    key={result.id}
-                                    name={result.name}
-                                    username={result.username}
-                                    profilePicSrc={result.profilePicSrc}
-                                    profileLink={result.profileLink}
-                                />
-                            ))
-                            :
-                            <div>
-                                No results!
-                            </div>
-                    }
-                </div>
-            </Modal>
-        </>
-    );
-=======
                 title="Forgot password"
             >
                 <div className="flex flex-col space-y-2 py-2">
@@ -313,5 +278,4 @@ export function ForgotPasswordModal(props) {
             </Modal>
         </>
     )
->>>>>>> 1f4e4bfa4401540a568718c14e6236d9d4b64ac1
 }
