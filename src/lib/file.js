@@ -18,6 +18,8 @@ export const getResults = (search) => {
     }
     i++;
   }
+  console.log(results)
+  console.log(getUserData(Cookies.get("user")))
   return results;
 };
 

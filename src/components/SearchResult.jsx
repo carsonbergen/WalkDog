@@ -14,7 +14,8 @@ export default function SearchResult(props) {
     const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
-        if (userData.friend_requests.includes(props.email)) {
+        console.log(userData.friend_requests)
+        if (userData.friend_requests.some(obj => obj.hasOwnProperty("user") && obj["user"] === props.email)) {
             setRequestSent(true);
         }
         setMounted(true);
