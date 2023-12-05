@@ -44,7 +44,7 @@ export default function Login() {
 
         if (loggedIn) {
             console.log("User logged in successfully")
-            navigate("/home");
+            navigate("/walk");
         }
 
         setFormData({
