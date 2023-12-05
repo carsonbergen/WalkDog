@@ -307,6 +307,171 @@
       "notification": true
     }
   },
+  "mrsgarcia@gmail.com": {
+    "name": "Mrs. Garcia",
+    "username": "mrsgarcia",
+    "email": "mrsgarcia@gmail.com",
+    "password": "guest123",
+    "avatar_src": "/avatars/mrsgarcia.jpg",
+    "dogs": [
+      {
+        "name": "Haru",
+        "times_walked": 25
+      }
+    ],
+    "stats": {
+      "total_distance_walked": 15,
+      "photos_shared": 2
+    },
+    "posts": [
+      {
+        "id": 2,
+        "author": "Carson",
+        "dog": "Juno",
+        "date": "Oct. 12th, 2023",
+        "distance": "24km",
+        "location": "River Park",
+        "content": "Alex walked his dog at 10:37 AM today!",
+        "imageSrc": "/images/alex.jpeg",
+        "profileLink": "/profile/alexgalindo"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "Pawistively Great!",
+        "description": "Walk your dog 5km.",
+        "date_achieved": "2023-11-24",
+        "icon": "PawPrint"
+      }
+    ],
+    "notifications": [
+      {
+        "id": 2,
+        "name": "Alliana",
+        "dog": "Haru",
+        "profile": "/profile/allianadelapena",
+        "notificationData": {
+          "type": "sent-friend-request",
+          "description": " sent you a friend request!"
+        }
+      }
+    ],
+    "settings": {
+      "location": true,
+      "camera": true,
+      "notification": true
+    }
+  },
+  "mrgarcia@gmail.com": {
+    "name": "Mr. Garcia",
+    "username": "mrgarcia",
+    "email": "mrgarcia@gmail.com",
+    "password": "guest123",
+    "avatar_src": "/avatars/mrgarcia.jpg",
+    "dogs": [
+      {
+        "name": "Haru",
+        "times_walked": 25
+      }
+    ],
+    "stats": {
+      "total_distance_walked": 15,
+      "photos_shared": 2
+    },
+    "posts": [
+      {
+        "id": 2,
+        "author": "Carson",
+        "dog": "Juno",
+        "date": "Oct. 12th, 2023",
+        "distance": "24km",
+        "location": "River Park",
+        "content": "Alex walked his dog at 10:37 AM today!",
+        "imageSrc": "/images/alex.jpeg",
+        "profileLink": "/profile/alexgalindo"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "Pawistively Great!",
+        "description": "Walk your dog 5km.",
+        "date_achieved": "2023-11-24",
+        "icon": "PawPrint"
+      }
+    ],
+    "notifications": [
+      {
+        "id": 2,
+        "name": "Alliana",
+        "dog": "Haru",
+        "profile": "/profile/allianadelapena",
+        "notificationData": {
+          "type": "sent-friend-request",
+          "description": " sent you a friend request!"
+        }
+      }
+    ],
+    "settings": {
+      "location": true,
+      "camera": true,
+      "notification": true
+    }
+  },
+  "john@gmail.com": {
+    "name": "John",
+    "username": "main_man_john",
+    "email": "john@gmail.com",
+    "password": "guest123",
+    "avatar_src": "/avatars/main_man_john.avif",
+    "dogs": [
+      {
+        "name": "Haru",
+        "times_walked": 25
+      }
+    ],
+    "stats": {
+      "total_distance_walked": 15,
+      "photos_shared": 2
+    },
+    "posts": [
+      {
+        "id": 2,
+        "author": "Carson",
+        "dog": "Juno",
+        "date": "Oct. 12th, 2023",
+        "distance": "24km",
+        "location": "River Park",
+        "content": "Alex walked his dog at 10:37 AM today!",
+        "imageSrc": "/images/alex.jpeg",
+        "profileLink": "/profile/alexgalindo"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "Pawistively Great!",
+        "description": "Walk your dog 5km.",
+        "date_achieved": "2023-11-24",
+        "icon": "PawPrint"
+      }
+    ],
+    "notifications": [
+      {
+        "id": 2,
+        "name": "Alliana",
+        "dog": "Haru",
+        "profile": "/profile/allianadelapena",
+        "notificationData": {
+          "type": "sent-friend-request",
+          "description": " sent you a friend request!"
+        }
+      }
+    ],
+    "settings": {
+      "location": true,
+      "camera": true,
+      "notification": true
+    }
+  },
   "jazmin@gmail.com": {
     "name": "Jazmin García",
     "username": "jazzhands",
@@ -545,7 +710,7 @@
           [51.0788, -114.1372],
 
           [51.0785, -114.1372],
-          [51.0784, -114.1370],
+          [51.0784, -114.137],
           [51.07835, -114.1368],
           [51.0783, -114.1368],
           [51.0782, -114.137],
@@ -558,8 +723,7 @@
           [51.0781814, -114.1384],
           [51.07818134, -114.138],
           [51.0781, -114.138],
-          
-          
+
           [51.0779, -114.138],
           [51.0776, -114.1382],
           [51.0772, -114.1384],
@@ -568,14 +732,27 @@
           [51.0771, -114.1392],
           [51.07707, -114.1396],
           [51.07709, -114.1399],
-          [51.077, -114.140],
+          [51.077, -114.14],
 
-          [51.076, -114.140]
+          [51.076, -114.14]
         ],
         "possible_achievements": [0, 1, 2, 3, 4, 5]
       }
     ],
-    "friend_requests": [],
+    "friend_requests": [
+      {
+        "user": "bergencarson@gmail.com",
+        "id": 1
+      },
+      {
+        "user": "john@gmail.com",
+        "id": 2
+      },
+      {
+        "user": "mrsgarcia@gmail.com",
+        "id": 3
+      }
+    ],
     "settings": {
       "location": true,
       "camera": false,

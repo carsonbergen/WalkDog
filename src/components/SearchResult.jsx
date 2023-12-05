@@ -28,7 +28,6 @@ export default function SearchResult(props) {
                     className={`
                         bg-primary text-secondary border-secondary border-2 w-full h-auto rounded-md p-2 ring-0
                         hover:bg-yellow hover:ring-2 hover:ring-cyan
-    
                     `}
                 >
                     <div className={`
@@ -39,8 +38,8 @@ export default function SearchResult(props) {
                             src={props.profilePicSrc}
                             className={`
                                 bg-yellow border-secondary border-2 rounded-full 
-                                min-w-[2.5rem] min-h-[2.5rem] max-w-[2.5rem] h-auto
-                                overflow-clip
+                                min-w-[2.5rem] min-h-[2.5rem] max-w-[2.5rem] max-h-[2.5rem]
+                                overflow-clip object-cover object-center
                             `}
                         />
                         <span className="bg-purple border-secondary border-2 rounded-md p-1">{props.name}</span>
