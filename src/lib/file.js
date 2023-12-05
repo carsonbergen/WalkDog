@@ -4,18 +4,19 @@ import users from "./../../database/users.json";
 
 export const getResults = (search) => {
   let isEmpty = /^\s*$/.test(search);
-
   if (isEmpty) return [];
-
   let results = [];
+  let i = 0;
   for (const key in users) {
     if (
-      users[key].username && users[key] &&
+      users[key] &&
+      users[key].username &&
       users[key].username.includes(search) &&
       key !== Cookies.get('user')
     ) {
-      results.push(key);
+      results.push({"user": key, "id": i});
     }
+    i++;
   }
   return results;
 };

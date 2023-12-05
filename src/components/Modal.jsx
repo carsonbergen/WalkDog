@@ -18,7 +18,7 @@ export default function Modal(props) {
         <>
             <div 
                 className={`
-                    fixed w-full h-full z-30 py-20 px-4 backdrop-blur-sm 
+                    fixed w-full h-full z-30 py-24 px-4 backdrop-blur-sm 
                     shadow-md transition-all duration-500 top-0 left-0
                     ${props.open ? "opacity-100" : "opacity-0 pointer-events-none"}
                     ${props.className}
@@ -52,7 +52,7 @@ export default function Modal(props) {
                             </svg>
                         </Button>
                     </div>
-                    <div className="p-2 scroll-auto overflow-scroll">
+                    <div className="p-2 scroll-auto overflow-scroll h-full">
                         {props.children}
                     </div>
                 </div>
@@ -91,11 +91,11 @@ export function FriendSearchModal(props) {
                         results !== undefined ?
                             results.map((result) => (
                                 <SearchResult
-                                    key={getUserData(result).id}
-                                    name={getUserData(result).name}
-                                    username={getUserData(result).username}
-                                    profilePicSrc={getUserData(result).avatar_src}
-                                    email={getUserData(result).email}
+                                    key={result.id}
+                                    name={getUserData(result.user).name}
+                                    username={getUserData(result.user).username}
+                                    profilePicSrc={getUserData(result.user).avatar_src}
+                                    email={getUserData(result.user).email}
                                 />
                             ))
                             :

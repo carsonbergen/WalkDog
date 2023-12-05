@@ -5,7 +5,7 @@
     "email": "bergencarson@gmail.com",
     "location": [51.0754748, -114.1365543],
     "password": "guest123",
-    "avatar_src": "/avatars/slipperychicken14.png",
+    "avatar_src": "/avatars/slipperychicken14.webp",
     "dogs": [
       {
         "name": "Juno",
@@ -142,6 +142,336 @@
       "notification": true
     }
   },
+  "jacob@gmail.com": {
+    "name": "Jacob Adeyemo",
+    "username": "kickingkangaroo28",
+    "email": "jacob@gmail.com",
+    "password": "guest123",
+    "avatar_src": "/avatars/kickingkangaroo28.jpg",
+    "dogs": [
+      {
+        "name": "Juno",
+        "times_walked": 25
+      }
+    ],
+    "stats": {
+      "total_distance_walked": 15,
+      "photos_shared": 2
+    },
+    "posts": [
+      {
+        "id": 2,
+        "author": "Carson",
+        "dog": "Juno",
+        "date": "Oct. 12th, 2023",
+        "distance": "24km",
+        "location": "River Park",
+        "content": "Alex walked his dog at 10:37 AM today!",
+        "imageSrc": "/images/alex.jpeg",
+        "profileLink": "/profile/alexgalindo"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "Pawistively Great!",
+        "description": "Walk your dog 5km.",
+        "date_achieved": "2023-11-24",
+        "icon": "PawPrint"
+      }
+    ],
+    "notifications": [
+      {
+        "id": 2,
+        "name": "Alliana",
+        "dog": "Haru",
+        "profile": "/profile/allianadelapena",
+        "notificationData": {
+          "type": "sent-friend-request",
+          "description": " sent you a friend request!"
+        }
+      }
+    ],
+    "settings": {
+      "location": true,
+      "camera": true,
+      "notification": true
+    }
+  },
+  "alliana@gmail.com": {
+    "name": "Alliana Dela Pena",
+    "username": "supersloth9999",
+    "email": "alliana@gmail.com",
+    "password": "guest123",
+    "avatar_src": "/avatars/supersloth9999.webp",
+    "dogs": [
+      {
+        "name": "Haru",
+        "times_walked": 25
+      }
+    ],
+    "stats": {
+      "total_distance_walked": 15,
+      "photos_shared": 2
+    },
+    "posts": [
+      {
+        "id": 2,
+        "author": "Carson",
+        "dog": "Juno",
+        "date": "Oct. 12th, 2023",
+        "distance": "24km",
+        "location": "River Park",
+        "content": "Alex walked his dog at 10:37 AM today!",
+        "imageSrc": "/images/alex.jpeg",
+        "profileLink": "/profile/alexgalindo"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "Pawistively Great!",
+        "description": "Walk your dog 5km.",
+        "date_achieved": "2023-11-24",
+        "icon": "PawPrint"
+      }
+    ],
+    "notifications": [
+      {
+        "id": 2,
+        "name": "Alliana",
+        "dog": "Haru",
+        "profile": "/profile/allianadelapena",
+        "notificationData": {
+          "type": "sent-friend-request",
+          "description": " sent you a friend request!"
+        }
+      }
+    ],
+    "settings": {
+      "location": true,
+      "camera": true,
+      "notification": true
+    }
+  },
+  "nusyba@gmail.com": {
+    "name": "Nusyba",
+    "username": "luckyduck299",
+    "email": "alliana@gmail.com",
+    "password": "guest123",
+    "avatar_src": "/avatars/luckyduck299.avif",
+    "dogs": [
+      {
+        "name": "Juno",
+        "times_walked": 25
+      }
+    ],
+    "stats": {
+      "total_distance_walked": 15,
+      "photos_shared": 2
+    },
+    "posts": [
+      {
+        "id": 2,
+        "author": "Carson",
+        "dog": "Juno",
+        "date": "Oct. 12th, 2023",
+        "distance": "24km",
+        "location": "River Park",
+        "content": "Alex walked his dog at 10:37 AM today!",
+        "imageSrc": "/images/alex.jpeg",
+        "profileLink": "/profile/alexgalindo"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "Pawistively Great!",
+        "description": "Walk your dog 5km.",
+        "date_achieved": "2023-11-24",
+        "icon": "PawPrint"
+      }
+    ],
+    "notifications": [
+      {
+        "id": 2,
+        "name": "Alliana",
+        "dog": "Haru",
+        "profile": "/profile/allianadelapena",
+        "notificationData": {
+          "type": "sent-friend-request",
+          "description": " sent you a friend request!"
+        }
+      }
+    ],
+    "settings": {
+      "location": true,
+      "camera": true,
+      "notification": true
+    }
+  },
+  "mrsgarcia@gmail.com": {
+    "name": "Mrs. Garcia",
+    "username": "mrsgarcia",
+    "email": "mrsgarcia@gmail.com",
+    "password": "guest123",
+    "avatar_src": "/avatars/mrsgarcia.jpg",
+    "dogs": [
+      {
+        "name": "Haru",
+        "times_walked": 25
+      }
+    ],
+    "stats": {
+      "total_distance_walked": 15,
+      "photos_shared": 2
+    },
+    "posts": [
+      {
+        "id": 2,
+        "author": "Carson",
+        "dog": "Juno",
+        "date": "Oct. 12th, 2023",
+        "distance": "24km",
+        "location": "River Park",
+        "content": "Alex walked his dog at 10:37 AM today!",
+        "imageSrc": "/images/alex.jpeg",
+        "profileLink": "/profile/alexgalindo"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "Pawistively Great!",
+        "description": "Walk your dog 5km.",
+        "date_achieved": "2023-11-24",
+        "icon": "PawPrint"
+      }
+    ],
+    "notifications": [
+      {
+        "id": 2,
+        "name": "Alliana",
+        "dog": "Haru",
+        "profile": "/profile/allianadelapena",
+        "notificationData": {
+          "type": "sent-friend-request",
+          "description": " sent you a friend request!"
+        }
+      }
+    ],
+    "settings": {
+      "location": true,
+      "camera": true,
+      "notification": true
+    }
+  },
+  "mrgarcia@gmail.com": {
+    "name": "Mr. Garcia",
+    "username": "mrgarcia",
+    "email": "mrgarcia@gmail.com",
+    "password": "guest123",
+    "avatar_src": "/avatars/mrgarcia.jpg",
+    "dogs": [
+      {
+        "name": "Haru",
+        "times_walked": 25
+      }
+    ],
+    "stats": {
+      "total_distance_walked": 15,
+      "photos_shared": 2
+    },
+    "posts": [
+      {
+        "id": 2,
+        "author": "Carson",
+        "dog": "Juno",
+        "date": "Oct. 12th, 2023",
+        "distance": "24km",
+        "location": "River Park",
+        "content": "Alex walked his dog at 10:37 AM today!",
+        "imageSrc": "/images/alex.jpeg",
+        "profileLink": "/profile/alexgalindo"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "Pawistively Great!",
+        "description": "Walk your dog 5km.",
+        "date_achieved": "2023-11-24",
+        "icon": "PawPrint"
+      }
+    ],
+    "notifications": [
+      {
+        "id": 2,
+        "name": "Alliana",
+        "dog": "Haru",
+        "profile": "/profile/allianadelapena",
+        "notificationData": {
+          "type": "sent-friend-request",
+          "description": " sent you a friend request!"
+        }
+      }
+    ],
+    "settings": {
+      "location": true,
+      "camera": true,
+      "notification": true
+    }
+  },
+  "john@gmail.com": {
+    "name": "John",
+    "username": "main_man_john",
+    "email": "john@gmail.com",
+    "password": "guest123",
+    "avatar_src": "/avatars/main_man_john.avif",
+    "dogs": [
+      {
+        "name": "Haru",
+        "times_walked": 25
+      }
+    ],
+    "stats": {
+      "total_distance_walked": 15,
+      "photos_shared": 2
+    },
+    "posts": [
+      {
+        "id": 2,
+        "author": "Carson",
+        "dog": "Juno",
+        "date": "Oct. 12th, 2023",
+        "distance": "24km",
+        "location": "River Park",
+        "content": "Alex walked his dog at 10:37 AM today!",
+        "imageSrc": "/images/alex.jpeg",
+        "profileLink": "/profile/alexgalindo"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "Pawistively Great!",
+        "description": "Walk your dog 5km.",
+        "date_achieved": "2023-11-24",
+        "icon": "PawPrint"
+      }
+    ],
+    "notifications": [
+      {
+        "id": 2,
+        "name": "Alliana",
+        "dog": "Haru",
+        "profile": "/profile/allianadelapena",
+        "notificationData": {
+          "type": "sent-friend-request",
+          "description": " sent you a friend request!"
+        }
+      }
+    ],
+    "settings": {
+      "location": true,
+      "camera": true,
+      "notification": true
+    }
+  },
   "jazmin@gmail.com": {
     "name": "Jazmin García",
     "username": "jazzhands",
@@ -160,6 +490,19 @@
       "photos_shared": 3
     },
     "posts": [
+      {
+        "id": 6,
+        "author": "Nusyba",
+        "dog": "Spot",
+        "date": "Dec. 5th, 2023",
+        "distance": "8km",
+        "location": "River Park",
+        "content": "Alex walked his dog at 10:55 AM today!",
+        "imageSrc": "/images/nusyba.jpg",
+        "profileLink": "/feed",
+        "liked": false,
+        "deleted": false
+      },
       {
         "id": 5,
         "author": "Jacob",
@@ -181,7 +524,7 @@
         "distance": "2km",
         "location": "River Park",
         "content": "Alex walked his dog at 10:55 AM today!",
-        "imageSrc": "/images/carson.jpeg",
+        "imageSrc": "/images/carson-2.jpg",
         "profileLink": "/feed",
         "liked": false,
         "deleted": false
@@ -226,12 +569,104 @@
         "deleted": false
       }
     ],
-    "achievements": [],
+    "achievements": [2],
     "notifications": [
       {
-        "id": 2,
+        "id": 11,
+        "name": "You",
+        "dog": "Rex",
+        "profile": "/feed",
+        "notificationData": {
+          "type": "achievement",
+          "title": "Pawsitively great!",
+          "description": " walked your dog for 25km in one walk!",
+          "avatar_src": "/avatars/jazzhands.png"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Alex",
+        "dog": "Rex",
+        "profile": "/feed",
+        "notificationData": {
+          "type": "friend-posted",
+          "description": " posted a new photo with "
+        }
+      },
+      {
+        "id": 9,
+        "name": "Jimmy",
+        "dog": "Oreo",
+        "profile": "/feed",
+        "notificationData": {
+          "type": "friend-posted",
+          "description": " posted a new photo with "
+        }
+      },
+      {
+        "id": 8,
+        "name": "Jazmin's mom",
+        "dog": "Joe",
+        "profile": "/feed",
+        "notificationData": {
+          "type": "friend-posted",
+          "description": " posted a new photo with "
+        }
+      },
+      {
+        "id": 7,
+        "name": "Mrs. Garcia",
+        "dog": "Juno",
+        "profile": "/feed",
+        "notificationData": {
+          "type": "accepted-friend-request",
+          "description": " accepted your friend request!"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Mr. Garcia",
+        "dog": "Joe",
+        "profile": "/feed",
+        "notificationData": {
+          "type": "friend-posted",
+          "description": " posted a new photo with "
+        }
+      },
+      {
+        "id": 5,
+        "name": "Carson",
+        "dog": "Juno",
+        "profile": "/feed",
+        "notificationData": {
+          "type": "accepted-friend-request",
+          "description": " accepted your friend request!"
+        }
+      },
+      {
+        "id": 3,
         "name": "Alliana",
         "dog": "Haru",
+        "profile": "/feed",
+        "notificationData": {
+          "type": "sent-friend-request",
+          "description": " sent you a friend request!"
+        }
+      },
+      {
+        "id": 2,
+        "name": "John",
+        "dog": "Juno",
+        "profile": "/feed",
+        "notificationData": {
+          "type": "accepted-friend-request",
+          "description": " accepted your friend request!"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Mikaela",
+        "dog": "Dally",
         "profile": "/feed",
         "notificationData": {
           "type": "sent-friend-request",
@@ -245,7 +680,9 @@
         "photos_taken": 1,
         "photos": [
           "/placeholders/walks/walking_photo_1.jpeg",
-          "/placeholders/walks/walking_photo_2.jpeg"
+          "/placeholders/walks/walking_photo_2.jpeg",
+          "/placeholders/walks/walking_photo_3.jpg",
+          "/placeholders/walks/walking_photo_4.jpg"
         ],
         "points": [
           [51.0754748, -114.1365543],
@@ -266,12 +703,56 @@
           [51.0787, -114.1373],
           [51.0788, -114.1372],
           [51.079, -114.137],
-          [51.079, -114.1368]
+          [51.079, -114.1368],
+
+          [51.079, -114.137],
+          [51.079, -114.1368],
+          [51.0788, -114.1372],
+
+          [51.0785, -114.1372],
+          [51.0784, -114.137],
+          [51.07835, -114.1368],
+          [51.0783, -114.1368],
+          [51.0782, -114.137],
+
+          [51.078195, -114.1371],
+          [51.078197, -114.1372],
+          [51.07819, -114.1374],
+          [51.078185, -114.1376],
+          [51.0781815, -114.1379],
+          [51.0781814, -114.1384],
+          [51.07818134, -114.138],
+          [51.0781, -114.138],
+
+          [51.0779, -114.138],
+          [51.0776, -114.1382],
+          [51.0772, -114.1384],
+          [51.07712, -114.1386],
+          [51.07711, -114.1389],
+          [51.0771, -114.1392],
+          [51.07707, -114.1396],
+          [51.07709, -114.1399],
+          [51.077, -114.14],
+
+          [51.076, -114.14]
         ],
-        "possible_achievements": [0, 1, 2, 3]
+        "possible_achievements": [0, 1, 2, 3, 4, 5]
       }
     ],
-    "friend_requests": [],
+    "friend_requests": [
+      {
+        "user": "bergencarson@gmail.com",
+        "id": 1
+      },
+      {
+        "user": "john@gmail.com",
+        "id": 2
+      },
+      {
+        "user": "mrsgarcia@gmail.com",
+        "id": 3
+      }
+    ],
     "settings": {
       "location": true,
       "camera": false,
