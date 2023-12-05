@@ -3,6 +3,7 @@
 - Rafael Galindo
 - Jacob Adeyemo
 - Alliana Dela Pena
+- Nusyba Shifa
 
 # Dependencies
 - NodeJS
