@@ -47,7 +47,7 @@ export default function Map(props) {
 
             const dt = timeStamp - prevTimeStamp;
 
-            if (dt >= 100) {
+            if (dt >= 200) {
                 setCurrentPoint(currentPoint + 1);
 
                 // Add distance
