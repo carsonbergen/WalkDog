@@ -38,8 +38,8 @@ export default function SignUp() {
             "password": formData.password == "" ? "required" : "",
             "confirmPassword": confirmPasswordError,
         });
-        if(formData.username != "" && formData.dogName != "" && formData.email != ""
-        && formData.password != "") {
+        if(formData.username != "" && formData.name != "" && formData.dogName != "" && formData.email != ""
+        && formData.password != "" && formData.confirmPassword != "") {
             navigate("/my-profile");
         }
     }
