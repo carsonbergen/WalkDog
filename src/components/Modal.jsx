@@ -4,7 +4,7 @@ import SearchResult from "./SearchResult";
 import TextInput from "./TextInput";
 import ToggleSwitch from '../components/ToggleSwitch';
 import { useEffect, useState } from "react";
-import { getResults, getUserData, getUsers } from "./../lib/file";
+import { getResults, getUserData, getUsers, setSetting } from "./../lib/file";
 import Cookies from 'js-cookie';
 
 /**
@@ -197,7 +197,8 @@ export function SettingsModal(props) {
                                 <ToggleSwitch 
                                     checked={location}
                                     onChange={(e) => {
-                                        setLocation(e.target.checked)
+                                        setLocation(e.target.checked);
+                                        setSetting(email, "location", e.target.checked);
                                     }}
                                 />
                             </div>
@@ -206,7 +207,8 @@ export function SettingsModal(props) {
                                 <ToggleSwitch 
                                     checked={camera}
                                     onChange={(e) => {
-                                        setCamera(e.target.checked)
+                                        setCamera(e.target.checked);
+                                        setSetting(email, "camera", e.target.checked);
                                     }}
                                 />
                             </div>
@@ -215,7 +217,8 @@ export function SettingsModal(props) {
                                 <ToggleSwitch 
                                     checked={notification}
                                     onChange={(e) => {
-                                        setNotification(e.target.checked)
+                                        setNotification(e.target.checked);
+                                        setSetting(email, "notification", e.target.checked);
                                     }}
                                 />                           
                             </div>

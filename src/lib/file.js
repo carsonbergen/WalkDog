@@ -128,6 +128,16 @@ export const getPostDeletedStatus = (email, id) => {
   return false;
 };
 
+export const setSetting = (email, setting, status) => {
+  const newUserData = users[email];
+  newUserData.settings[setting] = status;
+  setUserData(newUserData);
+}
+
+export const getSetting = (email, setting) => {
+  return users[email].settings[setting];
+}
+
 export const logInUser = (userData) => {
   console.log(
     "If this is undefined then re-enter in the information:",

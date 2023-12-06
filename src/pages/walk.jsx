@@ -7,6 +7,7 @@ import { addDistanceToUserStats, addPhotosToUserStats, getUserData } from "../li
 import Modal from "../components/Modal";
 import Achievement from "../components/Achievement";
 import { checkIfAchievementEarned, getAchievement } from "../lib/achievementChecker";
+import { Link } from "react-router-dom";
 
 export default function WalkPage() {
     const minDistanceNeeded = 5;
@@ -30,6 +31,27 @@ export default function WalkPage() {
             setStatsAdded(true);
         }
     }, [walkEnded]);
+
+    if (userData.settings.location === false) {
+        return (
+            <>
+                <div className="flex flex-col h-screen w-full pt-20 pb-24 px-4 space-y-2">
+                    <h1 className="text-3xl font-black">
+                        You must have location services turned on in order to use the walk feature!
+                    </h1>
+                    <p1 className="text-lg font-semibold">
+                        You can change your settings on the my profile page.
+                    </p1>
+                    <AcceptButton>
+                        <Link to={"/my-profile"}>
+                            Take me there!
+                        </Link>
+                    </AcceptButton>
+
+                </div>
+            </>
+        )
+    }
 
     return (
         <>
@@ -82,7 +104,7 @@ export default function WalkPage() {
                                 {
                                     userData.walks[0].photos.slice(0, localStorage.getItem("photos_taken")).map((photo_src) => (
                                         <div className="carousel-item w-auto h-full">
-                                            <img src={`${photo_src}`} className='w-auto h-full object-cover'/>
+                                            <img src={`${photo_src}`} className='w-auto h-full object-cover' />
                                         </div>
                                     ))
                                 }
