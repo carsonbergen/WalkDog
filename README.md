@@ -55,7 +55,7 @@ The top bar has two buttons:
 - and the bell button opens up the notifications modal where you can see various notifications, and reject or accept any of the incoming friend requests.
 
 # Cases/functions implemented
-A great deal of what we wanted to implement, were implemented. Here is comprehensive list:
+A great deal of what we wanted to implement, were implemented. Here is a comprehensive list:
 - Earning achievements
 - Tracking walks
     - Additionally a map feature was added to show the user as they walk
