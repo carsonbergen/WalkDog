@@ -58,10 +58,10 @@ The top bar has two buttons:
 A great deal of what we wanted to implement, were implemented. Here is a comprehensive list:
 - Earning achievements
 - Tracking walks
-    - Additionally a map feature was added to show the user as they walk
-    - Another thing added was walk statistics above the map to help indicate to the user how their current walk is progressing
-    - To post photos the user needs to reach a prescribed walk distance of at least 0.5km
-    - At the end of a walk there is a display of how:
+    - Additionally a map feature was added to show the user's location as they walk
+    - Also, walk statistics were added above the map to help indicate to the user how their current walk is progressing
+    - To post photos, the user needs to reach a prescribed walk distance of at least 0.5km
+    - At the end of a walk there is a display of:
         - How far the user walked
         - How many photos they took
         - A carousel of the photos they took
