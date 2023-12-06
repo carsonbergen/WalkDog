@@ -75,7 +75,7 @@ A great deal of what we wanted to implement, were implemented. Here is a compreh
     - See if their friends posted
     - Receive information about outgoing friend requests
     - See achievements they earned
-- Users can also edit some their profile data via the settings modal on the my profile page:
+- Users can also edit some of their profile data via the settings modal on the my profile page:
     - Username
     - Name
     - Dog's name
