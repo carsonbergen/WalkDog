@@ -39,6 +39,7 @@ On Firefox the process is similar, right-click then click inspect, then click th
 Jazmin is the recommended user to log into, as this is the only account that is not a shell user.
 
 On the empty route (`http://localhost:5173/` or `https://walk-dog.vercel.app/`) click the `Log in!` button.
+![Log in button location](https://github.com/carsonbergen/WalkDog/blob/main/readme_photos/sign_up_button.png)
 
 From there, enter in:
 - `jazmin@gmail.com` in the `What is your account's email?` field.
