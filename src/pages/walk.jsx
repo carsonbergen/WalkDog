@@ -3,13 +3,21 @@ import WalkTracker from "../components/WalkTracker";
 import { AcceptButton, RejectButton } from "../components/Button";
 import Map from "../components/Map";
 import Cookies from "js-cookie";
-import { addDistanceToUserStats, addPhotosToUserStats, getUserData } from "../lib/file";
+import { addDistanceToUserStats, addPhotosToUserStats, addPost, getUserData } from "../lib/file";
 import Modal from "../components/Modal";
 import Achievement from "../components/Achievement";
 import { checkIfAchievementEarned, getAchievement } from "../lib/achievementChecker";
 import { Link } from "react-router-dom";
 
 export default function WalkPage() {
+    const createFormattedDate = (date) => {
+        var formattedDate =
+            date.getMonth() + '-' +
+            date.getDate() + '-' +
+            date.getFullYear();
+        return formattedDate.toString();
+    }
+
     const minDistanceNeeded = 5;
 
     const email = Cookies.get("user");
@@ -86,6 +94,22 @@ export default function WalkPage() {
             <Modal
                 onClose={() => {
                     setPosted(false);
+
+                    addPost(email,
+                        {
+                            "id": -1,
+                            "author": userData.name,
+                            "dog": userData.dogs[0].name,
+                            "date": createFormattedDate(new Date()),
+                            "distance": localStorage.getItem("total_distance_walked"),
+                            "location": "River Park",
+                            "content": `${userData.name} walked his dog at 10:55 AM today!`,
+                            "imageSrc": `${userData.walks[0].photos[0]}`,
+                            "profileLink": "/feed",
+                            "liked": false,
+                            "deleted": false
+                        }
+                    );
                 }}
                 open={posted}
                 title="Posted!"
@@ -96,7 +120,7 @@ export default function WalkPage() {
                 <div className="flex flex-row space-x-2">
                     Your post has been posted to your friends' feed.
                 </div>
-            </Modal>
+            </Modal >
             {walkStarted && !walkEnded ? (
                 <WalkTracker
                     distanceTraveled={distanceTraveled}

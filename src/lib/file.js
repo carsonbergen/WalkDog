@@ -138,6 +138,16 @@ export const getSetting = (email, setting) => {
   return users[email].settings[setting];
 }
 
+export const addPost = (email, post) => {
+  const newUserData = users[email];
+  const id = newUserData.posts[0].id+1;
+  post.id = id;
+  console.log(post)
+  newUserData.posts = [post].concat(newUserData.posts);
+  console.log(newUserData)
+  setUserData(newUserData);
+}
+
 export const logInUser = (userData) => {
   console.log(
     "If this is undefined then re-enter in the information:",
