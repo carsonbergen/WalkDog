@@ -103,7 +103,7 @@ export default function WalkPage() {
                             "distance": localStorage.getItem("total_distance_walked"),
                             "location": "River Park",
                             "content": `${userData.name} walked his dog at 10:55 AM today!`,
-                            "imageSrc": `${userData.walks[0].photos[0]}`,
+                            "imageSrc": `${localStorage.getItem("photos_taken") > 0 ? userData.walks[0].photos[0] : ''}`,
                             "profileLink": "/feed",
                             "liked": false,
                             "deleted": false
@@ -173,7 +173,7 @@ export default function WalkPage() {
                             <AcceptButton
                                 className="flex flex-row items-center justify-center w-full h-12"
                                 onClick={() => {
-                                    setWalkedStarted(true);
+                                    setWalkedStarted(false);
                                     setWalkEnded(false);
                                     setPosted(true);
                                 }}
@@ -183,7 +183,7 @@ export default function WalkPage() {
                             <AcceptButton
                                 className="flex flex-row items-center justify-center w-full h-12"
                                 onClick={() => {
-                                    setWalkedStarted(true);
+                                    setWalkedStarted(false);
                                     setWalkEnded(false);
                                 }}
                             >
