@@ -94,7 +94,6 @@ export default function WalkPage() {
             <Modal
                 onClose={() => {
                     setPosted(false);
-
                     addPost(email,
                         {
                             "id": -1,
