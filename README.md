@@ -30,7 +30,7 @@ This will give you a link to open in your browser. If it does not for whatever r
 There is also a deployed version of the application at `https://walk-dog.vercel.app/`.
 
 ## How to use the app
-The app was designed for mobile phones, so it is recommended to right-click on the app's screen in your browser, then clicking `Inspect`. 
+The app was designed for mobile phones, so it is recommended to enable the mobile device simulator. You can do this by right-clicking on the app's screen in your browser, then clicking `Inspect`, then clicking the icon in the sidebar/bottom-bar that is either a mobile device, or laptop. The shortcut for this on Firefox and Google Chrome is "Ctrl+Shift+M" on Windows.
 
 **DO NOT REFRESH THE PAGE**. This is intended so that one can reset the demo by refreshing, rather than having to edit the JSON file.
 
