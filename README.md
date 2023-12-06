@@ -54,3 +54,30 @@ The top bar has two buttons:
 - the magnifying glass button opens a modal where you can search for users using the username (even though it says email),
 - and the bell button opens up the notifications modal where you can see various notifications, and reject or accept any of the incoming friend requests.
 
+# Cases/functions implemented
+A great deal of what we wanted to implement, were implemented. Here is comprehensive list:
+- Earning achievements
+- Tracking walks
+    - Additionally a map feature was added to show the user as they walk
+    - Another thing added was walk statistics above the map to help indicate to the user how their current walk is progressing
+    - To post photos the user needs to reach a prescribed walk distance of at least 0.5km
+    - At the end of a walk there is a display of how:
+        - How far the user walked
+        - How many photos they took
+        - A carousel of the photos they took
+        - A carousel of the achievements they earned
+    - Additionally, users can post the first photo from their walk on the feed, and they can start a new walk
+- Users can delete posts in the feed page, either their own, or just remove ones they dislike from their feed
+- Users can like posts in the feed page
+- Users can search for the friends in the search modal via username
+- Users can view notifications
+    - Accept/reject friend requests
+    - See if their friends posts
+    - Receive information about outgoing friend requests
+    - See achievements they earned
+- Users can also edit some their profile data via the settings modal on the my profile page:
+    - Username
+    - Name
+    - Dog's name
+    - Application permissions
+- Users can see their data, stats, and achievements on the my profile page
