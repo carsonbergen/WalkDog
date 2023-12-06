@@ -24,6 +24,8 @@ export default function WalkPage() {
 
     const [cancelWalkDialogOpen, setCancelWalkDialogOpen] = useState(false);
 
+    const [posted, setPosted] = useState(false);
+
     useEffect(() => {
         if (walkEnded === true && statsAdded !== true) {
             addDistanceToUserStats(email, localStorage.getItem("total_distance_walked"));
@@ -81,6 +83,20 @@ export default function WalkPage() {
                     </AcceptButton>
                 </div>
             </Modal>
+            <Modal
+                onClose={() => {
+                    setPosted(false);
+                }}
+                open={posted}
+                title="Posted!"
+                className="flex flex-col justify-center items-center"
+                width="w-full"
+                height="h-auto"
+            >
+                <div className="flex flex-row space-x-2">
+                    Your post has been posted to your friends' feed.
+                </div>
+            </Modal>
             {walkStarted && !walkEnded ? (
                 <WalkTracker
                     distanceTraveled={distanceTraveled}
@@ -131,6 +147,16 @@ export default function WalkPage() {
                                     ))
                                 }
                             </div>
+                            <AcceptButton
+                                className="flex flex-row items-center justify-center w-full h-12"
+                                onClick={() => {
+                                    setWalkedStarted(true);
+                                    setWalkEnded(false);
+                                    setPosted(true);
+                                }}
+                            >
+                                Click here to post!
+                            </AcceptButton>
                             <AcceptButton
                                 className="flex flex-row items-center justify-center w-full h-12"
                                 onClick={() => {
