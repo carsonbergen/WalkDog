@@ -72,7 +72,7 @@ A great deal of what we wanted to implement, were implemented. Here is a compreh
 - Users can search for the friends in the search modal via username
 - Users can view notifications
     - Accept/reject friend requests
-    - See if their friends posts
+    - See if their friends posted
     - Receive information about outgoing friend requests
     - See achievements they earned
 - Users can also edit some their profile data via the settings modal on the my profile page:
